@@ -6,3 +6,6 @@ Ketua Kelompok: Aurora Ma'isyah
 Anggota 1: Aurora Ma'isyah - 22/493640/TK/54088
 Anggota 2: Flavia Hidayriamraata Pualam - 22/494376/TK/54219
 Anggota 3: Nabila Puspita Dewi - 22/493935/TK/54142
+
+Class Diagram:
+![classdiagramfix drawio](https://github.com/user-attachments/assets/9e4174a3-1a37-42fe-a8f4-54b55d8a2aeb)
