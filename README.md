@@ -8,4 +8,5 @@ Anggota 2: Flavia Hidayriamraata Pualam - 22/494376/TK/54219
 Anggota 3: Nabila Puspita Dewi - 22/493935/TK/54142
 
 Class Diagram:
+
 ![junpro-class diagram drawio](https://github.com/user-attachments/assets/52937849-85d7-402f-8298-10bd717cebe2)
