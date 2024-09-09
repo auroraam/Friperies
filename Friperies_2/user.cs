@@ -50,9 +50,29 @@ namespace Friperies_2
 
         public void UserSignIn()
         {
-            //checking if username&email available
-            //inserting data to database
-            return;
+            // Dummy data
+            if (username == "Ara" && password == "test")
+            {
+                _userID = 1;
+                _username = username;
+                _email = "ara@email.com";
+                _phoneNumber = "081423943";
+                _name = "Ara";
+                return true;
+            }
+            else if (username == "Rora" && password == "coba")
+            {
+                _userID = 2;
+                _username = username;
+                _email = "rora@email.com";
+                _phoneNumber = "0812489102";
+                _name = "Rora";
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public static void UserSignUp(string userName, string userEmail, string userPass, string userAddress, List<User> users)
@@ -77,7 +97,7 @@ namespace Friperies_2
             _userName = userName;
             _userEmail = userEmail;
             _userAddress = userAddress;
-            Console.WriteLine($"User {_userID} updated successfully.");
+            Console.WriteLine($"User {userID} updated successfully.");
         }
 
         public void UserChangePass(int userID, string oldPass, string newPass)
@@ -95,8 +115,12 @@ namespace Friperies_2
 
         public void UserDelete(int userID)
         {
-            //removing from database
-            return;
+            _userID = 0;
+            _userEmail = null;
+            _userPass = null;
+            _userName = null;
+            _userAddress = null;
+            Console.WriteLine(userName + " Deleted.");
         }
     }
 }
