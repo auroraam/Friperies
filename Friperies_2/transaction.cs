@@ -64,17 +64,24 @@ namespace Friperies_2
             _buyerID = userID;
             _transactionDate = DateTime.Now;
             _transactionStatus = "Pembayaran";
+            Console.WriteLine($"Transaction {transactionID} created.");
         }
 
         public void TransactionUpdate(int transactionID, string transactionStatus)
         {
             _transactionStatus = transactionStatus;
+            Console.WriteLine($"Transaction status updated to {transactionStatus}.");
         }
 
         public void TransactionDelete(int transactionID) 
         {
-            //removing from database
-            return;
+            _transactionID = 0;
+            _itemID = 0;
+            _sellerID = 0; 
+            _buyerID = 0;
+            _transactionDate = null;
+            _transactionStatus = null;
+            Console.WriteLine($"Transaction {transactionID} deleted.");
         }
     }
 }

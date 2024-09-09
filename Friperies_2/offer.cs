@@ -57,17 +57,23 @@ namespace Friperies_2
             _offerPrice = offerPrice;
             _ownerOffer = userID;
             _offerStatus = false;
+            Console.WriteLine($"Offer {offerID} created.");
         }
 
         public void OfferUpdate(int offerID, int offerPrice)
         {
             _offerPrice = offerPrice;
+            Console.WriteLine($"Offer price updated to {offerPrice}.");
         }
 
         public void OfferDelete(int offerID)
         {
-            //removing from database
-            return;
+            _offerID = 0;
+            _itemID = 0;
+            _offerPrice = 0;
+            _ownerOffer = 0;
+            _offerStatus = null;
+            Console.WriteLine($"Offer {offerID} deleted.");
         }
 
         public void AcceptOffer(int offerID, int itemID)
