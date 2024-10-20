@@ -73,6 +73,16 @@ namespace Friperies_2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cancel_5697779__1_ {
+            get {
+                object obj = ResourceManager.GetObject("cancel_5697779 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cargo_3045489__1_ {
             get {
                 object obj = ResourceManager.GetObject("cargo_3045489 (1)", resourceCulture);
@@ -103,6 +113,16 @@ namespace Friperies_2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logout_4032999__1___1_ {
+            get {
+                object obj = ResourceManager.GetObject("logout_4032999 (1) (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pay_625548__1_ {
             get {
                 object obj = ResourceManager.GetObject("pay_625548 (1)", resourceCulture);
@@ -116,6 +136,16 @@ namespace Friperies_2.Properties {
         internal static System.Drawing.Bitmap sauna_1023142 {
             get {
                 object obj = ResourceManager.GetObject("sauna_1023142", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2024_10_20_at_17_40_01_removebg_preview__1_ {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot_2024-10-20_at_17.40.01-removebg-preview (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

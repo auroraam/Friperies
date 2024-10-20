@@ -44,14 +44,27 @@
             pnlSideProfil = new Panel();
             panel3 = new Panel();
             btnLogout = new Button();
+            pnlHome = new Panel();
+            pnlUnggah = new Panel();
+            pnlKategori = new Panel();
+            pnlPenawaran = new Panel();
+            pnlPesanan = new Panel();
+            pnlProfil = new Panel();
+            btnExit = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            pnlHome.SuspendLayout();
+            pnlUnggah.SuspendLayout();
+            pnlKategori.SuspendLayout();
+            pnlPenawaran.SuspendLayout();
+            pnlPesanan.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(224, 224, 224);
+            panel1.BackColor = Color.White;
             panel1.BorderStyle = BorderStyle.Fixed3D;
+            panel1.Controls.Add(btnExit);
             panel1.Controls.Add(btnLogout);
             panel1.Controls.Add(panel3);
             panel1.Dock = DockStyle.Top;
@@ -175,7 +188,7 @@
             // 
             // pnlSideHome
             // 
-            pnlSideHome.BackColor = Color.FromArgb(192, 192, 255);
+            pnlSideHome.BackColor = Color.FromArgb(117, 117, 196);
             pnlSideHome.BorderStyle = BorderStyle.Fixed3D;
             pnlSideHome.Location = new Point(0, 16);
             pnlSideHome.Name = "pnlSideHome";
@@ -184,7 +197,7 @@
             // 
             // pnlSideUnggah
             // 
-            pnlSideUnggah.BackColor = Color.FromArgb(192, 192, 255);
+            pnlSideUnggah.BackColor = Color.FromArgb(117, 117, 196);
             pnlSideUnggah.BorderStyle = BorderStyle.Fixed3D;
             pnlSideUnggah.Location = new Point(0, 77);
             pnlSideUnggah.Name = "pnlSideUnggah";
@@ -193,7 +206,7 @@
             // 
             // pnlSideKategori
             // 
-            pnlSideKategori.BackColor = Color.FromArgb(192, 192, 255);
+            pnlSideKategori.BackColor = Color.FromArgb(117, 117, 196);
             pnlSideKategori.BorderStyle = BorderStyle.Fixed3D;
             pnlSideKategori.Location = new Point(0, 138);
             pnlSideKategori.Name = "pnlSideKategori";
@@ -202,7 +215,7 @@
             // 
             // pnlSidePenawaran
             // 
-            pnlSidePenawaran.BackColor = Color.FromArgb(192, 192, 255);
+            pnlSidePenawaran.BackColor = Color.FromArgb(117, 117, 196);
             pnlSidePenawaran.BorderStyle = BorderStyle.Fixed3D;
             pnlSidePenawaran.Location = new Point(0, 199);
             pnlSidePenawaran.Name = "pnlSidePenawaran";
@@ -211,7 +224,7 @@
             // 
             // pnlSidePesanan
             // 
-            pnlSidePesanan.BackColor = Color.FromArgb(192, 192, 255);
+            pnlSidePesanan.BackColor = Color.FromArgb(117, 117, 196);
             pnlSidePesanan.BorderStyle = BorderStyle.Fixed3D;
             pnlSidePesanan.Location = new Point(0, 260);
             pnlSidePesanan.Name = "pnlSidePesanan";
@@ -220,7 +233,7 @@
             // 
             // pnlSideProfil
             // 
-            pnlSideProfil.BackColor = Color.FromArgb(192, 192, 255);
+            pnlSideProfil.BackColor = Color.FromArgb(117, 117, 196);
             pnlSideProfil.BorderStyle = BorderStyle.Fixed3D;
             pnlSideProfil.Location = new Point(0, 321);
             pnlSideProfil.Name = "pnlSideProfil";
@@ -229,10 +242,10 @@
             // 
             // panel3
             // 
-            panel3.BackgroundImage = Properties.Resources.WhatsApp_Image_2024_10_20_at_15_59_51_removebg_preview__1_;
+            panel3.BackgroundImage = Properties.Resources.Screenshot_2024_10_20_at_17_40_01_removebg_preview__1_;
             panel3.Location = new Point(10, 10);
             panel3.Name = "panel3";
-            panel3.Size = new Size(200, 55);
+            panel3.Size = new Size(208, 53);
             panel3.TabIndex = 2;
             // 
             // btnLogout
@@ -240,13 +253,85 @@
             btnLogout.FlatAppearance.BorderSize = 0;
             btnLogout.FlatStyle = FlatStyle.Flat;
             btnLogout.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLogout.Image = Properties.Resources.logout_4032999__1_;
-            btnLogout.Location = new Point(932, 8);
+            btnLogout.Image = Properties.Resources.logout_4032999__1___1_;
+            btnLogout.Location = new Point(881, 8);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(55, 55);
             btnLogout.TabIndex = 7;
             btnLogout.Text = " ";
             btnLogout.UseVisualStyleBackColor = true;
+            // 
+            // pnlHome
+            // 
+            pnlHome.BackColor = Color.White;
+            pnlHome.BorderStyle = BorderStyle.Fixed3D;
+            pnlHome.Controls.Add(pnlUnggah);
+            pnlHome.Location = new Point(247, 74);
+            pnlHome.Name = "pnlHome";
+            pnlHome.Size = new Size(753, 626);
+            pnlHome.TabIndex = 2;
+            // 
+            // pnlUnggah
+            // 
+            pnlUnggah.BackColor = Color.White;
+            pnlUnggah.BorderStyle = BorderStyle.Fixed3D;
+            pnlUnggah.Controls.Add(pnlKategori);
+            pnlUnggah.Location = new Point(-2, -2);
+            pnlUnggah.Name = "pnlUnggah";
+            pnlUnggah.Size = new Size(753, 626);
+            pnlUnggah.TabIndex = 3;
+            // 
+            // pnlKategori
+            // 
+            pnlKategori.BackColor = Color.White;
+            pnlKategori.BorderStyle = BorderStyle.Fixed3D;
+            pnlKategori.Controls.Add(pnlPenawaran);
+            pnlKategori.Location = new Point(-2, -2);
+            pnlKategori.Name = "pnlKategori";
+            pnlKategori.Size = new Size(753, 626);
+            pnlKategori.TabIndex = 3;
+            // 
+            // pnlPenawaran
+            // 
+            pnlPenawaran.BackColor = Color.White;
+            pnlPenawaran.BorderStyle = BorderStyle.Fixed3D;
+            pnlPenawaran.Controls.Add(pnlPesanan);
+            pnlPenawaran.Location = new Point(-2, -2);
+            pnlPenawaran.Name = "pnlPenawaran";
+            pnlPenawaran.Size = new Size(753, 626);
+            pnlPenawaran.TabIndex = 4;
+            // 
+            // pnlPesanan
+            // 
+            pnlPesanan.BackColor = Color.White;
+            pnlPesanan.BorderStyle = BorderStyle.Fixed3D;
+            pnlPesanan.Controls.Add(pnlProfil);
+            pnlPesanan.Location = new Point(-2, -2);
+            pnlPesanan.Name = "pnlPesanan";
+            pnlPesanan.Size = new Size(753, 626);
+            pnlPesanan.TabIndex = 5;
+            // 
+            // pnlProfil
+            // 
+            pnlProfil.BackColor = Color.White;
+            pnlProfil.BorderStyle = BorderStyle.Fixed3D;
+            pnlProfil.Location = new Point(-2, -2);
+            pnlProfil.Name = "pnlProfil";
+            pnlProfil.Size = new Size(753, 626);
+            pnlProfil.TabIndex = 5;
+            // 
+            // btnExit
+            // 
+            btnExit.FlatAppearance.BorderSize = 0;
+            btnExit.FlatStyle = FlatStyle.Flat;
+            btnExit.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnExit.Image = Properties.Resources.cancel_5697779__1_;
+            btnExit.Location = new Point(933, 8);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(55, 55);
+            btnExit.TabIndex = 8;
+            btnExit.Text = " ";
+            btnExit.UseVisualStyleBackColor = true;
             // 
             // homeForm
             // 
@@ -255,11 +340,17 @@
             ClientSize = new Size(1000, 700);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Controls.Add(pnlHome);
             FormBorderStyle = FormBorderStyle.None;
             Name = "homeForm";
             Text = "loginForm";
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
+            pnlHome.ResumeLayout(false);
+            pnlUnggah.ResumeLayout(false);
+            pnlKategori.ResumeLayout(false);
+            pnlPenawaran.ResumeLayout(false);
+            pnlPesanan.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -281,5 +372,12 @@
         private Panel pnlSideHome;
         private Panel panel3;
         private Button btnLogout;
+        private Panel pnlHome;
+        private Panel pnlUnggah;
+        private Panel pnlKategori;
+        private Panel pnlPenawaran;
+        private Panel pnlPesanan;
+        private Panel pnlProfil;
+        private Button btnExit;
     }
 }
