@@ -93,6 +93,16 @@ namespace Friperies_2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logout_4032999__1_ {
+            get {
+                object obj = ResourceManager.GetObject("logout_4032999 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pay_625548__1_ {
             get {
                 object obj = ResourceManager.GetObject("pay_625548 (1)", resourceCulture);
@@ -116,6 +126,26 @@ namespace Friperies_2.Properties {
         internal static System.Drawing.Bitmap uploading_3305741__1_ {
             get {
                 object obj = ResourceManager.GetObject("uploading_3305741 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_7855633__1_ {
+            get {
+                object obj = ResourceManager.GetObject("user_7855633 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhatsApp_Image_2024_10_20_at_15_59_51_removebg_preview__1_ {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp_Image_2024-10-20_at_15.59.51-removebg-preview (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

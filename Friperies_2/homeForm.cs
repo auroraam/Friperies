@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Friperies_2
 {
-    public partial class loginForm : Form
+    public partial class homeForm : Form
     {
-        public loginForm()
+        public homeForm()
         {
             InitializeComponent();
         }
