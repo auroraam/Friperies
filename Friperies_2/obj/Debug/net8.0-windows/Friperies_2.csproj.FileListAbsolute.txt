@@ -1,0 +1,9 @@
+C:\Users\hp\Source\Repos\auroraam\Friperies\Friperies_2\obj\Debug\net8.0-windows\Friperies_2.Form1.resources
+C:\Users\hp\Source\Repos\auroraam\Friperies\Friperies_2\obj\Debug\net8.0-windows\Friperies_2.LoginForm.resources
+C:\Users\hp\Source\Repos\auroraam\Friperies\Friperies_2\obj\Debug\net8.0-windows\Friperies_2.csproj.GenerateResource.cache
+C:\Users\hp\Source\Repos\auroraam\Friperies\Friperies_2\obj\Debug\net8.0-windows\Friperies_2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\Source\Repos\auroraam\Friperies\Friperies_2\obj\Debug\net8.0-windows\Friperies_2.AssemblyInfoInputs.cache
+C:\Users\hp\Source\Repos\auroraam\Friperies\Friperies_2\obj\Debug\net8.0-windows\Friperies_2.AssemblyInfo.cs
+C:\Users\hp\Source\Repos\auroraam\Friperies\Friperies_2\obj\Debug\net8.0-windows\Friperies_2.csproj.CoreCompileInputs.cache
+C:\Users\hp\Source\Repos\auroraam\Friperies\Friperies_2\obj\Debug\net8.0-windows\Friperies_2.sourcelink.json
+C:\Users\hp\source\repos\auroraam\Friperies\Friperies_2\obj\Debug\net8.0-windows\Friperies_2.Properties.Resources.resources

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Friperies_2\\Friperies_2.csproj": {}
+    "C:\\Users\\hp\\Source\\Repos\\auroraam\\Friperies\\Friperies_2\\Friperies_2.csproj": {}
   },
   "projects": {
-    "C:\\Friperies_2\\Friperies_2.csproj": {
+    "C:\\Users\\hp\\Source\\Repos\\auroraam\\Friperies\\Friperies_2\\Friperies_2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Friperies_2\\Friperies_2.csproj",
+        "projectUniqueName": "C:\\Users\\hp\\Source\\Repos\\auroraam\\Friperies\\Friperies_2\\Friperies_2.csproj",
         "projectName": "Friperies_2",
-        "projectPath": "C:\\Friperies_2\\Friperies_2.csproj",
+        "projectPath": "C:\\Users\\hp\\Source\\Repos\\auroraam\\Friperies\\Friperies_2\\Friperies_2.csproj",
         "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Friperies_2\\obj\\",
+        "outputPath": "C:\\Users\\hp\\Source\\Repos\\auroraam\\Friperies\\Friperies_2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
