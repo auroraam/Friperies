@@ -1,6 +1,6 @@
 ﻿namespace Friperies_2
 {
-    partial class signupForm
+    partial class signinForm
     {
         /// <summary>
         /// Required designer variable.
