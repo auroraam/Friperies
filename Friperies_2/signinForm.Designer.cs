@@ -36,7 +36,7 @@
             tbUsername = new TextBox();
             tbPassword = new TextBox();
             btSignIn = new Button();
-            btnSignUp = new Button();
+            btSignUp = new Button();
             SuspendLayout();
             // 
             // btnExit
@@ -51,6 +51,7 @@
             btnExit.TabIndex = 9;
             btnExit.Text = " ";
             btnExit.UseVisualStyleBackColor = true;
+            btnExit.Click += this.btnExit_Click;
             // 
             // pnlLogo
             // 
@@ -116,26 +117,26 @@
             btSignIn.Text = "Sign In";
             btSignIn.UseVisualStyleBackColor = false;
             // 
-            // btnSignUp
+            // btSignUp
             // 
-            btnSignUp.BackColor = Color.White;
-            btnSignUp.FlatAppearance.BorderSize = 0;
-            btnSignUp.FlatStyle = FlatStyle.Flat;
-            btnSignUp.Font = new Font("Verdana", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSignUp.Location = new Point(115, 517);
-            btnSignUp.Name = "btnSignUp";
-            btnSignUp.Size = new Size(742, 49);
-            btnSignUp.TabIndex = 17;
-            btnSignUp.Text = "Belum punya akun? Daftarkan akunmu sekarang, klik disini.";
-            btnSignUp.UseVisualStyleBackColor = false;
+            btSignUp.BackColor = Color.White;
+            btSignUp.FlatAppearance.BorderSize = 0;
+            btSignUp.FlatStyle = FlatStyle.Flat;
+            btSignUp.Font = new Font("Verdana", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btSignUp.Location = new Point(115, 517);
+            btSignUp.Name = "btSignUp";
+            btSignUp.Size = new Size(742, 49);
+            btSignUp.TabIndex = 17;
+            btSignUp.Text = "Belum punya akun? Daftarkan akunmu sekarang, klik disini.";
+            btSignUp.UseVisualStyleBackColor = false;
             // 
-            // signupForm
+            // signinForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1000, 700);
-            Controls.Add(btnSignUp);
+            Controls.Add(btSignUp);
             Controls.Add(btSignIn);
             Controls.Add(tbPassword);
             Controls.Add(tbUsername);
@@ -145,7 +146,7 @@
             Controls.Add(btnExit);
             Controls.Add(pnlFriperies);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "signupForm";
+            Name = "signinForm";
             Text = "signupForm";
             ResumeLayout(false);
             PerformLayout();
@@ -161,6 +162,6 @@
         private TextBox tbUsername;
         private TextBox tbPassword;
         private Button btSignIn;
-        private Button btnSignUp;
+        private Button btSignUp;
     }
 }

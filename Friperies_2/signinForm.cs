@@ -16,5 +16,23 @@ namespace Friperies_2
         {
             InitializeComponent();
         }
+
+        private void btSignIn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            homeForm homeForm = new homeForm();
+            homeForm.Show();
+        }
+
+        private void btSignUp_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            signupForm signupForm = new signupForm();
+            signupForm.Show();
+        }
+        private void btnExit_Click (object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
