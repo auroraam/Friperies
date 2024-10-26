@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Friperies_2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+626e73b4f2655b1fcd04bf4c6917254ebadca2e1")]
 [assembly: System.Reflection.AssemblyProductAttribute("Friperies_2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Friperies_2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
