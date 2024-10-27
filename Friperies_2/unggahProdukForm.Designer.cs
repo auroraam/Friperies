@@ -33,18 +33,19 @@
             btnExit = new Button();
             btnLogout = new Button();
             panel2 = new Panel();
-            btnHome = new Button();
-            pbUnggahitem = new PictureBox();
-            tbNamaitem = new TextBox();
-            rtbDesitem = new RichTextBox();
-            tbKtgitem = new TextBox();
-            tbHargaitem = new TextBox();
-            lblUnggahnamaitem = new Label();
-            lblUnggahdesitem = new Label();
-            lblUnggahktgitem = new Label();
-            lblUnggahhargaitem = new Label();
-            btnUnggahitem = new Button();
             lblUploadpage = new Label();
+            btnUnggahitem = new Button();
+            lblUnggahhargaitem = new Label();
+            lblUnggahktgitem = new Label();
+            lblUnggahdesitem = new Label();
+            lblUnggahnamaitem = new Label();
+            tbHargaitem = new TextBox();
+            tbKtgitem = new TextBox();
+            rtbDesitem = new RichTextBox();
+            tbNamaitem = new TextBox();
+            pbUnggahitem = new PictureBox();
+            btnHome = new Button();
+            btnUnggahfotoitem = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbUnggahitem).BeginInit();
@@ -104,6 +105,7 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(192, 192, 255);
+            panel2.Controls.Add(btnUnggahfotoitem);
             panel2.Controls.Add(lblUploadpage);
             panel2.Controls.Add(btnUnggahitem);
             panel2.Controls.Add(lblUnggahhargaitem);
@@ -118,109 +120,10 @@
             panel2.Controls.Add(btnHome);
             panel2.Dock = DockStyle.Bottom;
             panel2.Location = new Point(0, 0);
-            panel2.Margin = new Padding(2, 2, 2, 2);
+            panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
             panel2.Size = new Size(800, 560);
             panel2.TabIndex = 4;
-            // 
-            // btnHome
-            // 
-            btnHome.BackColor = Color.FromArgb(192, 192, 255);
-            btnHome.FlatAppearance.BorderSize = 3;
-            btnHome.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnHome.Image = Properties.Resources.house_10723029__1_;
-            btnHome.Location = new Point(718, 478);
-            btnHome.Margin = new Padding(2, 2, 2, 2);
-            btnHome.Name = "btnHome";
-            btnHome.Size = new Size(62, 62);
-            btnHome.TabIndex = 1;
-            btnHome.TextAlign = ContentAlignment.BottomCenter;
-            btnHome.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnHome.UseVisualStyleBackColor = false;
-            // 
-            // pbUnggahitem
-            // 
-            pbUnggahitem.Location = new Point(69, 152);
-            pbUnggahitem.Name = "pbUnggahitem";
-            pbUnggahitem.Size = new Size(150, 200);
-            pbUnggahitem.TabIndex = 5;
-            pbUnggahitem.TabStop = false;
-            // 
-            // tbNamaitem
-            // 
-            tbNamaitem.Location = new Point(428, 152);
-            tbNamaitem.Name = "tbNamaitem";
-            tbNamaitem.Size = new Size(221, 27);
-            tbNamaitem.TabIndex = 6;
-            // 
-            // rtbDesitem
-            // 
-            rtbDesitem.Location = new Point(428, 196);
-            rtbDesitem.Name = "rtbDesitem";
-            rtbDesitem.Size = new Size(221, 68);
-            rtbDesitem.TabIndex = 7;
-            rtbDesitem.Text = "";
-            rtbDesitem.TextChanged += rtbDesitem_TextChanged;
-            // 
-            // tbKtgitem
-            // 
-            tbKtgitem.Location = new Point(428, 285);
-            tbKtgitem.Name = "tbKtgitem";
-            tbKtgitem.Size = new Size(221, 27);
-            tbKtgitem.TabIndex = 8;
-            // 
-            // tbHargaitem
-            // 
-            tbHargaitem.Location = new Point(428, 325);
-            tbHargaitem.Name = "tbHargaitem";
-            tbHargaitem.Size = new Size(221, 27);
-            tbHargaitem.TabIndex = 9;
-            // 
-            // lblUnggahnamaitem
-            // 
-            lblUnggahnamaitem.AutoSize = true;
-            lblUnggahnamaitem.Location = new Point(263, 152);
-            lblUnggahnamaitem.Name = "lblUnggahnamaitem";
-            lblUnggahnamaitem.Size = new Size(106, 20);
-            lblUnggahnamaitem.TabIndex = 10;
-            lblUnggahnamaitem.Text = "Nama Produk :";
-            // 
-            // lblUnggahdesitem
-            // 
-            lblUnggahdesitem.AutoSize = true;
-            lblUnggahdesitem.Location = new Point(263, 196);
-            lblUnggahdesitem.Name = "lblUnggahdesitem";
-            lblUnggahdesitem.Size = new Size(76, 20);
-            lblUnggahdesitem.TabIndex = 11;
-            lblUnggahdesitem.Text = "Deskripsi :";
-            // 
-            // lblUnggahktgitem
-            // 
-            lblUnggahktgitem.AutoSize = true;
-            lblUnggahktgitem.Location = new Point(263, 285);
-            lblUnggahktgitem.Name = "lblUnggahktgitem";
-            lblUnggahktgitem.Size = new Size(77, 20);
-            lblUnggahktgitem.TabIndex = 12;
-            lblUnggahktgitem.Text = "Kategori : ";
-            lblUnggahktgitem.Click += lblUnggahktgitem_Click;
-            // 
-            // lblUnggahhargaitem
-            // 
-            lblUnggahhargaitem.AutoSize = true;
-            lblUnggahhargaitem.Location = new Point(263, 332);
-            lblUnggahhargaitem.Name = "lblUnggahhargaitem";
-            lblUnggahhargaitem.Size = new Size(57, 20);
-            lblUnggahhargaitem.TabIndex = 13;
-            lblUnggahhargaitem.Text = "Harga :";
-            // 
-            // btnUnggahitem
-            // 
-            btnUnggahitem.Location = new Point(541, 377);
-            btnUnggahitem.Name = "btnUnggahitem";
-            btnUnggahitem.Size = new Size(108, 36);
-            btnUnggahitem.TabIndex = 14;
-            btnUnggahitem.Text = "Unggah";
-            btnUnggahitem.UseVisualStyleBackColor = true;
             // 
             // lblUploadpage
             // 
@@ -232,6 +135,114 @@
             lblUploadpage.TabIndex = 15;
             lblUploadpage.Text = "Unggah Produk";
             // 
+            // btnUnggahitem
+            // 
+            btnUnggahitem.Location = new Point(541, 377);
+            btnUnggahitem.Name = "btnUnggahitem";
+            btnUnggahitem.Size = new Size(108, 36);
+            btnUnggahitem.TabIndex = 14;
+            btnUnggahitem.Text = "Unggah";
+            btnUnggahitem.UseVisualStyleBackColor = true;
+            // 
+            // lblUnggahhargaitem
+            // 
+            lblUnggahhargaitem.AutoSize = true;
+            lblUnggahhargaitem.Location = new Point(263, 332);
+            lblUnggahhargaitem.Name = "lblUnggahhargaitem";
+            lblUnggahhargaitem.Size = new Size(57, 20);
+            lblUnggahhargaitem.TabIndex = 13;
+            lblUnggahhargaitem.Text = "Harga :";
+            // 
+            // lblUnggahktgitem
+            // 
+            lblUnggahktgitem.AutoSize = true;
+            lblUnggahktgitem.Location = new Point(263, 285);
+            lblUnggahktgitem.Name = "lblUnggahktgitem";
+            lblUnggahktgitem.Size = new Size(77, 20);
+            lblUnggahktgitem.TabIndex = 12;
+            lblUnggahktgitem.Text = "Kategori : ";
+            lblUnggahktgitem.Click += lblUnggahktgitem_Click;
+            // 
+            // lblUnggahdesitem
+            // 
+            lblUnggahdesitem.AutoSize = true;
+            lblUnggahdesitem.Location = new Point(263, 196);
+            lblUnggahdesitem.Name = "lblUnggahdesitem";
+            lblUnggahdesitem.Size = new Size(76, 20);
+            lblUnggahdesitem.TabIndex = 11;
+            lblUnggahdesitem.Text = "Deskripsi :";
+            // 
+            // lblUnggahnamaitem
+            // 
+            lblUnggahnamaitem.AutoSize = true;
+            lblUnggahnamaitem.Location = new Point(263, 152);
+            lblUnggahnamaitem.Name = "lblUnggahnamaitem";
+            lblUnggahnamaitem.Size = new Size(106, 20);
+            lblUnggahnamaitem.TabIndex = 10;
+            lblUnggahnamaitem.Text = "Nama Produk :";
+            // 
+            // tbHargaitem
+            // 
+            tbHargaitem.Location = new Point(428, 325);
+            tbHargaitem.Name = "tbHargaitem";
+            tbHargaitem.Size = new Size(221, 27);
+            tbHargaitem.TabIndex = 9;
+            // 
+            // tbKtgitem
+            // 
+            tbKtgitem.Location = new Point(428, 285);
+            tbKtgitem.Name = "tbKtgitem";
+            tbKtgitem.Size = new Size(221, 27);
+            tbKtgitem.TabIndex = 8;
+            // 
+            // rtbDesitem
+            // 
+            rtbDesitem.Location = new Point(428, 196);
+            rtbDesitem.Name = "rtbDesitem";
+            rtbDesitem.Size = new Size(221, 68);
+            rtbDesitem.TabIndex = 7;
+            rtbDesitem.Text = "";
+            rtbDesitem.TextChanged += rtbDesitem_TextChanged;
+            // 
+            // tbNamaitem
+            // 
+            tbNamaitem.Location = new Point(428, 152);
+            tbNamaitem.Name = "tbNamaitem";
+            tbNamaitem.Size = new Size(221, 27);
+            tbNamaitem.TabIndex = 6;
+            // 
+            // pbUnggahitem
+            // 
+            pbUnggahitem.Location = new Point(69, 152);
+            pbUnggahitem.Name = "pbUnggahitem";
+            pbUnggahitem.Size = new Size(150, 200);
+            pbUnggahitem.TabIndex = 5;
+            pbUnggahitem.TabStop = false;
+            // 
+            // btnHome
+            // 
+            btnHome.BackColor = Color.FromArgb(192, 192, 255);
+            btnHome.FlatAppearance.BorderSize = 3;
+            btnHome.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnHome.Image = Properties.Resources.house_10723029__1_;
+            btnHome.Location = new Point(718, 478);
+            btnHome.Margin = new Padding(2);
+            btnHome.Name = "btnHome";
+            btnHome.Size = new Size(62, 62);
+            btnHome.TabIndex = 1;
+            btnHome.TextAlign = ContentAlignment.BottomCenter;
+            btnHome.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnHome.UseVisualStyleBackColor = false;
+            // 
+            // btnUnggahfotoitem
+            // 
+            btnUnggahfotoitem.Location = new Point(91, 377);
+            btnUnggahfotoitem.Name = "btnUnggahfotoitem";
+            btnUnggahfotoitem.Size = new Size(108, 36);
+            btnUnggahfotoitem.TabIndex = 16;
+            btnUnggahfotoitem.Text = "Unggah Foto";
+            btnUnggahfotoitem.UseVisualStyleBackColor = true;
+            // 
             // unggahProdukForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -240,7 +251,7 @@
             Controls.Add(panel1);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "unggahProdukForm";
             Text = "unggahProdukForm";
             panel1.ResumeLayout(false);
@@ -269,5 +280,6 @@
         private Label lblUnggahnamaitem;
         private Button btnUnggahitem;
         private Label lblUploadpage;
+        private Button btnUnggahfotoitem;
     }
 }

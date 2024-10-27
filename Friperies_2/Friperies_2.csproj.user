@@ -28,9 +28,6 @@
     <Compile Update="signinForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="C:\Users\hp\Downloads\signupForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="signupForm.cs">
       <SubType>Form</SubType>
     </Compile>
