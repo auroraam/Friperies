@@ -16,5 +16,15 @@ namespace Friperies_2
         {
             InitializeComponent();
         }
+
+        private void rtbDesitem_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblUnggahktgitem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
