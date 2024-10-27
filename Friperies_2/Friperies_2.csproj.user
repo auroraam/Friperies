@@ -7,6 +7,24 @@
     <Compile Update="homeForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="homePageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="kategoriProdukForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="lihatProdukForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="penawaranForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="pesananForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="profilForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="signinForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -14,6 +32,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="signupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="unggahProdukForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
