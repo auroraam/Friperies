@@ -73,6 +73,16 @@ namespace Friperies_2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap baby_toy_3299976__1___1_ {
+            get {
+                object obj = ResourceManager.GetObject("baby-toy_3299976 (1) (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cancel_5697779__1_ {
             get {
                 object obj = ResourceManager.GetObject("cancel_5697779 (1)", resourceCulture);
@@ -226,6 +236,36 @@ namespace Friperies_2.Properties {
         internal static System.Drawing.Bitmap uploading_3305741__1_ {
             get {
                 object obj = ResourceManager.GetObject("uploading_3305741 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap uploading_3305741__1___1_ {
+            get {
+                object obj = ResourceManager.GetObject("uploading_3305741 (1) (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap uploading_3305741__1___2_ {
+            get {
+                object obj = ResourceManager.GetObject("uploading_3305741 (1) (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap uploading_3305741__1___3_ {
+            get {
+                object obj = ResourceManager.GetObject("uploading_3305741 (1) (3)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
