@@ -35,13 +35,13 @@ namespace Friperies_2
             try
             {
                 conn.Open();
-                dvgData.DataSource = null;
+                dataGridView1.DataSource = null;
                 sql = "SELECT * FROM Offer";
                 cmd = new NpgsqlCommand(sql, conn);
                 dt = new DataTable();
                 NpgsqlDataReader rd = cmd.ExecuteReader();
                 dt.Load(rd);
-                dvgData.DataSource = dt;
+                dataGridView1.DataSource = dt;
 
                 conn.Close();
             }
@@ -57,7 +57,7 @@ namespace Friperies_2
             {
                 DataGridViewRow row = dataGridView1.SelectedRows[0];
                 tbOffernamaitem.Text = row.Cells["ItemName"].Value.ToString();
-                tbHargaitem.Text = row.Cells["OfferPrice"].Value.ToString();
+                tbOfferhargaitem.Text = row.Cells["OfferPrice"].Value.ToString();
             }
         }
 

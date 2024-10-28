@@ -151,7 +151,6 @@
             lblOffernamaitem.Size = new Size(106, 20);
             lblOffernamaitem.TabIndex = 3;
             lblOffernamaitem.Text = "Nama Produk :";
-            lblOffernamaitem.Click += lblOffernamaitem_Click;
             // 
             // lblOfferhargaitem
             // 
@@ -194,7 +193,7 @@
             btnOffertolak.TabIndex = 8;
             btnOffertolak.Text = "Tolak";
             btnOffertolak.UseVisualStyleBackColor = true;
-            btnOffertolak.Click += button2_Click;
+            btnOffertolak.Click += btnOffertolak_Click;
             // 
             // btnOfferload
             // 
@@ -214,7 +213,6 @@
             lblOfferpage.Size = new Size(131, 31);
             lblOfferpage.TabIndex = 10;
             lblOfferpage.Text = "Penawaran";
-            lblOfferpage.Click += lblOfferpage_Click;
             // 
             // penawaranForm
             // 
