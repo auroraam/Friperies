@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,19 @@ namespace Friperies_2
             InitializeComponent();
         }
 
+        private NpgsqlConnection conn;
+        string connstring = "Host = localhost; Port = 5432; Username = postgres; Password = Fhpduadua22; Database = Friperies";
+        public DataTable dt;
+        public static NpgsqlCommand cmd;
+        private string sql = null;
+        private string imageLocation = "";
+        private int currentUserId = 101;
+
+        private void unggahProdukForm_Load(object sender, EventArgs e)
+        {
+            conn = new NpgsqlConnection(connstring);
+        } 
+
         private void btnUnggahfotoitem_Click(object sender, EventArgs e)
         {
             string imageLocation = "";
@@ -28,7 +42,7 @@ namespace Friperies_2
                 if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     imageLocation = dialog.FileName;
-                    image1.ImageLocation = imageLocation; // Memperbarui lokasi gambar untuk PictureBox
+                    image1.ImageLocation = imageLocation;
                 }
             }
             catch (Exception ex)
@@ -37,7 +51,7 @@ namespace Friperies_2
             }
         }
 
-        private btnUnggahitem_Click(object sender, EventArgs e)
+        private void btnUnggahitem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -48,7 +62,7 @@ namespace Friperies_2
                 cmd.Parameters.AddWithValue("$1", tbNamaitem.Text);
                 cmd.Parameters.AddWithValue("$2", tbKtgitem.Text);
                 cmd.Parameters.AddWithValue("$3", Convert.ToInt32(tbHargaitem.Text)); 
-                cmd.Parameters.AddWithValue("$4", 101); 
+                cmd.Parameters.AddWithValue("$4", currentUserId); 
 
                 int newItemID = (int)cmd.ExecuteScalar();
 
@@ -56,6 +70,7 @@ namespace Friperies_2
 
                 tbNamaitem.Text = rtbDesitem.Text = tbKtgitem.Text = tbHargaitem.Text = "";
                 image1.Image = null;
+                imageLocation = "";
             }
             catch (Exception ex)
             {
