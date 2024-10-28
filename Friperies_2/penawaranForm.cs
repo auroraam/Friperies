@@ -36,7 +36,7 @@ namespace Friperies_2
             {
                 conn.Open();
                 dvgData.DataSource = null;
-                sql = "SELECT * FROM Offers";
+                sql = "SELECT * FROM Offer";
                 cmd = new NpgsqlCommand(sql, conn);
                 dt = new DataTable();
                 NpgsqlDataReader rd = cmd.ExecuteReader();
@@ -51,11 +51,11 @@ namespace Friperies_2
             }
         }
 
-        private void dgvOffers_SelectionChanged(object sender, EventArgs e)
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgvOffers.SelectedRows.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
-                DataGridViewRow row = dgvOffers.SelectedRows[0];
+                DataGridViewRow row = dataGridView1.SelectedRows[0];
                 tbOffernamaitem.Text = row.Cells["ItemName"].Value.ToString();
                 tbHargaitem.Text = row.Cells["OfferPrice"].Value.ToString();
             }
@@ -70,7 +70,36 @@ namespace Friperies_2
         {
             UpdateOfferStatus("Rejected");
         }
-        
+
+        private void UpdateOfferStatus(string status)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int offerId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["OfferId"].Value);
+
+                try
+                {
+                    conn.Open();
+                    sql = "UPDATE Offer SET OfferStatus = $1 WHERE OfferId = $2";
+                    cmd = new NpgsqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("$1", status);
+                    cmd.Parameters.AddWithValue("$2", offerId);
+                    cmd.ExecuteNonQuery();
+                    // Refresh DataGridView setelah update
+                    btnOfferload_Click(null, null); 
+                    MessageBox.Show($"Penawaran {offerId} telah di {status.ToLower()}.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Fail!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Pilih penawaran untuk di perbarui.");
+            }
+        }
+
         private void btnLogout_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

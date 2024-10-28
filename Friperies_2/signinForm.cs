@@ -19,9 +19,20 @@ namespace Friperies_2
 
         private void btSignIn_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            homeForm homeForm = new homeForm();
-            homeForm.Show();
+            User user = new User(tbUsername.Text, tbPassword.Text);
+            
+            if (user.SignIn(user._userName, user._userPass))
+            {
+                MessageBox.Show("Sign In Berhasil!");
+
+                this.Hide();
+                homeForm homeForm = new homeForm();
+                homeForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Sign In Gagal.");
+            }
         }
 
         private void btSignUp_Click(object sender, EventArgs e)
