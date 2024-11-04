@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Friperies_2
 {
-    internal class Transaction
+    internal class Transaction : User
     {
         private int _transactionID;
         private int _itemID;
@@ -15,7 +15,8 @@ namespace Friperies_2
         private DateTime _transactionDate;
         private string _transactionStatus;
 
-        public Transaction(int transactionID, Item item, int userID)
+        public Transaction(int userID, string userName, string userEmail, string userPass, string userAddress, int transactionID, int itemID)
+            : base (userID, userName, userEmail, userPass, userAddress)
         {
             _transactionID = transactionID;
             _itemID = item.ItemID;  // Mengambil itemID dari item terkait
