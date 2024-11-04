@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Friperies_2
 {
-    internal class Offer
+    internal class Offer : User
     {
         private int _offerID;
         private int _itemID;
@@ -14,7 +14,8 @@ namespace Friperies_2
         private int _offerPrice;
         private bool _offerStatus;
 
-        public Offer(int offerID, int itemID, int offerPrice, int userID)
+        public Offer(int userID, string userName, string userEmail, string userPass, string userAddress, int offerID, int itemID, int offerPrice)
+            : base(userID, userName, userEmail, userPass, userAddress)
         {
             _offerID = offerID;
             _itemID = itemID;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Friperies_2
 {
-    internal class Item
+    internal class Item : User
     {
         private int _itemID;
         private string _itemCategory;
@@ -15,7 +15,8 @@ namespace Friperies_2
         private bool _itemLikes;
         private int _likesCounter;
 
-        public Item(int itemID, string itemCategory, int itemPrice, int userID)
+        public Item(int userID, string userName, string userEmail, string userPass, string userAddress, int itemID, string itemCategory, int itemPrice)
+            : base(userID, userName, userEmail, userPass, userAddress)
         {
             _itemID = itemID;
             _itemCategory = itemCategory;
