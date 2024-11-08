@@ -16,5 +16,15 @@ namespace Friperies_2
         {
             InitializeComponent();
         }
+
+        private void rbKtg1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbKtg3_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
