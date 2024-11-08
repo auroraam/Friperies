@@ -17,13 +17,18 @@ namespace Friperies_2
             InitializeComponent();
         }
 
+        User loggedInUser = new User();
+
         private void btSignIn_Click(object sender, EventArgs e)
         {
-            User user = new User(tbUsername.Text, tbPassword.Text);
-            
-            if (user.SignIn(user._userName, user._userPass))
+            User currentuser = new User();
+            currentuser.userName = tbUsername.Text;
+            currentuser.userPass = tbPassword.Text;
+            if (currentuser.SignIn(tbUsername.Text, tbPassword.Text))
             {
                 MessageBox.Show("Sign In Berhasil!");
+
+                loggedInUser = currentuser;
 
                 this.Hide();
                 homeForm homeForm = new homeForm();

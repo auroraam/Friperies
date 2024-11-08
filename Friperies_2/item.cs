@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Npgsql;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Friperies_2
 {
-    internal class Item : User
+    public class Item : User
     {
         private int _itemID;
         private string _itemCategory;
@@ -16,7 +18,7 @@ namespace Friperies_2
         private int _likesCounter;
 
         public Item(int userID, string userName, string userEmail, string userPass, string userAddress, int itemID, string itemCategory, int itemPrice)
-            : base(userID, userName, userEmail, userPass, userAddress)
+            : base()
         {
             _itemID = itemID;
             _itemCategory = itemCategory;
@@ -24,6 +26,10 @@ namespace Friperies_2
             _itemLikes = false;
             _likesCounter = 0;
             _ownerItem = userID;
+        }
+         public new int userID
+        {
+            get { return base.userID; }
         }
 
         // Properties
@@ -60,7 +66,7 @@ namespace Friperies_2
             private set { _likesCounter = value; }
         }
 
-        public void NewItem(int  itemID, string itemCategory, int itemPrice, int userID)
+        public void NewItem(int itemID, string itemCategory, int itemPrice, int userID)
         {
             _itemID = itemID;
             _itemCategory = itemCategory;
@@ -96,7 +102,7 @@ namespace Friperies_2
                 Console.WriteLine($"Item {itemID} is already liked.");
             }
         }
-        
+
         public static void ShowCategory(List<Item> items, string itemCategory)
         {
             Console.WriteLine($"Items for category: {itemCategory}");
@@ -108,6 +114,39 @@ namespace Friperies_2
                     return;
                 }
             }
+        }
+
+        public static List<Item> GetUserItem(int userID)
+        {
+            List<Item> listItem = new List<Item>();
+            string connectionString = "Host = localhost; Port = 5432; Username = ...; Password = ...; Database = ...";
+
+            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+            {
+                string query = "SELECT * FROM Items WHERE ownerItem = @userID";
+                NpgsqlCommand command = new NpgsqlCommand(query, connection);
+                command.Parameters.AddWithValue("@userID", userID);
+
+                connection.Open();
+                using (NpgsqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Item newitem = new Item(
+                            userID: reader.GetInt32(reader.GetOrdinal("ownerItem")),
+                            userName: null,
+                            userEmail: null,
+                            userPass: null,
+                            userAddress: null,
+                            itemID: reader.GetInt32(reader.GetOrdinal("itemID")),
+                            itemCategory: reader.GetString(reader.GetOrdinal("itemCategory")),
+                            itemPrice: reader.GetInt32(reader.GetOrdinal("itemPrice"))
+                        );
+                        listItem.Add(newitem);
+                    }
+                }
+            }
+            return listItem;
         }
     }
 }
