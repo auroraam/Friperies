@@ -51,7 +51,7 @@
             btnExit.TabIndex = 9;
             btnExit.Text = " ";
             btnExit.UseVisualStyleBackColor = true;
-            btnExit.Click += this.btnExit_Click;
+            btnExit.Click += btnExit_Click;
             // 
             // pnlLogo
             // 
@@ -116,6 +116,7 @@
             btSignIn.TabIndex = 16;
             btSignIn.Text = "Sign In";
             btSignIn.UseVisualStyleBackColor = false;
+            btSignIn.Click += btSignIn_Click_1;
             // 
             // btSignUp
             // 
@@ -129,6 +130,7 @@
             btSignUp.TabIndex = 17;
             btSignUp.Text = "Belum punya akun? Daftarkan akunmu sekarang, klik disini.";
             btSignUp.UseVisualStyleBackColor = false;
+            btSignUp.Click += btSignUp_Click;
             // 
             // signinForm
             // 

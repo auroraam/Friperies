@@ -15,7 +15,7 @@ namespace Friperies_2
         private bool _offerStatus;
 
         public Offer(int userID, string userName, string userEmail, string userPass, string userAddress, int offerID, int itemID, int offerPrice)
-            : base(userID, userName, userEmail, userPass, userAddress)
+            : base()
         {
             _offerID = offerID;
             _itemID = itemID;
@@ -73,7 +73,7 @@ namespace Friperies_2
             _itemID = 0;
             _offerPrice = 0;
             _ownerOffer = 0;
-            _offerStatus = null;
+            _offerStatus = false;
             Console.WriteLine($"Offer {offerID} deleted.");
         }
 

@@ -17,7 +17,7 @@ namespace Friperies_2
         private bool _itemLikes;
         private int _likesCounter;
 
-        public Item(int userID, string userName, string userEmail, string userPass, string userAddress, int itemID, string itemCategory, int itemPrice)
+        public Item(int userID, int itemID, string itemCategory, int itemPrice)
             : base()
         {
             _itemID = itemID;
@@ -36,6 +36,7 @@ namespace Friperies_2
         public int ItemID
         {
             get { return _itemID; }
+            set { _itemID = value; }
         }
 
         public string ItemCategory
@@ -53,6 +54,7 @@ namespace Friperies_2
         public int OwnerItem
         {
             get { return _ownerItem; }
+            set { _ownerItem = value; }
         }
         public bool ItemLikes
         {
@@ -116,6 +118,16 @@ namespace Friperies_2
             }
         }
 
+        public static List<Item> items = new List<Item>(); // Daftar semua item
+
+        // Konstruktor untuk membuat item dan menambahkannya ke daftar
+        public Item(int itemID, int ownerItem)
+        {
+            ItemID = itemID;
+            OwnerItem = ownerItem;
+            items.Add(this); // Menambahkan item ke daftar items
+        }
+
         public static List<Item> GetUserItem(int userID)
         {
             List<Item> listItem = new List<Item>();
@@ -134,10 +146,6 @@ namespace Friperies_2
                     {
                         Item newitem = new Item(
                             userID: reader.GetInt32(reader.GetOrdinal("ownerItem")),
-                            userName: null,
-                            userEmail: null,
-                            userPass: null,
-                            userAddress: null,
                             itemID: reader.GetInt32(reader.GetOrdinal("itemID")),
                             itemCategory: reader.GetString(reader.GetOrdinal("itemCategory")),
                             itemPrice: reader.GetInt32(reader.GetOrdinal("itemPrice"))
