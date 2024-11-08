@@ -19,7 +19,12 @@ namespace Friperies_2
 
         User loggedInUser = new User();
 
-        private void btSignIn_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btSignIn_Click_1(object sender, EventArgs e)
         {
             User currentuser = new User();
             currentuser.userName = tbUsername.Text;
@@ -45,10 +50,6 @@ namespace Friperies_2
             this.Hide();
             signupForm signupForm = new signupForm();
             signupForm.Show();
-        }
-        private void btnExit_Click (object sender, EventArgs e)
-        {
-            Application.Exit();
         }
     }
 }

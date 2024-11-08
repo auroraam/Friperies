@@ -9,10 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="C:\Users\hp\Downloads\signupForm.cs" Link="signupForm.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Npgsql" Version="8.0.5" />
   </ItemGroup>
 

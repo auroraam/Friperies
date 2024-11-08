@@ -16,11 +16,11 @@ namespace Friperies_2
         private string _transactionStatus;
 
         public Transaction(int userID, string userName, string userEmail, string userPass, string userAddress, int transactionID, int itemID)
-            : base (userID, userName, userEmail, userPass, userAddress)
+            : base ()
         {
             _transactionID = transactionID;
-            _itemID = item.ItemID;  // Mengambil itemID dari item terkait
-            _sellerID = item.OwnerItem;  // Mengambil sellerID dari ownerItem di kelas Item
+            _itemID = itemID;  // Mengambil itemID dari item terkait
+            //_sellerID = Item.OwnerItem;  // Mengambil sellerID dari ownerItem di kelas Item
             _buyerID = userID;
             _transactionDate = DateTime.Now;
             _transactionStatus = "Pembayaran";
@@ -45,7 +45,7 @@ namespace Friperies_2
         {
             get {return _buyerID;}
         }
-        
+
         public DateTime TransactionDate 
         {
             get {return _transactionDate;}
@@ -57,10 +57,11 @@ namespace Friperies_2
             set {_transactionStatus = value;}
         }
 
-        public void NewTransaction(int transactionID, Item item, int userID)
+        public void NewTransaction(int transactionID, int itemID, int userID)
         {
+            Item item = Item.items.Find(i => i.ItemID == itemID);
             _transactionID = transactionID;
-            _itemID = item.ItemID;  // Mengambil itemID dari item terkait
+            _itemID = itemID;  // Mengambil itemID dari item terkait
             _sellerID = item.OwnerItem;  // Mengambil sellerID dari ownerItem di kelas Item
             _buyerID = userID;
             _transactionDate = DateTime.Now;
@@ -80,7 +81,6 @@ namespace Friperies_2
             _itemID = 0;
             _sellerID = 0; 
             _buyerID = 0;
-            _transactionDate = null;
             _transactionStatus = null;
             Console.WriteLine($"Transaction {transactionID} deleted.");
         }
