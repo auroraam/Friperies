@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Npgsql;
 
 namespace Friperies_2
 {
-    internal class User
+    public class User
     {
-        private int _userID;
-        private string _userName;
-        private string _userEmail;
-        private string _userPass; 
-        private string _userAddress;
+        protected int _userID;
+        protected string _userName;
+        protected string _userEmail;
+        protected string _userPass; 
+        protected string _userAddress;
 
-        public User(int userID, string userName, string userEmail, string userPass, string userAddress)
+        public User()
         {
             _userID = userID;
             _userEmail = userEmail;
@@ -48,31 +49,36 @@ namespace Friperies_2
             set {_userAddress = value;}
         }
 
-        public void UserSignIn()
+        public bool SignIn(string username, string password)
         {
-            // Dummy data
-            if (username == "Ara" && password == "test")
+            string connectionString = "Host = localhost; Port = 5432; Username = ...; Password = ...; Database = ...";
+
+            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
-                _userID = 1;
-                _username = username;
-                _email = "ara@email.com";
-                _phoneNumber = "081423943";
-                _name = "Ara";
-                return true;
-            }
-            else if (username == "Rora" && password == "coba")
-            {
-                _userID = 2;
-                _username = username;
-                _email = "rora@email.com";
-                _phoneNumber = "0812489102";
-                _name = "Rora";
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+                string query = "SELECT * FROM Users WHERE userName = @username AND userPass = @password";
+                NpgsqlCommand command = new NpgsqlCommand(query, connection);
+                command.Parameters.AddWithValue("username", username);
+                command.Parameters.AddWithValue("password", password);
+
+                connection.Open();
+                using (NpgsqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        _userID = reader.GetInt32(reader.GetOrdinal("userID"));
+                        _userName = reader.GetString(reader.GetOrdinal("userName"));
+                        _userEmail = reader.GetString(reader.GetOrdinal("userEmail"));
+                        _userPass = reader.GetString(reader.GetOrdinal("userPass"));
+                        _userAddress = reader.GetString(reader.GetOrdinal("userAddress"));
+
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            } 
         }
 
         public static void UserSignUp(string userName, string userEmail, string userPass, string userAddress, List<User> users)
@@ -86,7 +92,9 @@ namespace Friperies_2
 
             // Create a new user
             int newUserID = users.Count + 1; // Simplified way to generate userID
-            User newUser = new User(newUserID, userName, userEmail, userPass, userAddress);
+            User newUser = new User();
+            newUserID = newUser.userID;
+            string newusername = newUser.userName;
             users.Add(newUser);
             Console.WriteLine($"Sign up successful! Welcome, {userName}.");
         }
