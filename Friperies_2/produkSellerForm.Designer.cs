@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(produkSellerForm));
             panel3 = new Panel();
             panel1 = new Panel();
             btnExit = new Button();
             btnLogout = new Button();
             panel2 = new Panel();
+            btLoad = new Button();
             tbKategori = new TextBox();
             label3 = new Label();
             btnDelete = new Button();
@@ -45,7 +47,6 @@
             dgvPenawaran = new DataGridView();
             lblProduk = new Label();
             btnHome = new Button();
-            btLoad = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPenawaran).BeginInit();
@@ -54,10 +55,10 @@
             // panel3
             // 
             panel3.BackgroundImage = Properties.Resources.Screenshot_2024_10_20_at_17_40_01_removebg_preview__1_;
-            panel3.Location = new Point(10, 10);
+            panel3.Location = new Point(8, 8);
             panel3.Margin = new Padding(2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(256, 52);
+            panel3.Size = new Size(205, 42);
             panel3.TabIndex = 2;
             // 
             // panel1
@@ -71,7 +72,7 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1000, 74);
+            panel1.Size = new Size(800, 60);
             panel1.TabIndex = 7;
             // 
             // btnExit
@@ -80,10 +81,10 @@
             btnExit.FlatStyle = FlatStyle.Flat;
             btnExit.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnExit.Image = Properties.Resources.cancel_5697779__1_;
-            btnExit.Location = new Point(932, 8);
+            btnExit.Location = new Point(746, 6);
             btnExit.Margin = new Padding(2);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(55, 55);
+            btnExit.Size = new Size(44, 44);
             btnExit.TabIndex = 8;
             btnExit.Text = " ";
             btnExit.UseVisualStyleBackColor = true;
@@ -94,11 +95,11 @@
             btnLogout.FlatAppearance.BorderSize = 0;
             btnLogout.FlatStyle = FlatStyle.Flat;
             btnLogout.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLogout.Image = Properties.Resources.logout_4032999__1___1_;
-            btnLogout.Location = new Point(881, 8);
+            btnLogout.Image = (Image)resources.GetObject("btnLogout.Image");
+            btnLogout.Location = new Point(705, 6);
             btnLogout.Margin = new Padding(2);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(55, 55);
+            btnLogout.Size = new Size(44, 44);
             btnLogout.TabIndex = 7;
             btnLogout.Text = " ";
             btnLogout.UseVisualStyleBackColor = true;
@@ -123,34 +124,43 @@
             panel2.Location = new Point(0, 0);
             panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1000, 700);
+            panel2.Size = new Size(800, 560);
             panel2.TabIndex = 8;
+            // 
+            // btLoad
+            // 
+            btLoad.Location = new Point(671, 434);
+            btLoad.Margin = new Padding(2, 2, 2, 2);
+            btLoad.Name = "btLoad";
+            btLoad.Size = new Size(110, 37);
+            btLoad.TabIndex = 24;
+            btLoad.Text = "Muat Produk";
+            btLoad.UseVisualStyleBackColor = true;
             // 
             // tbKategori
             // 
             tbKategori.BackColor = Color.White;
-            tbKategori.Location = new Point(249, 264);
-            tbKategori.Margin = new Padding(4);
+            tbKategori.Location = new Point(199, 211);
             tbKategori.Name = "tbKategori";
             tbKategori.ReadOnly = true;
-            tbKategori.Size = new Size(270, 31);
+            tbKategori.Size = new Size(217, 27);
             tbKategori.TabIndex = 22;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(32, 267);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(26, 214);
             label3.Name = "label3";
-            label3.Size = new Size(154, 25);
+            label3.Size = new Size(127, 20);
             label3.TabIndex = 21;
             label3.Text = "Kategori Produk : ";
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(811, 147);
+            btnDelete.Location = new Point(649, 118);
+            btnDelete.Margin = new Padding(2, 2, 2, 2);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(165, 148);
+            btnDelete.Size = new Size(132, 118);
             btnDelete.TabIndex = 19;
             btnDelete.Text = "Hapus Produk";
             btnDelete.UseVisualStyleBackColor = true;
@@ -158,60 +168,54 @@
             // tbHarga
             // 
             tbHarga.BackColor = Color.White;
-            tbHarga.Location = new Point(249, 225);
-            tbHarga.Margin = new Padding(4);
+            tbHarga.Location = new Point(199, 180);
             tbHarga.Name = "tbHarga";
             tbHarga.ReadOnly = true;
-            tbHarga.Size = new Size(270, 31);
+            tbHarga.Size = new Size(217, 27);
             tbHarga.TabIndex = 18;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(32, 228);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(26, 182);
             label2.Name = "label2";
-            label2.Size = new Size(206, 25);
+            label2.Size = new Size(173, 20);
             label2.TabIndex = 17;
             label2.Text = "Harga Penawaran Awal : ";
             // 
             // tbNamaProduk
             // 
             tbNamaProduk.BackColor = Color.White;
-            tbNamaProduk.Location = new Point(249, 186);
-            tbNamaProduk.Margin = new Padding(4);
+            tbNamaProduk.Location = new Point(199, 149);
             tbNamaProduk.Name = "tbNamaProduk";
             tbNamaProduk.ReadOnly = true;
-            tbNamaProduk.Size = new Size(270, 31);
+            tbNamaProduk.Size = new Size(217, 27);
             tbNamaProduk.TabIndex = 16;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(32, 189);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(26, 151);
             label1.Name = "label1";
-            label1.Size = new Size(135, 25);
+            label1.Size = new Size(110, 20);
             label1.TabIndex = 15;
             label1.Text = "Nama Produk : ";
             // 
             // tbIdProduk
             // 
             tbIdProduk.BackColor = Color.White;
-            tbIdProduk.Location = new Point(249, 147);
-            tbIdProduk.Margin = new Padding(4);
+            tbIdProduk.Location = new Point(199, 118);
             tbIdProduk.Name = "tbIdProduk";
             tbIdProduk.ReadOnly = true;
-            tbIdProduk.Size = new Size(270, 31);
+            tbIdProduk.Size = new Size(217, 27);
             tbIdProduk.TabIndex = 14;
             // 
             // lblIdProduk
             // 
             lblIdProduk.AutoSize = true;
-            lblIdProduk.Location = new Point(32, 150);
-            lblIdProduk.Margin = new Padding(4, 0, 4, 0);
+            lblIdProduk.Location = new Point(26, 120);
             lblIdProduk.Name = "lblIdProduk";
-            lblIdProduk.Size = new Size(106, 25);
+            lblIdProduk.Size = new Size(85, 20);
             lblIdProduk.TabIndex = 5;
             lblIdProduk.Text = "ID Produk : ";
             // 
@@ -219,21 +223,21 @@
             // 
             dgvPenawaran.AllowUserToAddRows = false;
             dgvPenawaran.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPenawaran.Location = new Point(32, 314);
+            dgvPenawaran.Location = new Point(26, 251);
+            dgvPenawaran.Margin = new Padding(2, 2, 2, 2);
             dgvPenawaran.Name = "dgvPenawaran";
             dgvPenawaran.ReadOnly = true;
             dgvPenawaran.RowHeadersWidth = 62;
-            dgvPenawaran.Size = new Size(944, 218);
+            dgvPenawaran.Size = new Size(755, 174);
             dgvPenawaran.TabIndex = 4;
             // 
             // lblProduk
             // 
             lblProduk.AutoSize = true;
             lblProduk.Font = new Font("Segoe UI Semibold", 13.2000008F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            lblProduk.Location = new Point(32, 96);
-            lblProduk.Margin = new Padding(4, 0, 4, 0);
+            lblProduk.Location = new Point(26, 77);
             lblProduk.Name = "lblProduk";
-            lblProduk.Size = new Size(174, 37);
+            lblProduk.Size = new Size(148, 31);
             lblProduk.TabIndex = 3;
             lblProduk.Text = "Produk Anda";
             // 
@@ -243,34 +247,26 @@
             btnHome.FlatAppearance.BorderSize = 3;
             btnHome.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnHome.Image = Properties.Resources.house_10723029__1_;
-            btnHome.Location = new Point(898, 598);
+            btnHome.Location = new Point(718, 478);
             btnHome.Margin = new Padding(2);
             btnHome.Name = "btnHome";
-            btnHome.Size = new Size(78, 78);
+            btnHome.Size = new Size(62, 62);
             btnHome.TabIndex = 1;
             btnHome.TextAlign = ContentAlignment.BottomCenter;
             btnHome.TextImageRelation = TextImageRelation.ImageAboveText;
             btnHome.UseVisualStyleBackColor = false;
             btnHome.Click += btnHome_Click;
             // 
-            // btLoad
+            // produkSellerForm
             // 
-            btLoad.Location = new Point(839, 543);
-            btLoad.Name = "btLoad";
-            btLoad.Size = new Size(137, 46);
-            btLoad.TabIndex = 24;
-            btLoad.Text = "Muat Produk";
-            btLoad.UseVisualStyleBackColor = true;
-            // 
-            // produkSeller
-            // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1000, 700);
+            ClientSize = new Size(800, 560);
             Controls.Add(panel1);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "produkSeller";
+            Margin = new Padding(2, 2, 2, 2);
+            Name = "produkSellerForm";
             Text = "produkSeller";
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);

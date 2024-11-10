@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(unggahProdukForm));
             panel3 = new Panel();
             panel1 = new Panel();
             btnExit = new Button();
@@ -54,10 +55,10 @@
             // panel3
             // 
             panel3.BackgroundImage = Properties.Resources.Screenshot_2024_10_20_at_17_40_01_removebg_preview__1_;
-            panel3.Location = new Point(10, 10);
+            panel3.Location = new Point(8, 8);
             panel3.Margin = new Padding(2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(208, 52);
+            panel3.Size = new Size(166, 42);
             panel3.TabIndex = 2;
             // 
             // panel1
@@ -71,7 +72,7 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1000, 74);
+            panel1.Size = new Size(800, 60);
             panel1.TabIndex = 3;
             // 
             // btnExit
@@ -80,10 +81,10 @@
             btnExit.FlatStyle = FlatStyle.Flat;
             btnExit.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnExit.Image = Properties.Resources.cancel_5697779__1_;
-            btnExit.Location = new Point(932, 8);
+            btnExit.Location = new Point(746, 6);
             btnExit.Margin = new Padding(2);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(55, 55);
+            btnExit.Size = new Size(44, 44);
             btnExit.TabIndex = 8;
             btnExit.Text = " ";
             btnExit.UseVisualStyleBackColor = true;
@@ -94,11 +95,11 @@
             btnLogout.FlatAppearance.BorderSize = 0;
             btnLogout.FlatStyle = FlatStyle.Flat;
             btnLogout.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLogout.Image = Properties.Resources.logout_4032999__1___1_;
-            btnLogout.Location = new Point(881, 8);
+            btnLogout.Image = (Image)resources.GetObject("btnLogout.Image");
+            btnLogout.Location = new Point(705, 6);
             btnLogout.Margin = new Padding(2);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(55, 55);
+            btnLogout.Size = new Size(44, 44);
             btnLogout.TabIndex = 7;
             btnLogout.Text = " ";
             btnLogout.UseVisualStyleBackColor = true;
@@ -123,15 +124,14 @@
             panel2.Location = new Point(0, 0);
             panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1000, 700);
+            panel2.Size = new Size(800, 560);
             panel2.TabIndex = 4;
             // 
             // btnUnggahfotoitem
             // 
-            btnUnggahfotoitem.Location = new Point(114, 471);
-            btnUnggahfotoitem.Margin = new Padding(4);
+            btnUnggahfotoitem.Location = new Point(91, 377);
             btnUnggahfotoitem.Name = "btnUnggahfotoitem";
-            btnUnggahfotoitem.Size = new Size(135, 45);
+            btnUnggahfotoitem.Size = new Size(108, 36);
             btnUnggahfotoitem.TabIndex = 16;
             btnUnggahfotoitem.Text = "Unggah Foto";
             btnUnggahfotoitem.UseVisualStyleBackColor = true;
@@ -140,19 +140,17 @@
             // 
             lblUploadpage.AutoSize = true;
             lblUploadpage.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            lblUploadpage.Location = new Point(30, 105);
-            lblUploadpage.Margin = new Padding(4, 0, 4, 0);
+            lblUploadpage.Location = new Point(24, 84);
             lblUploadpage.Name = "lblUploadpage";
-            lblUploadpage.Size = new Size(216, 38);
+            lblUploadpage.Size = new Size(175, 31);
             lblUploadpage.TabIndex = 15;
             lblUploadpage.Text = "Unggah Produk";
             // 
             // btnUnggahitem
             // 
-            btnUnggahitem.Location = new Point(676, 471);
-            btnUnggahitem.Margin = new Padding(4);
+            btnUnggahitem.Location = new Point(541, 377);
             btnUnggahitem.Name = "btnUnggahitem";
-            btnUnggahitem.Size = new Size(135, 45);
+            btnUnggahitem.Size = new Size(108, 36);
             btnUnggahitem.TabIndex = 14;
             btnUnggahitem.Text = "Unggah";
             btnUnggahitem.UseVisualStyleBackColor = true;
@@ -161,82 +159,73 @@
             // lblUnggahhargaitem
             // 
             lblUnggahhargaitem.AutoSize = true;
-            lblUnggahhargaitem.Location = new Point(329, 415);
-            lblUnggahhargaitem.Margin = new Padding(4, 0, 4, 0);
+            lblUnggahhargaitem.Location = new Point(263, 332);
             lblUnggahhargaitem.Name = "lblUnggahhargaitem";
-            lblUnggahhargaitem.Size = new Size(69, 25);
+            lblUnggahhargaitem.Size = new Size(57, 20);
             lblUnggahhargaitem.TabIndex = 13;
             lblUnggahhargaitem.Text = "Harga :";
             // 
             // lblUnggahktgitem
             // 
             lblUnggahktgitem.AutoSize = true;
-            lblUnggahktgitem.Location = new Point(329, 356);
-            lblUnggahktgitem.Margin = new Padding(4, 0, 4, 0);
+            lblUnggahktgitem.Location = new Point(263, 285);
             lblUnggahktgitem.Name = "lblUnggahktgitem";
-            lblUnggahktgitem.Size = new Size(92, 25);
+            lblUnggahktgitem.Size = new Size(77, 20);
             lblUnggahktgitem.TabIndex = 12;
             lblUnggahktgitem.Text = "Kategori : ";
             // 
             // lblUnggahdesitem
             // 
             lblUnggahdesitem.AutoSize = true;
-            lblUnggahdesitem.Location = new Point(329, 245);
-            lblUnggahdesitem.Margin = new Padding(4, 0, 4, 0);
+            lblUnggahdesitem.Location = new Point(263, 196);
             lblUnggahdesitem.Name = "lblUnggahdesitem";
-            lblUnggahdesitem.Size = new Size(93, 25);
+            lblUnggahdesitem.Size = new Size(76, 20);
             lblUnggahdesitem.TabIndex = 11;
             lblUnggahdesitem.Text = "Deskripsi :";
             // 
             // lblUnggahnamaitem
             // 
             lblUnggahnamaitem.AutoSize = true;
-            lblUnggahnamaitem.Location = new Point(329, 190);
-            lblUnggahnamaitem.Margin = new Padding(4, 0, 4, 0);
+            lblUnggahnamaitem.Location = new Point(263, 152);
             lblUnggahnamaitem.Name = "lblUnggahnamaitem";
-            lblUnggahnamaitem.Size = new Size(130, 25);
+            lblUnggahnamaitem.Size = new Size(106, 20);
             lblUnggahnamaitem.TabIndex = 10;
             lblUnggahnamaitem.Text = "Nama Produk :";
             // 
             // tbHargaitem
             // 
-            tbHargaitem.Location = new Point(535, 406);
-            tbHargaitem.Margin = new Padding(4);
+            tbHargaitem.Location = new Point(428, 325);
             tbHargaitem.Name = "tbHargaitem";
-            tbHargaitem.Size = new Size(275, 31);
+            tbHargaitem.Size = new Size(221, 27);
             tbHargaitem.TabIndex = 9;
             // 
             // tbKtgitem
             // 
-            tbKtgitem.Location = new Point(535, 356);
-            tbKtgitem.Margin = new Padding(4);
+            tbKtgitem.Location = new Point(428, 285);
             tbKtgitem.Name = "tbKtgitem";
-            tbKtgitem.Size = new Size(275, 31);
+            tbKtgitem.Size = new Size(221, 27);
             tbKtgitem.TabIndex = 8;
             // 
             // rtbDesitem
             // 
-            rtbDesitem.Location = new Point(535, 245);
-            rtbDesitem.Margin = new Padding(4);
+            rtbDesitem.Location = new Point(428, 196);
             rtbDesitem.Name = "rtbDesitem";
-            rtbDesitem.Size = new Size(275, 84);
+            rtbDesitem.Size = new Size(221, 68);
             rtbDesitem.TabIndex = 7;
             rtbDesitem.Text = "";
             // 
             // tbNamaitem
             // 
-            tbNamaitem.Location = new Point(535, 190);
-            tbNamaitem.Margin = new Padding(4);
+            tbNamaitem.Location = new Point(428, 152);
             tbNamaitem.Name = "tbNamaitem";
-            tbNamaitem.Size = new Size(275, 31);
+            tbNamaitem.Size = new Size(221, 27);
             tbNamaitem.TabIndex = 6;
             // 
             // pbUnggahitem
             // 
-            pbUnggahitem.Location = new Point(86, 190);
-            pbUnggahitem.Margin = new Padding(4);
+            pbUnggahitem.Location = new Point(69, 152);
             pbUnggahitem.Name = "pbUnggahitem";
-            pbUnggahitem.Size = new Size(188, 250);
+            pbUnggahitem.Size = new Size(150, 200);
             pbUnggahitem.TabIndex = 5;
             pbUnggahitem.TabStop = false;
             // 
@@ -246,10 +235,10 @@
             btnHome.FlatAppearance.BorderSize = 3;
             btnHome.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnHome.Image = Properties.Resources.house_10723029__1_;
-            btnHome.Location = new Point(898, 598);
+            btnHome.Location = new Point(718, 478);
             btnHome.Margin = new Padding(2);
             btnHome.Name = "btnHome";
-            btnHome.Size = new Size(78, 78);
+            btnHome.Size = new Size(62, 62);
             btnHome.TabIndex = 1;
             btnHome.TextAlign = ContentAlignment.BottomCenter;
             btnHome.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -257,9 +246,9 @@
             // 
             // unggahProdukForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1000, 700);
+            ClientSize = new Size(800, 560);
             Controls.Add(panel1);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;

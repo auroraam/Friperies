@@ -47,38 +47,38 @@
             btnUnggah = new Button();
             btnHome = new Button();
             pnlHome = new Panel();
+            pnlDetailItem1 = new Panel();
+            lblDetailktgitem1 = new Label();
+            btnBuatpenawaran1 = new Button();
+            lblDetailhargaitem1 = new Label();
+            lblDesitem1 = new Label();
+            lblDetailnamaitem1 = new Label();
+            pbItem1 = new PictureBox();
+            pnlItem1 = new Panel();
+            lblHargaitem1 = new Label();
+            lblItem1 = new Label();
+            btnItem1 = new Button();
+            pnlItem2 = new Panel();
+            lblItem2 = new Label();
+            lblHargaitem2 = new Label();
+            btnItem2 = new Button();
+            pnlItem3 = new Panel();
+            lblHargaitem3 = new Label();
+            lblItem3 = new Label();
+            btnItem3 = new Button();
             pnlUnggah = new Panel();
             pnlKategori = new Panel();
             pnlPenawaran = new Panel();
             pnlPesanan = new Panel();
             pnlProfil = new Panel();
-            pnlItem1 = new Panel();
-            pnlItem2 = new Panel();
-            pnlItem3 = new Panel();
-            btnItem1 = new Button();
-            btnItem2 = new Button();
-            btnItem3 = new Button();
-            lblItem1 = new Label();
-            lblHargaitem1 = new Label();
-            lblItem2 = new Label();
-            lblHargaitem2 = new Label();
-            lblItem3 = new Label();
-            lblHargaitem3 = new Label();
-            pnlDetailItem1 = new Panel();
-            pbItem1 = new PictureBox();
-            lblDetailnamaitem1 = new Label();
-            lblDesitem1 = new Label();
-            lblDetailhargaitem1 = new Label();
-            btnBuatpenawaran1 = new Button();
-            lblDetailktgitem1 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             pnlHome.SuspendLayout();
+            pnlDetailItem1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbItem1).BeginInit();
             pnlItem1.SuspendLayout();
             pnlItem2.SuspendLayout();
             pnlItem3.SuspendLayout();
-            pnlDetailItem1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pbItem1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -90,7 +90,7 @@
             panel1.Controls.Add(panel3);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
             panel1.Size = new Size(800, 60);
             panel1.TabIndex = 0;
@@ -102,7 +102,7 @@
             btnExit.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnExit.Image = Properties.Resources.cancel_5697779__1_;
             btnExit.Location = new Point(746, 6);
-            btnExit.Margin = new Padding(2, 2, 2, 2);
+            btnExit.Margin = new Padding(2);
             btnExit.Name = "btnExit";
             btnExit.Size = new Size(44, 44);
             btnExit.TabIndex = 8;
@@ -114,9 +114,9 @@
             btnLogout.FlatAppearance.BorderSize = 0;
             btnLogout.FlatStyle = FlatStyle.Flat;
             btnLogout.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLogout.Image = Properties.Resources.logout_4032999__1___1_;
+            btnLogout.Image = (Image)resources.GetObject("btnLogout.Image");
             btnLogout.Location = new Point(705, 6);
-            btnLogout.Margin = new Padding(2, 2, 2, 2);
+            btnLogout.Margin = new Padding(2);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(44, 44);
             btnLogout.TabIndex = 7;
@@ -127,7 +127,7 @@
             // 
             panel3.BackgroundImage = Properties.Resources.Screenshot_2024_10_20_at_17_40_01_removebg_preview__1_;
             panel3.Location = new Point(8, 8);
-            panel3.Margin = new Padding(2, 2, 2, 2);
+            panel3.Margin = new Padding(2);
             panel3.Name = "panel3";
             panel3.Size = new Size(166, 42);
             panel3.TabIndex = 2;
@@ -150,7 +150,7 @@
             panel2.Controls.Add(btnHome);
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(0, 60);
-            panel2.Margin = new Padding(2, 2, 2, 2);
+            panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
             panel2.Size = new Size(201, 500);
             panel2.TabIndex = 1;
@@ -160,7 +160,7 @@
             pnlSideProfil.BackColor = Color.FromArgb(117, 117, 196);
             pnlSideProfil.BorderStyle = BorderStyle.Fixed3D;
             pnlSideProfil.Location = new Point(0, 257);
-            pnlSideProfil.Margin = new Padding(2, 2, 2, 2);
+            pnlSideProfil.Margin = new Padding(2);
             pnlSideProfil.Name = "pnlSideProfil";
             pnlSideProfil.Size = new Size(14, 45);
             pnlSideProfil.TabIndex = 3;
@@ -170,7 +170,7 @@
             pnlSidePesanan.BackColor = Color.FromArgb(117, 117, 196);
             pnlSidePesanan.BorderStyle = BorderStyle.Fixed3D;
             pnlSidePesanan.Location = new Point(0, 208);
-            pnlSidePesanan.Margin = new Padding(2, 2, 2, 2);
+            pnlSidePesanan.Margin = new Padding(2);
             pnlSidePesanan.Name = "pnlSidePesanan";
             pnlSidePesanan.Size = new Size(14, 45);
             pnlSidePesanan.TabIndex = 3;
@@ -180,7 +180,7 @@
             pnlSidePenawaran.BackColor = Color.FromArgb(117, 117, 196);
             pnlSidePenawaran.BorderStyle = BorderStyle.Fixed3D;
             pnlSidePenawaran.Location = new Point(0, 159);
-            pnlSidePenawaran.Margin = new Padding(2, 2, 2, 2);
+            pnlSidePenawaran.Margin = new Padding(2);
             pnlSidePenawaran.Name = "pnlSidePenawaran";
             pnlSidePenawaran.Size = new Size(14, 45);
             pnlSidePenawaran.TabIndex = 3;
@@ -190,7 +190,7 @@
             pnlSideKategori.BackColor = Color.FromArgb(117, 117, 196);
             pnlSideKategori.BorderStyle = BorderStyle.Fixed3D;
             pnlSideKategori.Location = new Point(0, 110);
-            pnlSideKategori.Margin = new Padding(2, 2, 2, 2);
+            pnlSideKategori.Margin = new Padding(2);
             pnlSideKategori.Name = "pnlSideKategori";
             pnlSideKategori.Size = new Size(14, 45);
             pnlSideKategori.TabIndex = 3;
@@ -200,7 +200,7 @@
             pnlSideUnggah.BackColor = Color.FromArgb(117, 117, 196);
             pnlSideUnggah.BorderStyle = BorderStyle.Fixed3D;
             pnlSideUnggah.Location = new Point(0, 62);
-            pnlSideUnggah.Margin = new Padding(2, 2, 2, 2);
+            pnlSideUnggah.Margin = new Padding(2);
             pnlSideUnggah.Name = "pnlSideUnggah";
             pnlSideUnggah.Size = new Size(14, 45);
             pnlSideUnggah.TabIndex = 3;
@@ -210,7 +210,7 @@
             pnlSideHome.BackColor = Color.FromArgb(117, 117, 196);
             pnlSideHome.BorderStyle = BorderStyle.Fixed3D;
             pnlSideHome.Location = new Point(0, 13);
-            pnlSideHome.Margin = new Padding(2, 2, 2, 2);
+            pnlSideHome.Margin = new Padding(2);
             pnlSideHome.Name = "pnlSideHome";
             pnlSideHome.Size = new Size(14, 45);
             pnlSideHome.TabIndex = 2;
@@ -223,7 +223,7 @@
             btnProfil.Image = Properties.Resources.user_7855633__1_;
             btnProfil.ImageAlign = ContentAlignment.MiddleLeft;
             btnProfil.Location = new Point(14, 257);
-            btnProfil.Margin = new Padding(2, 2, 2, 2);
+            btnProfil.Margin = new Padding(2);
             btnProfil.Name = "btnProfil";
             btnProfil.Size = new Size(193, 44);
             btnProfil.TabIndex = 3;
@@ -239,7 +239,7 @@
             btnPesanan.Image = Properties.Resources.pay_625548__1_;
             btnPesanan.ImageAlign = ContentAlignment.MiddleLeft;
             btnPesanan.Location = new Point(14, 208);
-            btnPesanan.Margin = new Padding(2, 2, 2, 2);
+            btnPesanan.Margin = new Padding(2);
             btnPesanan.Name = "btnPesanan";
             btnPesanan.Size = new Size(193, 44);
             btnPesanan.TabIndex = 6;
@@ -255,7 +255,7 @@
             btnPenawaran.Image = Properties.Resources.cargo_3045489__1_;
             btnPenawaran.ImageAlign = ContentAlignment.MiddleLeft;
             btnPenawaran.Location = new Point(14, 159);
-            btnPenawaran.Margin = new Padding(2, 2, 2, 2);
+            btnPenawaran.Margin = new Padding(2);
             btnPenawaran.Name = "btnPenawaran";
             btnPenawaran.Size = new Size(193, 44);
             btnPenawaran.TabIndex = 5;
@@ -271,7 +271,7 @@
             btnKategori.Image = Properties.Resources.baby_toy_3299976__1_;
             btnKategori.ImageAlign = ContentAlignment.MiddleLeft;
             btnKategori.Location = new Point(14, 110);
-            btnKategori.Margin = new Padding(2, 2, 2, 2);
+            btnKategori.Margin = new Padding(2);
             btnKategori.Name = "btnKategori";
             btnKategori.Size = new Size(193, 44);
             btnKategori.TabIndex = 4;
@@ -287,7 +287,7 @@
             btnUnggah.Image = Properties.Resources.uploading_3305741__1_;
             btnUnggah.ImageAlign = ContentAlignment.MiddleLeft;
             btnUnggah.Location = new Point(14, 62);
-            btnUnggah.Margin = new Padding(2, 2, 2, 2);
+            btnUnggah.Margin = new Padding(2);
             btnUnggah.Name = "btnUnggah";
             btnUnggah.Size = new Size(193, 44);
             btnUnggah.TabIndex = 3;
@@ -304,7 +304,7 @@
             btnHome.Image = Properties.Resources.house_10723029__1_;
             btnHome.ImageAlign = ContentAlignment.MiddleLeft;
             btnHome.Location = new Point(14, 13);
-            btnHome.Margin = new Padding(2, 2, 2, 2);
+            btnHome.Margin = new Padding(2);
             btnHome.Name = "btnHome";
             btnHome.Size = new Size(193, 44);
             btnHome.TabIndex = 2;
@@ -321,60 +321,78 @@
             pnlHome.Controls.Add(pnlItem2);
             pnlHome.Controls.Add(pnlItem3);
             pnlHome.Location = new Point(198, 59);
-            pnlHome.Margin = new Padding(2, 2, 2, 2);
+            pnlHome.Margin = new Padding(2);
             pnlHome.Name = "pnlHome";
             pnlHome.Size = new Size(603, 502);
             pnlHome.TabIndex = 2;
             // 
-            // pnlUnggah
+            // pnlDetailItem1
             // 
-            pnlUnggah.BackColor = Color.White;
-            pnlUnggah.BorderStyle = BorderStyle.Fixed3D;
-            pnlUnggah.Location = new Point(198, 59);
-            pnlUnggah.Margin = new Padding(2, 2, 2, 2);
-            pnlUnggah.Name = "pnlUnggah";
-            pnlUnggah.Size = new Size(603, 502);
-            pnlUnggah.TabIndex = 3;
+            pnlDetailItem1.Controls.Add(lblDetailktgitem1);
+            pnlDetailItem1.Controls.Add(btnBuatpenawaran1);
+            pnlDetailItem1.Controls.Add(lblDetailhargaitem1);
+            pnlDetailItem1.Controls.Add(lblDesitem1);
+            pnlDetailItem1.Controls.Add(lblDetailnamaitem1);
+            pnlDetailItem1.Controls.Add(pbItem1);
+            pnlDetailItem1.Location = new Point(0, 0);
+            pnlDetailItem1.Name = "pnlDetailItem1";
+            pnlDetailItem1.Size = new Size(603, 502);
+            pnlDetailItem1.TabIndex = 2;
             // 
-            // pnlKategori
+            // lblDetailktgitem1
             // 
-            pnlKategori.BackColor = Color.White;
-            pnlKategori.BorderStyle = BorderStyle.Fixed3D;
-            pnlKategori.Location = new Point(198, 59);
-            pnlKategori.Margin = new Padding(2, 2, 2, 2);
-            pnlKategori.Name = "pnlKategori";
-            pnlKategori.Size = new Size(603, 502);
-            pnlKategori.TabIndex = 3;
+            lblDetailktgitem1.AutoSize = true;
+            lblDetailktgitem1.Location = new Point(290, 185);
+            lblDetailktgitem1.Name = "lblDetailktgitem1";
+            lblDetailktgitem1.Size = new Size(156, 20);
+            lblDetailktgitem1.TabIndex = 5;
+            lblDetailktgitem1.Text = "Kategori = 0 - 1 Tahun";
             // 
-            // pnlPenawaran
+            // btnBuatpenawaran1
             // 
-            pnlPenawaran.BackColor = Color.White;
-            pnlPenawaran.BorderStyle = BorderStyle.Fixed3D;
-            pnlPenawaran.Location = new Point(198, 59);
-            pnlPenawaran.Margin = new Padding(2, 2, 2, 2);
-            pnlPenawaran.Name = "pnlPenawaran";
-            pnlPenawaran.Size = new Size(603, 502);
-            pnlPenawaran.TabIndex = 4;
+            btnBuatpenawaran1.Location = new Point(290, 250);
+            btnBuatpenawaran1.Name = "btnBuatpenawaran1";
+            btnBuatpenawaran1.Size = new Size(150, 40);
+            btnBuatpenawaran1.TabIndex = 4;
+            btnBuatpenawaran1.Text = "Buat Penawaran";
+            btnBuatpenawaran1.UseVisualStyleBackColor = true;
             // 
-            // pnlPesanan
+            // lblDetailhargaitem1
             // 
-            pnlPesanan.BackColor = Color.White;
-            pnlPesanan.BorderStyle = BorderStyle.Fixed3D;
-            pnlPesanan.Location = new Point(198, 59);
-            pnlPesanan.Margin = new Padding(2, 2, 2, 2);
-            pnlPesanan.Name = "pnlPesanan";
-            pnlPesanan.Size = new Size(603, 502);
-            pnlPesanan.TabIndex = 5;
+            lblDetailhargaitem1.AutoSize = true;
+            lblDetailhargaitem1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDetailhargaitem1.Location = new Point(290, 215);
+            lblDetailhargaitem1.Name = "lblDetailhargaitem1";
+            lblDetailhargaitem1.Size = new Size(81, 20);
+            lblDetailhargaitem1.TabIndex = 3;
+            lblDetailhargaitem1.Text = "IDR119.000";
             // 
-            // pnlProfil
+            // lblDesitem1
             // 
-            pnlProfil.BackColor = Color.White;
-            pnlProfil.BorderStyle = BorderStyle.Fixed3D;
-            pnlProfil.Location = new Point(198, 59);
-            pnlProfil.Margin = new Padding(2, 2, 2, 2);
-            pnlProfil.Name = "pnlProfil";
-            pnlProfil.Size = new Size(603, 502);
-            pnlProfil.TabIndex = 5;
+            lblDesitem1.Location = new Point(290, 120);
+            lblDesitem1.Name = "lblDesitem1";
+            lblDesitem1.Size = new Size(273, 71);
+            lblDesitem1.TabIndex = 2;
+            lblDesitem1.Text = "Tali bersudut, celana dungaree tali dalam set pakaian, dan tampilan kodok di bagian depan";
+            // 
+            // lblDetailnamaitem1
+            // 
+            lblDetailnamaitem1.AutoSize = true;
+            lblDetailnamaitem1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDetailnamaitem1.Location = new Point(290, 85);
+            lblDetailnamaitem1.Name = "lblDetailnamaitem1";
+            lblDetailnamaitem1.Size = new Size(188, 28);
+            lblDetailnamaitem1.TabIndex = 1;
+            lblDetailnamaitem1.Text = "Frog Dungaree Set";
+            // 
+            // pbItem1
+            // 
+            pbItem1.BackgroundImage = (Image)resources.GetObject("pbItem1.BackgroundImage");
+            pbItem1.Location = new Point(74, 67);
+            pbItem1.Name = "pbItem1";
+            pbItem1.Size = new Size(153, 230);
+            pbItem1.TabIndex = 0;
+            pbItem1.TabStop = false;
             // 
             // pnlItem1
             // 
@@ -386,52 +404,14 @@
             pnlItem1.Size = new Size(150, 250);
             pnlItem1.TabIndex = 0;
             // 
-            // pnlItem2
+            // lblHargaitem1
             // 
-            pnlItem2.Controls.Add(lblItem2);
-            pnlItem2.Controls.Add(lblHargaitem2);
-            pnlItem2.Controls.Add(btnItem2);
-            pnlItem2.Location = new Point(230, 50);
-            pnlItem2.Name = "pnlItem2";
-            pnlItem2.Size = new Size(150, 250);
-            pnlItem2.TabIndex = 1;
-            // 
-            // pnlItem3
-            // 
-            pnlItem3.Controls.Add(lblHargaitem3);
-            pnlItem3.Controls.Add(lblItem3);
-            pnlItem3.Controls.Add(btnItem3);
-            pnlItem3.Location = new Point(420, 50);
-            pnlItem3.Name = "pnlItem3";
-            pnlItem3.Size = new Size(150, 250);
-            pnlItem3.TabIndex = 1;
-            // 
-            // btnItem1
-            // 
-            btnItem1.BackgroundImage = (Image)resources.GetObject("btnItem1.BackgroundImage");
-            btnItem1.Location = new Point(20, 15);
-            btnItem1.Name = "btnItem1";
-            btnItem1.Size = new Size(100, 150);
-            btnItem1.TabIndex = 0;
-            btnItem1.UseVisualStyleBackColor = true;
-            // 
-            // btnItem2
-            // 
-            btnItem2.BackgroundImage = (Image)resources.GetObject("btnItem2.BackgroundImage");
-            btnItem2.Location = new Point(23, 15);
-            btnItem2.Name = "btnItem2";
-            btnItem2.Size = new Size(100, 150);
-            btnItem2.TabIndex = 1;
-            btnItem2.UseVisualStyleBackColor = true;
-            // 
-            // btnItem3
-            // 
-            btnItem3.BackgroundImage = (Image)resources.GetObject("btnItem3.BackgroundImage");
-            btnItem3.Location = new Point(27, 15);
-            btnItem3.Name = "btnItem3";
-            btnItem3.Size = new Size(100, 150);
-            btnItem3.TabIndex = 2;
-            btnItem3.UseVisualStyleBackColor = true;
+            lblHargaitem1.AutoSize = true;
+            lblHargaitem1.Location = new Point(35, 207);
+            lblHargaitem1.Name = "lblHargaitem1";
+            lblHargaitem1.Size = new Size(81, 20);
+            lblHargaitem1.TabIndex = 2;
+            lblHargaitem1.Text = "IDR119000";
             // 
             // lblItem1
             // 
@@ -442,14 +422,24 @@
             lblItem1.TabIndex = 1;
             lblItem1.Text = "Frog Dungaree Set";
             // 
-            // lblHargaitem1
+            // btnItem1
             // 
-            lblHargaitem1.AutoSize = true;
-            lblHargaitem1.Location = new Point(35, 207);
-            lblHargaitem1.Name = "lblHargaitem1";
-            lblHargaitem1.Size = new Size(81, 20);
-            lblHargaitem1.TabIndex = 2;
-            lblHargaitem1.Text = "IDR119000";
+            btnItem1.BackgroundImage = (Image)resources.GetObject("btnItem1.BackgroundImage");
+            btnItem1.Location = new Point(20, 15);
+            btnItem1.Name = "btnItem1";
+            btnItem1.Size = new Size(100, 150);
+            btnItem1.TabIndex = 0;
+            btnItem1.UseVisualStyleBackColor = true;
+            // 
+            // pnlItem2
+            // 
+            pnlItem2.Controls.Add(lblItem2);
+            pnlItem2.Controls.Add(lblHargaitem2);
+            pnlItem2.Controls.Add(btnItem2);
+            pnlItem2.Location = new Point(230, 50);
+            pnlItem2.Name = "pnlItem2";
+            pnlItem2.Size = new Size(150, 250);
+            pnlItem2.TabIndex = 1;
             // 
             // lblItem2
             // 
@@ -469,14 +459,24 @@
             lblHargaitem2.TabIndex = 4;
             lblHargaitem2.Text = "IDR99000";
             // 
-            // lblItem3
+            // btnItem2
             // 
-            lblItem3.AutoSize = true;
-            lblItem3.Location = new Point(8, 185);
-            lblItem3.Name = "lblItem3";
-            lblItem3.Size = new Size(135, 20);
-            lblItem3.TabIndex = 5;
-            lblItem3.Text = "Floral Woven Dress";
+            btnItem2.BackgroundImage = (Image)resources.GetObject("btnItem2.BackgroundImage");
+            btnItem2.Location = new Point(23, 15);
+            btnItem2.Name = "btnItem2";
+            btnItem2.Size = new Size(100, 150);
+            btnItem2.TabIndex = 1;
+            btnItem2.UseVisualStyleBackColor = true;
+            // 
+            // pnlItem3
+            // 
+            pnlItem3.Controls.Add(lblHargaitem3);
+            pnlItem3.Controls.Add(lblItem3);
+            pnlItem3.Controls.Add(btnItem3);
+            pnlItem3.Location = new Point(420, 50);
+            pnlItem3.Name = "pnlItem3";
+            pnlItem3.Size = new Size(150, 250);
+            pnlItem3.TabIndex = 1;
             // 
             // lblHargaitem3
             // 
@@ -488,73 +488,73 @@
             lblHargaitem3.Text = "IDR130000";
             lblHargaitem3.Click += label5_Click;
             // 
-            // pnlDetailItem1
+            // lblItem3
             // 
-            pnlDetailItem1.Controls.Add(lblDetailktgitem1);
-            pnlDetailItem1.Controls.Add(btnBuatpenawaran1);
-            pnlDetailItem1.Controls.Add(lblDetailhargaitem1);
-            pnlDetailItem1.Controls.Add(lblDesitem1);
-            pnlDetailItem1.Controls.Add(lblDetailnamaitem1);
-            pnlDetailItem1.Controls.Add(pbItem1);
-            pnlDetailItem1.Location = new Point(0, 0);
-            pnlDetailItem1.Name = "pnlDetailItem1";
-            pnlDetailItem1.Size = new Size(603, 502);
-            pnlDetailItem1.TabIndex = 2;
+            lblItem3.AutoSize = true;
+            lblItem3.Location = new Point(8, 185);
+            lblItem3.Name = "lblItem3";
+            lblItem3.Size = new Size(135, 20);
+            lblItem3.TabIndex = 5;
+            lblItem3.Text = "Floral Woven Dress";
             // 
-            // pbItem1
+            // btnItem3
             // 
-            pbItem1.BackgroundImage = (Image)resources.GetObject("pbItem1.BackgroundImage");
-            pbItem1.Location = new Point(74, 67);
-            pbItem1.Name = "pbItem1";
-            pbItem1.Size = new Size(153, 230);
-            pbItem1.TabIndex = 0;
-            pbItem1.TabStop = false;
+            btnItem3.BackgroundImage = (Image)resources.GetObject("btnItem3.BackgroundImage");
+            btnItem3.Location = new Point(27, 15);
+            btnItem3.Name = "btnItem3";
+            btnItem3.Size = new Size(100, 150);
+            btnItem3.TabIndex = 2;
+            btnItem3.UseVisualStyleBackColor = true;
             // 
-            // lblDetailnamaitem1
+            // pnlUnggah
             // 
-            lblDetailnamaitem1.AutoSize = true;
-            lblDetailnamaitem1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDetailnamaitem1.Location = new Point(290, 85);
-            lblDetailnamaitem1.Name = "lblDetailnamaitem1";
-            lblDetailnamaitem1.Size = new Size(188, 28);
-            lblDetailnamaitem1.TabIndex = 1;
-            lblDetailnamaitem1.Text = "Frog Dungaree Set";
+            pnlUnggah.BackColor = Color.White;
+            pnlUnggah.BorderStyle = BorderStyle.Fixed3D;
+            pnlUnggah.Location = new Point(198, 59);
+            pnlUnggah.Margin = new Padding(2);
+            pnlUnggah.Name = "pnlUnggah";
+            pnlUnggah.Size = new Size(603, 502);
+            pnlUnggah.TabIndex = 3;
             // 
-            // lblDesitem1
+            // pnlKategori
             // 
-            lblDesitem1.Location = new Point(290, 120);
-            lblDesitem1.Name = "lblDesitem1";
-            lblDesitem1.Size = new Size(273, 71);
-            lblDesitem1.TabIndex = 2;
-            lblDesitem1.Text = "Tali bersudut, celana dungaree tali dalam set pakaian, dan tampilan kodok di bagian depan";
+            pnlKategori.BackColor = Color.White;
+            pnlKategori.BorderStyle = BorderStyle.Fixed3D;
+            pnlKategori.Location = new Point(198, 59);
+            pnlKategori.Margin = new Padding(2);
+            pnlKategori.Name = "pnlKategori";
+            pnlKategori.Size = new Size(603, 502);
+            pnlKategori.TabIndex = 3;
             // 
-            // lblDetailhargaitem1
+            // pnlPenawaran
             // 
-            lblDetailhargaitem1.AutoSize = true;
-            lblDetailhargaitem1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDetailhargaitem1.Location = new Point(290, 215);
-            lblDetailhargaitem1.Name = "lblDetailhargaitem1";
-            lblDetailhargaitem1.Size = new Size(81, 20);
-            lblDetailhargaitem1.TabIndex = 3;
-            lblDetailhargaitem1.Text = "IDR119.000";
+            pnlPenawaran.BackColor = Color.White;
+            pnlPenawaran.BorderStyle = BorderStyle.Fixed3D;
+            pnlPenawaran.Location = new Point(198, 59);
+            pnlPenawaran.Margin = new Padding(2);
+            pnlPenawaran.Name = "pnlPenawaran";
+            pnlPenawaran.Size = new Size(603, 502);
+            pnlPenawaran.TabIndex = 4;
             // 
-            // btnBuatpenawaran1
+            // pnlPesanan
             // 
-            btnBuatpenawaran1.Location = new Point(290, 250);
-            btnBuatpenawaran1.Name = "btnBuatpenawaran1";
-            btnBuatpenawaran1.Size = new Size(150, 40);
-            btnBuatpenawaran1.TabIndex = 4;
-            btnBuatpenawaran1.Text = "Buat Penawaran";
-            btnBuatpenawaran1.UseVisualStyleBackColor = true;
+            pnlPesanan.BackColor = Color.White;
+            pnlPesanan.BorderStyle = BorderStyle.Fixed3D;
+            pnlPesanan.Location = new Point(198, 59);
+            pnlPesanan.Margin = new Padding(2);
+            pnlPesanan.Name = "pnlPesanan";
+            pnlPesanan.Size = new Size(603, 502);
+            pnlPesanan.TabIndex = 5;
             // 
-            // lblDetailktgitem1
+            // pnlProfil
             // 
-            lblDetailktgitem1.AutoSize = true;
-            lblDetailktgitem1.Location = new Point(290, 185);
-            lblDetailktgitem1.Name = "lblDetailktgitem1";
-            lblDetailktgitem1.Size = new Size(156, 20);
-            lblDetailktgitem1.TabIndex = 5;
-            lblDetailktgitem1.Text = "Kategori = 0 - 1 Tahun";
+            pnlProfil.BackColor = Color.White;
+            pnlProfil.BorderStyle = BorderStyle.Fixed3D;
+            pnlProfil.Location = new Point(198, 59);
+            pnlProfil.Margin = new Padding(2);
+            pnlProfil.Name = "pnlProfil";
+            pnlProfil.Size = new Size(603, 502);
+            pnlProfil.TabIndex = 5;
             // 
             // homeForm
             // 
@@ -570,21 +570,21 @@
             Controls.Add(pnlKategori);
             Controls.Add(pnlUnggah);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "homeForm";
             Text = "loginForm";
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             pnlHome.ResumeLayout(false);
+            pnlDetailItem1.ResumeLayout(false);
+            pnlDetailItem1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbItem1).EndInit();
             pnlItem1.ResumeLayout(false);
             pnlItem1.PerformLayout();
             pnlItem2.ResumeLayout(false);
             pnlItem2.PerformLayout();
             pnlItem3.ResumeLayout(false);
             pnlItem3.PerformLayout();
-            pnlDetailItem1.ResumeLayout(false);
-            pnlDetailItem1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pbItem1).EndInit();
             ResumeLayout(false);
         }
 
