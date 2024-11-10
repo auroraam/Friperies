@@ -19,26 +19,6 @@ namespace Friperies_2
             //currentUser = loggedInUser;
         }
 
-        private void profilForm_Load_1(object sender, EventArgs e)
-        {
-            if (loggedInUser != null)
-            {
-                tbIdUser.Text = loggedInUser.userID.ToString();
-                tbUsername.Text = loggedInUser.userName;
-                tbEmail.Text = loggedInUser.userEmail;
-                tbPassword.Text = loggedInUser.userPass;
-                tbAlamat.Text = loggedInUser.userAddress;
-
-                List<Item> items = new List<Item>();
-                items = Item.GetUserItem(loggedInUser.userID);
-
-                foreach (Item item in items)
-                {
-                    gbProduk.Text += "n/-" + ($"{item.ItemCategory} - Rp{item.ItemPrice} - Likes: {item.LikesCounter}");
-                }
-            }
-        }
-
         private void tbUsername_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -85,6 +65,18 @@ namespace Friperies_2
                     //ubah alamat di db
                 }
             }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            homePageForm homePageForm = new homePageForm();
+            homePageForm.Show();
         }
     }
 }

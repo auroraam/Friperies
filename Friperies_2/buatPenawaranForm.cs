@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Friperies_2
 {
-    public partial class pesananForm : Form
+    public partial class buatPenawaranForm : Form
     {
-        public pesananForm()
+        public buatPenawaranForm()
         {
             InitializeComponent();
-        }
-
-        private void btnPesananterima_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

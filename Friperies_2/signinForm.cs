@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
 
 namespace Friperies_2
 {
@@ -26,22 +27,59 @@ namespace Friperies_2
 
         private void btSignIn_Click_1(object sender, EventArgs e)
         {
-            User currentuser = new User();
-            currentuser.userName = tbUsername.Text;
-            currentuser.userPass = tbPassword.Text;
-            if (currentuser.SignIn(tbUsername.Text, tbPassword.Text))
+            string userName = tbUsername.Text;
+            string userPass = tbPassword.Text;
+
+            if (string.IsNullOrWhiteSpace(userName) || string.IsNullOrWhiteSpace(userPass))
             {
-                MessageBox.Show("Sign In Berhasil!");
-
-                loggedInUser = currentuser;
-
-                this.Hide();
-                homeForm homeForm = new homeForm();
-                homeForm.Show();
+                MessageBox.Show("Username dan Password harus diisi!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            else
+
+            string connString = "Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix";
+            using (NpgsqlConnection conn = new NpgsqlConnection(connString))
             {
-                MessageBox.Show("Sign In Gagal.");
+                try
+                {
+                    conn.Open();
+
+                    // Query untuk mengecek apakah username dan password cocok
+                    string query = @"SELECT ""UserID"" FROM public.""User"" WHERE ""UserName"" = @UserName AND ""UserPass"" = @UserPass";
+                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@UserName", userName);
+                        cmd.Parameters.AddWithValue("@UserPass", userPass);
+
+                        using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                MessageBox.Show("Sign In Berhasil!");
+
+                                // Jika berhasil login, simpan informasi pengguna
+                                int UserID = reader.GetInt32(reader.GetOrdinal("UserID"));
+
+                                // Set informasi login pada objek loggedInUser
+                                loggedInUser.userID = UserID;
+                                loggedInUser.userName = userName;
+                                loggedInUser.userPass = userPass;
+
+                                // Pindah ke homeForm setelah berhasil sign in
+                                this.Hide();
+                                homePageForm homePageForm = new homePageForm();
+                                homePageForm.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Username atau Password salah. Coba lagi.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -50,6 +88,11 @@ namespace Friperies_2
             this.Hide();
             signupForm signupForm = new signupForm();
             signupForm.Show();
+        }
+
+        private void signinForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
