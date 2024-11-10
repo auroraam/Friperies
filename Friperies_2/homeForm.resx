@@ -118,17 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnLogout.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnBack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAMAAAApB0NrAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAABUUExURf///yEhIfz8/BkZGSoqKoqKivb29vHx8dLS0kFBQbm5uT09PXx8fMTExFNTU4aGhqSk
-        pGZmZubm5t/f3xAQEF5eXpycnOPj40xMTK2trcrKypCQkDGbH5UAAAE2SURBVDhPjVRZloQgDEwIyCaL
-        3e7e/56Dio7T7TypH0lSZoEkcIJJFRuLbduibaKSLOsvkC6MnAg550jEx+BkthxgSmhC3YR+MlMfGo2k
-        hfrjqjIdol/cUK1qVg1u8YidqXbzChk1WaGuzqUSlnQ8VVW05M1neGk82Zg9MaOpmy+x85HNHWmzC6oj
-        f6GwweRk2eypU+tJCrSZveFd8/qMYFGkHJjT2/fAu0beH/Wk/7VjIAP5zd+OlSJeWUh5eAoS1IjLr5sP
-        CsgFRwWRa5cV3xQAp3mEhpohyzcUGJIdLIUjwxsKVIEsIPa58DsKsB4RWj7t0uuOAjDxNnHMLjjdphK+
-        YDbOs5+SfErqKrmfknsuea+Sdy/pn5I+LOrnorkoma8kPs9p0bwn9fPeSHjePwn/7TGAH35lFh9T+IbF
-        AAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAMAAAApB0NrAAAABGdBTUEAALGPC/xhBQAAAFRQTFRF////
+        ISEh/Pz8GRkZKioqioqK9vb28fHx0tLSQUFBubm5PT09fHx8xMTEU1NThoaGpKSkZmZm5ubm39/fEBAQ
+        Xl5enJyc4+PjTExMra2tysrKkJCQMZsflQAAATZJREFUOE+NVFmWhCAMTAjIJovd7t7/noOKjtPtPKkf
+        SVJmgSRwgkkVG4tt26JtopIs6y+QLoycCDnnSMTH4GS2HGBKaELdhH4yUx8ajaSF+uOqMh2iX9xQrWpW
+        DW7xiJ2pdvMKGTVZoa7OpRKWdDxVVbTkzWd4aTzZmD0xo6mbL7Hzkc0dabMLqiN/obDB5GTZ7KlT60kK
+        tJm94V3z+oxgUaQcmNPb98C7Rt4f9aT/tWMgA/nN346VIl5ZSHl4ChLUiMuvmw8KyAVHBZFrlxXfFACn
+        eYSGmiHLNxQYkh0shSPDGwpUgSwg9rnwOwqwHhFaPu3S644CMPE2ccwuON2mEr5gNs6zn5J8SuoquZ+S
+        ey55r5J3L+mfkj4s6ueiuSiZryQ+z2nRvCf1895IeN4/Cf/tMYAffmUWH1P4hsUAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="pbItem1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
