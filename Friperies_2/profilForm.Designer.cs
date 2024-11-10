@@ -49,6 +49,7 @@
             lblIdUser = new Label();
             lblProfil = new Label();
             btnHome = new Button();
+            btnProfillogout = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -108,6 +109,7 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(192, 192, 255);
+            panel2.Controls.Add(btnProfillogout);
             panel2.Controls.Add(btProduk);
             panel2.Controls.Add(btPenawaran);
             panel2.Controls.Add(btPesanan);
@@ -132,10 +134,10 @@
             // 
             // btProduk
             // 
-            btProduk.Location = new Point(434, 122);
-            btProduk.Margin = new Padding(2, 2, 2, 2);
+            btProduk.Location = new Point(495, 171);
+            btProduk.Margin = new Padding(2);
             btProduk.Name = "btProduk";
-            btProduk.Size = new Size(112, 27);
+            btProduk.Size = new Size(129, 27);
             btProduk.TabIndex = 20;
             btProduk.Text = "Produk Anda";
             btProduk.UseVisualStyleBackColor = true;
@@ -143,8 +145,8 @@
             // 
             // btPenawaran
             // 
-            btPenawaran.Location = new Point(434, 164);
-            btPenawaran.Margin = new Padding(2, 2, 2, 2);
+            btPenawaran.Location = new Point(495, 214);
+            btPenawaran.Margin = new Padding(2);
             btPenawaran.Name = "btPenawaran";
             btPenawaran.Size = new Size(129, 27);
             btPenawaran.TabIndex = 19;
@@ -154,10 +156,10 @@
             // 
             // btPesanan
             // 
-            btPesanan.Location = new Point(434, 209);
-            btPesanan.Margin = new Padding(2, 2, 2, 2);
+            btPesanan.Location = new Point(495, 259);
+            btPesanan.Margin = new Padding(2);
             btPesanan.Name = "btPesanan";
-            btPesanan.Size = new Size(112, 27);
+            btPesanan.Size = new Size(129, 27);
             btPesanan.TabIndex = 18;
             btPesanan.Text = "Pesanan Anda";
             btPesanan.UseVisualStyleBackColor = true;
@@ -166,7 +168,7 @@
             // lblUsername
             // 
             lblUsername.AutoSize = true;
-            lblUsername.Location = new Point(26, 164);
+            lblUsername.Location = new Point(53, 214);
             lblUsername.Name = "lblUsername";
             lblUsername.Size = new Size(82, 20);
             lblUsername.TabIndex = 5;
@@ -175,7 +177,7 @@
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(26, 200);
+            lblEmail.Location = new Point(53, 259);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(53, 20);
             lblEmail.TabIndex = 6;
@@ -184,7 +186,7 @@
             // lblPass
             // 
             lblPass.AutoSize = true;
-            lblPass.Location = new Point(26, 240);
+            lblPass.Location = new Point(53, 302);
             lblPass.Name = "lblPass";
             lblPass.Size = new Size(77, 20);
             lblPass.TabIndex = 7;
@@ -193,7 +195,7 @@
             // lblAlamat
             // 
             lblAlamat.AutoSize = true;
-            lblAlamat.Location = new Point(26, 281);
+            lblAlamat.Location = new Point(53, 351);
             lblAlamat.Name = "lblAlamat";
             lblAlamat.Size = new Size(64, 20);
             lblAlamat.TabIndex = 8;
@@ -201,48 +203,50 @@
             // 
             // tbIdUser
             // 
-            tbIdUser.Location = new Point(114, 122);
+            tbIdUser.Location = new Point(153, 171);
             tbIdUser.Name = "tbIdUser";
-            tbIdUser.Size = new Size(217, 27);
+            tbIdUser.Size = new Size(264, 27);
             tbIdUser.TabIndex = 13;
             // 
             // tbUsername
             // 
-            tbUsername.Location = new Point(114, 161);
+            tbUsername.Location = new Point(153, 214);
             tbUsername.Name = "tbUsername";
-            tbUsername.Size = new Size(217, 27);
+            tbUsername.Size = new Size(264, 27);
             tbUsername.TabIndex = 14;
             tbUsername.KeyDown += tbUsername_KeyDown;
             // 
             // tbEmail
             // 
-            tbEmail.Location = new Point(114, 197);
+            tbEmail.Location = new Point(153, 259);
             tbEmail.Name = "tbEmail";
-            tbEmail.Size = new Size(217, 27);
+            tbEmail.Size = new Size(264, 27);
             tbEmail.TabIndex = 15;
             tbEmail.KeyDown += tbEmail_KeyDown;
             // 
             // tbPassword
             // 
-            tbPassword.Location = new Point(114, 237);
+            tbPassword.Location = new Point(153, 302);
             tbPassword.Name = "tbPassword";
-            tbPassword.Size = new Size(217, 27);
+            tbPassword.Size = new Size(264, 27);
             tbPassword.TabIndex = 16;
             tbPassword.UseSystemPasswordChar = true;
+            tbPassword.TextChanged += tbPassword_TextChanged;
             tbPassword.KeyDown += tbPassword_KeyDown;
             // 
             // tbAlamat
             // 
-            tbAlamat.Location = new Point(114, 278);
+            tbAlamat.Location = new Point(153, 348);
             tbAlamat.Name = "tbAlamat";
-            tbAlamat.Size = new Size(217, 27);
+            tbAlamat.Size = new Size(264, 27);
             tbAlamat.TabIndex = 17;
+            tbAlamat.TextChanged += tbAlamat_TextChanged;
             tbAlamat.KeyDown += tbAlamat_KeyDown;
             // 
             // lblIdUser
             // 
             lblIdUser.AutoSize = true;
-            lblIdUser.Location = new Point(26, 125);
+            lblIdUser.Location = new Point(53, 171);
             lblIdUser.Name = "lblIdUser";
             lblIdUser.Size = new Size(64, 20);
             lblIdUser.TabIndex = 4;
@@ -252,7 +256,7 @@
             // 
             lblProfil.AutoSize = true;
             lblProfil.Font = new Font("Segoe UI Semibold", 13.2000008F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            lblProfil.Location = new Point(26, 77);
+            lblProfil.Location = new Point(53, 108);
             lblProfil.Name = "lblProfil";
             lblProfil.Size = new Size(72, 31);
             lblProfil.TabIndex = 3;
@@ -273,6 +277,17 @@
             btnHome.TextImageRelation = TextImageRelation.ImageAboveText;
             btnHome.UseVisualStyleBackColor = false;
             btnHome.Click += btnHome_Click;
+            // 
+            // btnProfillogout
+            // 
+            btnProfillogout.BackColor = Color.FromArgb(255, 128, 128);
+            btnProfillogout.Location = new Point(495, 302);
+            btnProfillogout.Margin = new Padding(2);
+            btnProfillogout.Name = "btnProfillogout";
+            btnProfillogout.Size = new Size(129, 27);
+            btnProfillogout.TabIndex = 21;
+            btnProfillogout.Text = "Log Out";
+            btnProfillogout.UseVisualStyleBackColor = false;
             // 
             // profilForm
             // 
@@ -317,5 +332,6 @@
         private Button btProduk;
         private Button btPenawaran;
         private Button btPesanan;
+        private Button btnProfillogout;
     }
 }
