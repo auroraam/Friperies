@@ -16,5 +16,25 @@ namespace Friperies_2
         {
             InitializeComponent();
         }
+
+        private void buatPenawaranForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblUnggahdesitem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblBuatpenawaranitem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbKtgitem_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
