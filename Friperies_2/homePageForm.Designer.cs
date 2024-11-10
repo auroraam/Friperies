@@ -78,6 +78,7 @@
             btnExit.TabIndex = 8;
             btnExit.Text = " ";
             btnExit.UseVisualStyleBackColor = true;
+            btnExit.Click += btnExit_Click;
             // 
             // btnLogout
             // 
@@ -92,6 +93,7 @@
             btnLogout.TabIndex = 7;
             btnLogout.Text = " ";
             btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
             // 
             // panel2
             // 
@@ -123,6 +125,7 @@
             btnLihatProduk.TextAlign = ContentAlignment.BottomCenter;
             btnLihatProduk.TextImageRelation = TextImageRelation.ImageAboveText;
             btnLihatProduk.UseVisualStyleBackColor = true;
+            btnLihatProduk.Click += btnLihatProduk_Click;
             // 
             // btnProfil
             // 
@@ -139,6 +142,7 @@
             btnProfil.TextAlign = ContentAlignment.BottomCenter;
             btnProfil.TextImageRelation = TextImageRelation.ImageAboveText;
             btnProfil.UseVisualStyleBackColor = true;
+            btnProfil.Click += btnProfil_Click;
             // 
             // btnPesanan
             // 
@@ -155,6 +159,7 @@
             btnPesanan.TextAlign = ContentAlignment.BottomCenter;
             btnPesanan.TextImageRelation = TextImageRelation.ImageAboveText;
             btnPesanan.UseVisualStyleBackColor = true;
+            btnPesanan.Click += btnPesanan_Click;
             // 
             // btnPenawaran
             // 
@@ -171,6 +176,7 @@
             btnPenawaran.TextAlign = ContentAlignment.BottomCenter;
             btnPenawaran.TextImageRelation = TextImageRelation.ImageAboveText;
             btnPenawaran.UseVisualStyleBackColor = true;
+            btnPenawaran.Click += btnPenawaran_Click;
             // 
             // btnUnggahProduk
             // 
@@ -187,6 +193,7 @@
             btnUnggahProduk.TextAlign = ContentAlignment.BottomCenter;
             btnUnggahProduk.TextImageRelation = TextImageRelation.ImageAboveText;
             btnUnggahProduk.UseVisualStyleBackColor = true;
+            btnUnggahProduk.Click += btnUnggahProduk_Click;
             // 
             // homePageForm
             // 

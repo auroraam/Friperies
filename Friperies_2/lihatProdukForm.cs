@@ -26,5 +26,12 @@ namespace Friperies_2
         {
 
         }
+
+        private void btnPenawaran_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            buatPenawaranForm buatPenawaranForm = new buatPenawaranForm();
+            buatPenawaranForm.Show();
+        }
     }
 }

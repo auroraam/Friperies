@@ -29,7 +29,7 @@ namespace Friperies_2
         private void unggahProdukForm_Load(object sender, EventArgs e)
         {
             conn = new NpgsqlConnection(connstring);
-        } 
+        }
 
         private void btnUnggahfotoitem_Click(object sender, EventArgs e)
         {
@@ -38,11 +38,11 @@ namespace Friperies_2
             {
                 OpenFileDialog dialog = new OpenFileDialog();
                 dialog.Filter = "JPG files (*.jpg)|*.jpg|PNG files (*.png)|*.png|All files (*.*)|*.*";
-                
+
                 if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     imageLocation = dialog.FileName;
-                    image1.ImageLocation = imageLocation;
+                    //image1.ImageLocation = imageLocation;
                 }
             }
             catch (Exception ex)
@@ -61,15 +61,15 @@ namespace Friperies_2
                 cmd = new NpgsqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("$1", tbNamaitem.Text);
                 cmd.Parameters.AddWithValue("$2", tbKtgitem.Text);
-                cmd.Parameters.AddWithValue("$3", Convert.ToInt32(tbHargaitem.Text)); 
-                cmd.Parameters.AddWithValue("$4", currentUserId); 
+                cmd.Parameters.AddWithValue("$3", Convert.ToInt32(tbHargaitem.Text));
+                cmd.Parameters.AddWithValue("$4", currentUserId);
 
                 int newItemID = (int)cmd.ExecuteScalar();
 
                 MessageBox.Show($"Data Produk Berhasil diunggah dengan ID: {newItemID}", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 tbNamaitem.Text = rtbDesitem.Text = tbKtgitem.Text = tbHargaitem.Text = "";
-                image1.Image = null;
+                //image1.Image = null;
                 imageLocation = "";
             }
             catch (Exception ex)
@@ -83,16 +83,21 @@ namespace Friperies_2
             DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                this.Hide(); 
-                
+                this.Hide();
+
                 signinForm signinForm = new signinForm();
-                signinForm.ShowDialog(); 
+                signinForm.ShowDialog();
             }
         }
 
-        private void btnExit_Click (object sender, EventArgs e)
+        private void btnExit_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnUnggahitem_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

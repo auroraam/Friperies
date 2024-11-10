@@ -27,6 +27,7 @@ namespace Friperies_2
         public int userID
         {
             get {return _userID;}
+            set { _userID = value;}
         } 
         public string userName 
         {
@@ -47,56 +48,6 @@ namespace Friperies_2
         {
             get {return _userAddress;}
             set {_userAddress = value;}
-        }
-
-        public bool SignIn(string username, string password)
-        {
-            string connectionString = "Host = localhost; Port = 5432; Username = ...; Password = ...; Database = ...";
-
-            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
-            {
-                string query = "SELECT * FROM Users WHERE userName = @username AND userPass = @password";
-                NpgsqlCommand command = new NpgsqlCommand(query, connection);
-                command.Parameters.AddWithValue("username", username);
-                command.Parameters.AddWithValue("password", password);
-
-                connection.Open();
-                using (NpgsqlDataReader reader = command.ExecuteReader())
-                {
-                    if (reader.Read())
-                    {
-                        _userID = reader.GetInt32(reader.GetOrdinal("userID"));
-                        _userName = reader.GetString(reader.GetOrdinal("userName"));
-                        _userEmail = reader.GetString(reader.GetOrdinal("userEmail"));
-                        _userPass = reader.GetString(reader.GetOrdinal("userPass"));
-                        _userAddress = reader.GetString(reader.GetOrdinal("userAddress"));
-
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-            } 
-        }
-
-        public static void UserSignUp(string userName, string userEmail, string userPass, string userAddress, List<User> users)
-        {
-            // Check if email already exists
-            if (users.Any(u => u._userEmail == userEmail))
-            {
-                Console.WriteLine("Sign up failed. Email is already in use.");
-                return;
-            }
-
-            // Create a new user
-            int newUserID = users.Count + 1; // Simplified way to generate userID
-            User newUser = new User();
-            newUserID = newUser.userID;
-            string newusername = newUser.userName;
-            users.Add(newUser);
-            Console.WriteLine($"Sign up successful! Welcome, {userName}.");
         }
 
         public void UserUpdate (int userID, string userName, string userEmail, string userAddress)

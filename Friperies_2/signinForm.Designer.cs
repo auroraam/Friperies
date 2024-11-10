@@ -150,6 +150,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "signinForm";
             Text = "signupForm";
+            Load += signinForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
