@@ -97,5 +97,15 @@ namespace Friperies_2
         {
 
         }
+
+        private void tbAlamat_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
