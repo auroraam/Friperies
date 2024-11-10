@@ -31,9 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(buatPesananForm));
             panel1 = new Panel();
             btnExit = new Button();
-            btnLogout = new Button();
+            btnBack = new Button();
             panel3 = new Panel();
             panel2 = new Panel();
+            tbBuatpesanankrm = new TextBox();
+            lblBuatpesanankrm = new Label();
             btnBuatpesanan = new Button();
             btnPesananbatal = new Button();
             tbBuatpesanansts = new TextBox();
@@ -44,8 +46,6 @@
             lblBuatpesananitem = new Label();
             lblBuatPesanan = new Label();
             btnHome = new Button();
-            lblBuatpesanankrm = new Label();
-            tbBuatpesanankrm = new TextBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -55,7 +55,7 @@
             panel1.BackColor = Color.White;
             panel1.BorderStyle = BorderStyle.Fixed3D;
             panel1.Controls.Add(btnExit);
-            panel1.Controls.Add(btnLogout);
+            panel1.Controls.Add(btnBack);
             panel1.Controls.Add(panel3);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
@@ -79,19 +79,19 @@
             btnExit.UseVisualStyleBackColor = true;
             btnExit.Click += btnExit_Click;
             // 
-            // btnLogout
+            // btnBack
             // 
-            btnLogout.FlatAppearance.BorderSize = 0;
-            btnLogout.FlatStyle = FlatStyle.Flat;
-            btnLogout.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLogout.Image = (Image)resources.GetObject("btnLogout.Image");
-            btnLogout.Location = new Point(705, 6);
-            btnLogout.Margin = new Padding(2);
-            btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(44, 44);
-            btnLogout.TabIndex = 7;
-            btnLogout.Text = " ";
-            btnLogout.UseVisualStyleBackColor = true;
+            btnBack.FlatAppearance.BorderSize = 0;
+            btnBack.FlatStyle = FlatStyle.Flat;
+            btnBack.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnBack.Image = (Image)resources.GetObject("btnBack.Image");
+            btnBack.Location = new Point(705, 6);
+            btnBack.Margin = new Padding(2);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(44, 44);
+            btnBack.TabIndex = 7;
+            btnBack.Text = " ";
+            btnBack.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
@@ -123,6 +123,22 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(800, 560);
             panel2.TabIndex = 6;
+            // 
+            // tbBuatpesanankrm
+            // 
+            tbBuatpesanankrm.Location = new Point(194, 336);
+            tbBuatpesanankrm.Name = "tbBuatpesanankrm";
+            tbBuatpesanankrm.Size = new Size(410, 27);
+            tbBuatpesanankrm.TabIndex = 13;
+            // 
+            // lblBuatpesanankrm
+            // 
+            lblBuatpesanankrm.AutoSize = true;
+            lblBuatpesanankrm.Location = new Point(55, 343);
+            lblBuatpesanankrm.Name = "lblBuatpesanankrm";
+            lblBuatpesanankrm.Size = new Size(90, 20);
+            lblBuatpesanankrm.TabIndex = 12;
+            lblBuatpesanankrm.Text = "Pengiriman :";
             // 
             // btnBuatpesanan
             // 
@@ -219,22 +235,6 @@
             btnHome.TextImageRelation = TextImageRelation.ImageAboveText;
             btnHome.UseVisualStyleBackColor = false;
             // 
-            // lblBuatpesanankrm
-            // 
-            lblBuatpesanankrm.AutoSize = true;
-            lblBuatpesanankrm.Location = new Point(55, 343);
-            lblBuatpesanankrm.Name = "lblBuatpesanankrm";
-            lblBuatpesanankrm.Size = new Size(90, 20);
-            lblBuatpesanankrm.TabIndex = 12;
-            lblBuatpesanankrm.Text = "Pengiriman :";
-            // 
-            // tbBuatpesanankrm
-            // 
-            tbBuatpesanankrm.Location = new Point(194, 336);
-            tbBuatpesanankrm.Name = "tbBuatpesanankrm";
-            tbBuatpesanankrm.Size = new Size(410, 27);
-            tbBuatpesanankrm.TabIndex = 13;
-            // 
             // buatPesananForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -256,7 +256,7 @@
 
         private Panel panel1;
         private Button btnExit;
-        private Button btnLogout;
+        private Button btnBack;
         private Panel panel3;
         private Panel panel2;
         private Button btnHome;

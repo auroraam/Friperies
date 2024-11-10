@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(penawaranSellerForm));
             panel1 = new Panel();
             btnExit = new Button();
-            btnLogout = new Button();
+            btnBack = new Button();
             panel3 = new Panel();
             panel2 = new Panel();
             lblOfferpage = new Label();
@@ -54,7 +54,7 @@
             panel1.BackColor = Color.White;
             panel1.BorderStyle = BorderStyle.Fixed3D;
             panel1.Controls.Add(btnExit);
-            panel1.Controls.Add(btnLogout);
+            panel1.Controls.Add(btnBack);
             panel1.Controls.Add(panel3);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
@@ -77,19 +77,19 @@
             btnExit.Text = " ";
             btnExit.UseVisualStyleBackColor = true;
             // 
-            // btnLogout
+            // btnBack
             // 
-            btnLogout.FlatAppearance.BorderSize = 0;
-            btnLogout.FlatStyle = FlatStyle.Flat;
-            btnLogout.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLogout.Image = (Image)resources.GetObject("btnLogout.Image");
-            btnLogout.Location = new Point(705, 6);
-            btnLogout.Margin = new Padding(2);
-            btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(44, 44);
-            btnLogout.TabIndex = 7;
-            btnLogout.Text = " ";
-            btnLogout.UseVisualStyleBackColor = true;
+            btnBack.FlatAppearance.BorderSize = 0;
+            btnBack.FlatStyle = FlatStyle.Flat;
+            btnBack.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnBack.Image = (Image)resources.GetObject("btnBack.Image");
+            btnBack.Location = new Point(705, 6);
+            btnBack.Margin = new Padding(2);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(44, 44);
+            btnBack.TabIndex = 7;
+            btnBack.Text = " ";
+            btnBack.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
@@ -237,7 +237,7 @@
 
         private Panel panel1;
         private Button btnExit;
-        private Button btnLogout;
+        private Button btnBack;
         private Panel panel3;
         private Panel panel2;
         private Button btnHome;

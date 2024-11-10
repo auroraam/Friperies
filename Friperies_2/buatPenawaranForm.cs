@@ -60,5 +60,11 @@ namespace Friperies_2
             lihatProdukForm lihatProdukForm = new lihatProdukForm();
             lihatProdukForm.Show();
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide(); 
+            previousForm.Show(); 
+        }
     }
 }

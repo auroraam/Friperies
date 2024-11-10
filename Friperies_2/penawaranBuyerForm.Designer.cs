@@ -32,7 +32,7 @@
             panel3 = new Panel();
             panel1 = new Panel();
             btnExit = new Button();
-            btnLogout = new Button();
+            btnBack = new Button();
             btnHome = new Button();
             lblPenawaran = new Label();
             panel2 = new Panel();
@@ -65,7 +65,7 @@
             panel1.BackColor = Color.White;
             panel1.BorderStyle = BorderStyle.Fixed3D;
             panel1.Controls.Add(btnExit);
-            panel1.Controls.Add(btnLogout);
+            panel1.Controls.Add(btnBack);
             panel1.Controls.Add(panel3);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
@@ -89,19 +89,19 @@
             btnExit.UseVisualStyleBackColor = true;
             btnExit.Click += btnExit_Click;
             // 
-            // btnLogout
+            // btnBack
             // 
-            btnLogout.FlatAppearance.BorderSize = 0;
-            btnLogout.FlatStyle = FlatStyle.Flat;
-            btnLogout.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLogout.Image = (Image)resources.GetObject("btnLogout.Image");
-            btnLogout.Location = new Point(705, 6);
-            btnLogout.Margin = new Padding(2);
-            btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(44, 44);
-            btnLogout.TabIndex = 7;
-            btnLogout.Text = " ";
-            btnLogout.UseVisualStyleBackColor = true;
+            btnBack.FlatAppearance.BorderSize = 0;
+            btnBack.FlatStyle = FlatStyle.Flat;
+            btnBack.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnBack.Image = (Image)resources.GetObject("btnBack.Image");
+            btnBack.Location = new Point(705, 6);
+            btnBack.Margin = new Padding(2);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(44, 44);
+            btnBack.TabIndex = 7;
+            btnBack.Text = " ";
+            btnBack.UseVisualStyleBackColor = true;
             // 
             // btnHome
             // 
@@ -154,7 +154,7 @@
             // btLoad
             // 
             btLoad.Location = new Point(651, 434);
-            btLoad.Margin = new Padding(2, 2, 2, 2);
+            btLoad.Margin = new Padding(2);
             btLoad.Name = "btLoad";
             btLoad.Size = new Size(130, 37);
             btLoad.TabIndex = 21;
@@ -164,7 +164,7 @@
             // btCheckOut
             // 
             btCheckOut.Location = new Point(480, 118);
-            btCheckOut.Margin = new Padding(2, 2, 2, 2);
+            btCheckOut.Margin = new Padding(2);
             btCheckOut.Name = "btCheckOut";
             btCheckOut.Size = new Size(140, 87);
             btCheckOut.TabIndex = 20;
@@ -175,7 +175,7 @@
             // btnDelete
             // 
             btnDelete.Location = new Point(633, 118);
-            btnDelete.Margin = new Padding(2, 2, 2, 2);
+            btnDelete.Margin = new Padding(2);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(148, 87);
             btnDelete.TabIndex = 19;
@@ -241,7 +241,7 @@
             dgvPenawaran.AllowUserToAddRows = false;
             dgvPenawaran.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPenawaran.Location = new Point(26, 224);
-            dgvPenawaran.Margin = new Padding(2, 2, 2, 2);
+            dgvPenawaran.Margin = new Padding(2);
             dgvPenawaran.Name = "dgvPenawaran";
             dgvPenawaran.ReadOnly = true;
             dgvPenawaran.RowHeadersWidth = 62;
@@ -256,7 +256,7 @@
             Controls.Add(panel1);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "penawaranBuyerForm";
             Text = "penawaranBuyer";
             panel1.ResumeLayout(false);
@@ -271,7 +271,7 @@
         private Panel panel3;
         private Panel panel1;
         private Button btnExit;
-        private Button btnLogout;
+        private Button btnBack;
         private Button btnHome;
         private Label lblPenawaran;
         private Panel panel2;

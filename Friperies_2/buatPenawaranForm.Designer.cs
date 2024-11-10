@@ -1,6 +1,8 @@
 ﻿namespace Friperies_2
 {
-    partial class buatPenawaranForm
+    partial class 
+
+
     {
         /// <summary>
         /// Required designer variable.
@@ -32,11 +34,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(buatPenawaranForm));
             panel1 = new Panel();
             btnExit = new Button();
-            btnLogout = new Button();
+            btnBack = new Button();
             panel3 = new Panel();
             panel2 = new Panel();
             btnExit2 = new Button();
-            btnLogout2 = new Button();
+            btnBack = new Button();
             panel4 = new Panel();
             panel5 = new Panel();
             btnBuatpenawaranbatal = new Button();
@@ -66,7 +68,7 @@
             panel1.BackColor = Color.White;
             panel1.BorderStyle = BorderStyle.Fixed3D;
             panel1.Controls.Add(btnExit);
-            panel1.Controls.Add(btnLogout);
+            panel1.Controls.Add(btnBack);
             panel1.Controls.Add(panel3);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
@@ -89,19 +91,19 @@
             btnExit.Text = " ";
             btnExit.UseVisualStyleBackColor = true;
             // 
-            // btnLogout
+            // btnBack
             // 
-            btnLogout.FlatAppearance.BorderSize = 0;
-            btnLogout.FlatStyle = FlatStyle.Flat;
-            btnLogout.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLogout.Image = Properties.Resources.logout_4032999__1___1_;
-            btnLogout.Location = new Point(705, 6);
-            btnLogout.Margin = new Padding(2);
-            btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(44, 44);
-            btnLogout.TabIndex = 7;
-            btnLogout.Text = " ";
-            btnLogout.UseVisualStyleBackColor = true;
+            btnBack.FlatAppearance.BorderSize = 0;
+            btnBack.FlatStyle = FlatStyle.Flat;
+            btnBack.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnBack.Image = Properties.Resources.logout_4032999__1___1_;
+            btnBack.Location = new Point(705, 6);
+            btnBack.Margin = new Padding(2);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(44, 44);
+            btnBack.TabIndex = 7;
+            btnBack.Text = " ";
+            btnBack.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
@@ -117,7 +119,7 @@
             panel2.BackColor = Color.White;
             panel2.BorderStyle = BorderStyle.Fixed3D;
             panel2.Controls.Add(btnExit2);
-            panel2.Controls.Add(btnLogout2);
+            panel2.Controls.Add(btnBack);
             panel2.Controls.Add(panel4);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 1);
@@ -141,19 +143,20 @@
             btnExit2.UseVisualStyleBackColor = true;
             btnExit2.Click += btnExit2_Click;
             // 
-            // btnLogout2
+            // btnBack
             // 
-            btnLogout2.FlatAppearance.BorderSize = 0;
-            btnLogout2.FlatStyle = FlatStyle.Flat;
-            btnLogout2.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLogout2.Image = (Image)resources.GetObject("btnLogout2.Image");
-            btnLogout2.Location = new Point(705, 6);
-            btnLogout2.Margin = new Padding(2);
-            btnLogout2.Name = "btnLogout2";
-            btnLogout2.Size = new Size(44, 44);
-            btnLogout2.TabIndex = 7;
-            btnLogout2.Text = " ";
-            btnLogout2.UseVisualStyleBackColor = true;
+            btnBack.FlatAppearance.BorderSize = 0;
+            btnBack.FlatStyle = FlatStyle.Flat;
+            btnBack.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnBack.Image = (Image)resources.GetObject("btnBack.Image");
+            btnBack.Location = new Point(705, 6);
+            btnBack.Margin = new Padding(2);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(44, 44);
+            btnBack.TabIndex = 7;
+            btnBack.Text = " ";
+            btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
             // 
             // panel4
             // 
@@ -302,11 +305,11 @@
 
         private Panel panel1;
         private Button btnExit;
-        private Button btnLogout;
+        private Button btnBack;
         private Panel panel3;
         private Panel panel2;
         private Button btnExit2;
-        private Button btnLogout2;
+        private Button btnBack;
         private Panel panel4;
         private Panel panel5;
         private Label lblBuatpenawaranpage;
