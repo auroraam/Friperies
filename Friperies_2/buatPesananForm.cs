@@ -21,5 +21,10 @@ namespace Friperies_2
         {
 
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

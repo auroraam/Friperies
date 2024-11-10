@@ -76,6 +76,7 @@
             btnExit.TabIndex = 8;
             btnExit.Text = " ";
             btnExit.UseVisualStyleBackColor = true;
+            btnExit.Click += btnExit_Click;
             // 
             // btnLogout
             // 
@@ -125,7 +126,7 @@
             // 
             btnPesananterima.BackColor = Color.White;
             btnPesananterima.Location = new Point(301, 499);
-            btnPesananterima.Margin = new Padding(4, 4, 4, 4);
+            btnPesananterima.Margin = new Padding(4);
             btnPesananterima.Name = "btnPesananterima";
             btnPesananterima.Size = new Size(165, 41);
             btnPesananterima.TabIndex = 11;
@@ -137,7 +138,7 @@
             // 
             btnPesananbatal.BackColor = Color.FromArgb(255, 128, 128);
             btnPesananbatal.Location = new Point(51, 499);
-            btnPesananbatal.Margin = new Padding(4, 4, 4, 4);
+            btnPesananbatal.Margin = new Padding(4);
             btnPesananbatal.Name = "btnPesananbatal";
             btnPesananbatal.Size = new Size(165, 41);
             btnPesananbatal.TabIndex = 10;
@@ -147,7 +148,7 @@
             // tbPesananstskirim
             // 
             tbPesananstskirim.Location = new Point(229, 342);
-            tbPesananstskirim.Margin = new Padding(4, 4, 4, 4);
+            tbPesananstskirim.Margin = new Padding(4);
             tbPesananstskirim.Name = "tbPesananstskirim";
             tbPesananstskirim.Size = new Size(236, 31);
             tbPesananstskirim.TabIndex = 9;
@@ -155,7 +156,7 @@
             // tbPesananstsbayar
             // 
             tbPesananstsbayar.Location = new Point(229, 279);
-            tbPesananstsbayar.Margin = new Padding(4, 4, 4, 4);
+            tbPesananstsbayar.Margin = new Padding(4);
             tbPesananstsbayar.Name = "tbPesananstsbayar";
             tbPesananstsbayar.Size = new Size(236, 31);
             tbPesananstsbayar.TabIndex = 8;
@@ -163,7 +164,7 @@
             // tbPesananitem
             // 
             tbPesananitem.Location = new Point(229, 218);
-            tbPesananitem.Margin = new Padding(4, 4, 4, 4);
+            tbPesananitem.Margin = new Padding(4);
             tbPesananitem.Name = "tbPesananitem";
             tbPesananitem.Size = new Size(236, 31);
             tbPesananitem.TabIndex = 7;
@@ -172,7 +173,7 @@
             // 
             dgvPesanan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPesanan.Location = new Point(520, 196);
-            dgvPesanan.Margin = new Padding(4, 4, 4, 4);
+            dgvPesanan.Margin = new Padding(4);
             dgvPesanan.Name = "dgvPesanan";
             dgvPesanan.RowHeadersWidth = 51;
             dgvPesanan.Size = new Size(364, 344);
@@ -234,7 +235,7 @@
             btnHome.TextImageRelation = TextImageRelation.ImageAboveText;
             btnHome.UseVisualStyleBackColor = false;
             // 
-            // pesananForm
+            // buatPesananForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -243,7 +244,7 @@
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
-            Name = "pesananForm";
+            Name = "buatPesananForm";
             Text = "pesananForm";
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
