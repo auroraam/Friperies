@@ -26,5 +26,10 @@ namespace Friperies_2
         {
             Application.Exit();
         }
+
+        private void lblBuatpesanansts_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

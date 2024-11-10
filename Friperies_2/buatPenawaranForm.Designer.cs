@@ -58,7 +58,7 @@
             // 
             tbBuatpenawaranhrg.Location = new Point(281, 252);
             tbBuatpenawaranhrg.Name = "tbBuatpenawaranhrg";
-            tbBuatpenawaranhrg.Size = new Size(221, 27);
+            tbBuatpenawaranhrg.Size = new Size(379, 27);
             tbBuatpenawaranhrg.TabIndex = 9;
             // 
             // panel1
@@ -187,7 +187,7 @@
             // btnBuatpenawaranbatal
             // 
             btnBuatpenawaranbatal.BackColor = Color.FromArgb(255, 128, 128);
-            btnBuatpenawaranbatal.Location = new Point(167, 384);
+            btnBuatpenawaranbatal.Location = new Point(309, 381);
             btnBuatpenawaranbatal.Name = "btnBuatpenawaranbatal";
             btnBuatpenawaranbatal.Size = new Size(149, 36);
             btnBuatpenawaranbatal.TabIndex = 16;
@@ -207,7 +207,7 @@
             // 
             // btnBuatpenawaran
             // 
-            btnBuatpenawaran.Location = new Point(353, 384);
+            btnBuatpenawaran.Location = new Point(486, 381);
             btnBuatpenawaran.Name = "btnBuatpenawaran";
             btnBuatpenawaran.Size = new Size(149, 36);
             btnBuatpenawaran.TabIndex = 14;
@@ -250,7 +250,7 @@
             tbBuatpenawaranhrgawal.Location = new Point(281, 195);
             tbBuatpenawaranhrgawal.Name = "tbBuatpenawaranhrgawal";
             tbBuatpenawaranhrgawal.ReadOnly = true;
-            tbBuatpenawaranhrgawal.Size = new Size(221, 27);
+            tbBuatpenawaranhrgawal.Size = new Size(379, 27);
             tbBuatpenawaranhrgawal.TabIndex = 8;
             tbBuatpenawaranhrgawal.TextChanged += tbKtgitem_TextChanged;
             // 
@@ -260,7 +260,7 @@
             tbBuatpenawaranitem.Location = new Point(281, 143);
             tbBuatpenawaranitem.Name = "tbBuatpenawaranitem";
             tbBuatpenawaranitem.ReadOnly = true;
-            tbBuatpenawaranitem.Size = new Size(221, 27);
+            tbBuatpenawaranitem.Size = new Size(379, 27);
             tbBuatpenawaranitem.TabIndex = 6;
             // 
             // btnHome
