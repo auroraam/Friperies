@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Friperies_2
 {
-    public partial class penawaranForm : Form
+    public partial class penawaranSellerForm : Form
     {
-        public penawaranForm()
+        public penawaranSellerForm()
         {
             InitializeComponent();
         }

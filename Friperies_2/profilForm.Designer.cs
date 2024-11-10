@@ -137,6 +137,7 @@
             btProduk.TabIndex = 20;
             btProduk.Text = "Produk Anda";
             btProduk.UseVisualStyleBackColor = true;
+            btProduk.Click += btProduk_Click;
             // 
             // btPenawaran
             // 
@@ -146,6 +147,7 @@
             btPenawaran.TabIndex = 19;
             btPenawaran.Text = "Penawaran Anda";
             btPenawaran.UseVisualStyleBackColor = true;
+            btPenawaran.Click += btPenawaran_Click;
             // 
             // btPesanan
             // 
@@ -155,6 +157,7 @@
             btPesanan.TabIndex = 18;
             btPesanan.Text = "Pesanan Anda";
             btPesanan.UseVisualStyleBackColor = true;
+            btPesanan.Click += btPesanan_Click;
             // 
             // lblUsername
             // 
@@ -285,6 +288,7 @@
             ClientSize = new Size(1000, 700);
             Controls.Add(panel1);
             Controls.Add(panel2);
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
             Name = "profilForm";
             Text = "profilForm";

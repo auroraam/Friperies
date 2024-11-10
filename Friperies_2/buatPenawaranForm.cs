@@ -36,5 +36,29 @@ namespace Friperies_2
         {
 
         }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            homePageForm homePageForm = new homePageForm();
+            homePageForm.Show();
+        }
+
+        private void btnExit2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnBuatpenawaran_Click(object sender, EventArgs e)
+        {
+            //save offer ke db, terus back to lihat produk
+        }
+
+        private void btnBuatpenawaranbatal_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            lihatProdukForm lihatProdukForm = new lihatProdukForm();
+            lihatProdukForm.Show();
+        }
     }
 }
