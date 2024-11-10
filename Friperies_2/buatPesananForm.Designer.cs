@@ -1,6 +1,6 @@
 ﻿namespace Friperies_2
 {
-    partial class pesananForm
+    partial class buatPesananForm
     {
         /// <summary>
         /// Required designer variable.

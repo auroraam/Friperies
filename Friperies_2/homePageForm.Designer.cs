@@ -35,8 +35,6 @@
             panel2 = new Panel();
             btnLihatProduk = new Button();
             btnProfil = new Button();
-            btnPesanan = new Button();
-            btnPenawaran = new Button();
             btnUnggahProduk = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -45,10 +43,10 @@
             // panel3
             // 
             panel3.BackgroundImage = Properties.Resources.Screenshot_2024_10_20_at_17_40_01_removebg_preview__1_;
-            panel3.Location = new Point(8, 8);
+            panel3.Location = new Point(10, 10);
             panel3.Margin = new Padding(2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(204, 42);
+            panel3.Size = new Size(255, 52);
             panel3.TabIndex = 2;
             // 
             // panel1
@@ -62,7 +60,7 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(800, 60);
+            panel1.Size = new Size(1000, 74);
             panel1.TabIndex = 1;
             // 
             // btnExit
@@ -71,10 +69,10 @@
             btnExit.FlatStyle = FlatStyle.Flat;
             btnExit.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnExit.Image = Properties.Resources.cancel_5697779__1_;
-            btnExit.Location = new Point(746, 6);
+            btnExit.Location = new Point(932, 8);
             btnExit.Margin = new Padding(2);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(44, 44);
+            btnExit.Size = new Size(55, 55);
             btnExit.TabIndex = 8;
             btnExit.Text = " ";
             btnExit.UseVisualStyleBackColor = true;
@@ -86,10 +84,10 @@
             btnLogout.FlatStyle = FlatStyle.Flat;
             btnLogout.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnLogout.Image = Properties.Resources.logout_4032999__1___1_;
-            btnLogout.Location = new Point(705, 6);
+            btnLogout.Location = new Point(881, 8);
             btnLogout.Margin = new Padding(2);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(44, 44);
+            btnLogout.Size = new Size(55, 55);
             btnLogout.TabIndex = 7;
             btnLogout.Text = " ";
             btnLogout.UseVisualStyleBackColor = true;
@@ -100,14 +98,12 @@
             panel2.BackColor = Color.FromArgb(192, 192, 255);
             panel2.Controls.Add(btnLihatProduk);
             panel2.Controls.Add(btnProfil);
-            panel2.Controls.Add(btnPesanan);
-            panel2.Controls.Add(btnPenawaran);
             panel2.Controls.Add(btnUnggahProduk);
             panel2.Dock = DockStyle.Bottom;
             panel2.Location = new Point(0, 0);
-            panel2.Margin = new Padding(2, 2, 2, 2);
+            panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(800, 560);
+            panel2.Size = new Size(1000, 700);
             panel2.TabIndex = 2;
             // 
             // btnLihatProduk
@@ -116,10 +112,10 @@
             btnLihatProduk.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnLihatProduk.Image = Properties.Resources.cargo_3045489__1_;
             btnLihatProduk.ImageAlign = ContentAlignment.TopCenter;
-            btnLihatProduk.Location = new Point(300, 326);
-            btnLihatProduk.Margin = new Padding(2, 2, 2, 2);
+            btnLihatProduk.Location = new Point(373, 294);
+            btnLihatProduk.Margin = new Padding(2);
             btnLihatProduk.Name = "btnLihatProduk";
-            btnLihatProduk.Size = new Size(188, 114);
+            btnLihatProduk.Size = new Size(235, 142);
             btnLihatProduk.TabIndex = 5;
             btnLihatProduk.Text = "Lihat Produk";
             btnLihatProduk.TextAlign = ContentAlignment.BottomCenter;
@@ -133,10 +129,10 @@
             btnProfil.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnProfil.Image = Properties.Resources.user_7855633__1_;
             btnProfil.ImageAlign = ContentAlignment.TopCenter;
-            btnProfil.Location = new Point(521, 326);
-            btnProfil.Margin = new Padding(2, 2, 2, 2);
+            btnProfil.Location = new Point(658, 294);
+            btnProfil.Margin = new Padding(2);
             btnProfil.Name = "btnProfil";
-            btnProfil.Size = new Size(188, 114);
+            btnProfil.Size = new Size(235, 142);
             btnProfil.TabIndex = 4;
             btnProfil.Text = "Profil";
             btnProfil.TextAlign = ContentAlignment.BottomCenter;
@@ -144,50 +140,16 @@
             btnProfil.UseVisualStyleBackColor = true;
             btnProfil.Click += btnProfil_Click;
             // 
-            // btnPesanan
-            // 
-            btnPesanan.FlatAppearance.BorderSize = 3;
-            btnPesanan.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnPesanan.Image = Properties.Resources.pay_625548__1_;
-            btnPesanan.ImageAlign = ContentAlignment.TopCenter;
-            btnPesanan.Location = new Point(82, 326);
-            btnPesanan.Margin = new Padding(2, 2, 2, 2);
-            btnPesanan.Name = "btnPesanan";
-            btnPesanan.Size = new Size(188, 114);
-            btnPesanan.TabIndex = 3;
-            btnPesanan.Text = "Pesanan";
-            btnPesanan.TextAlign = ContentAlignment.BottomCenter;
-            btnPesanan.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnPesanan.UseVisualStyleBackColor = true;
-            btnPesanan.Click += btnPesanan_Click;
-            // 
-            // btnPenawaran
-            // 
-            btnPenawaran.FlatAppearance.BorderSize = 3;
-            btnPenawaran.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnPenawaran.Image = Properties.Resources.cargo_3045489__1_;
-            btnPenawaran.ImageAlign = ContentAlignment.TopCenter;
-            btnPenawaran.Location = new Point(434, 154);
-            btnPenawaran.Margin = new Padding(2, 2, 2, 2);
-            btnPenawaran.Name = "btnPenawaran";
-            btnPenawaran.Size = new Size(188, 114);
-            btnPenawaran.TabIndex = 2;
-            btnPenawaran.Text = "Penawaran";
-            btnPenawaran.TextAlign = ContentAlignment.BottomCenter;
-            btnPenawaran.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnPenawaran.UseVisualStyleBackColor = true;
-            btnPenawaran.Click += btnPenawaran_Click;
-            // 
             // btnUnggahProduk
             // 
             btnUnggahProduk.FlatAppearance.BorderSize = 3;
             btnUnggahProduk.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnUnggahProduk.Image = Properties.Resources.uploading_3305741__1___3_;
             btnUnggahProduk.ImageAlign = ContentAlignment.TopCenter;
-            btnUnggahProduk.Location = new Point(203, 154);
-            btnUnggahProduk.Margin = new Padding(2, 2, 2, 2);
+            btnUnggahProduk.Location = new Point(83, 294);
+            btnUnggahProduk.Margin = new Padding(2);
             btnUnggahProduk.Name = "btnUnggahProduk";
-            btnUnggahProduk.Size = new Size(188, 114);
+            btnUnggahProduk.Size = new Size(235, 142);
             btnUnggahProduk.TabIndex = 0;
             btnUnggahProduk.Text = "Unggah Produk";
             btnUnggahProduk.TextAlign = ContentAlignment.BottomCenter;
@@ -197,13 +159,13 @@
             // 
             // homePageForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 560);
+            ClientSize = new Size(1000, 700);
             Controls.Add(panel1);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "homePageForm";
             Text = "homePageForm";
             panel1.ResumeLayout(false);
@@ -219,8 +181,6 @@
         private Button btnLogout;
         private Panel panel2;
         private Button btnUnggahProduk;
-        private Button btnPesanan;
-        private Button btnPenawaran;
         private Button btnLihatProduk;
         private Button btnProfil;
     }

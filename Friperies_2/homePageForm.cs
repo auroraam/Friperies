@@ -24,20 +24,6 @@ namespace Friperies_2
             unggahProdukForm.Show();
         }
 
-        private void btnPenawaran_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            penawaranForm penawaranForm = new penawaranForm();
-            penawaranForm.Show();
-        }
-
-        private void btnPesanan_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            pesananForm pesananForm = new pesananForm();
-            pesananForm.Show();
-        }
-
         private void btnLihatProduk_Click(object sender, EventArgs e)
         {
             this.Hide();

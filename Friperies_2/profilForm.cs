@@ -78,5 +78,24 @@ namespace Friperies_2
             homePageForm homePageForm = new homePageForm();
             homePageForm.Show();
         }
+
+        private void btProduk_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            produkSellerForm produkSeller = new produkSellerForm();
+            produkSeller.Show();
+        }
+
+        private void btPenawaran_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            penawaranBuyerForm penawaranBuyer = new penawaranBuyerForm();
+            penawaranBuyer.Show();
+        }
+
+        private void btPesanan_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
