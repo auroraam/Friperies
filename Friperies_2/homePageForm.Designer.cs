@@ -28,11 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(homePageForm));
             panel3 = new Panel();
             panel1 = new Panel();
             btnExit = new Button();
-            btnBack = new Button();
             panel2 = new Panel();
             btnLihatProduk = new Button();
             btnProfil = new Button();
@@ -44,10 +42,10 @@
             // panel3
             // 
             panel3.BackgroundImage = Properties.Resources.Screenshot_2024_10_20_at_17_40_01_removebg_preview__1_;
-            panel3.Location = new Point(8, 8);
+            panel3.Location = new Point(10, 10);
             panel3.Margin = new Padding(2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(204, 42);
+            panel3.Size = new Size(255, 52);
             panel3.TabIndex = 2;
             // 
             // panel1
@@ -55,13 +53,12 @@
             panel1.BackColor = Color.White;
             panel1.BorderStyle = BorderStyle.Fixed3D;
             panel1.Controls.Add(btnExit);
-            panel1.Controls.Add(btnBack);
             panel1.Controls.Add(panel3);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(800, 60);
+            panel1.Size = new Size(1000, 74);
             panel1.TabIndex = 1;
             // 
             // btnExit
@@ -70,29 +67,14 @@
             btnExit.FlatStyle = FlatStyle.Flat;
             btnExit.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnExit.Image = Properties.Resources.cancel_5697779__1_;
-            btnExit.Location = new Point(746, 6);
+            btnExit.Location = new Point(932, 8);
             btnExit.Margin = new Padding(2);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(44, 44);
+            btnExit.Size = new Size(55, 55);
             btnExit.TabIndex = 8;
             btnExit.Text = " ";
             btnExit.UseVisualStyleBackColor = true;
             btnExit.Click += btnExit_Click;
-            // 
-            // btnBack
-            // 
-            btnBack.FlatAppearance.BorderSize = 0;
-            btnBack.FlatStyle = FlatStyle.Flat;
-            btnBack.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnBack.Image = (Image)resources.GetObject("btnBack.Image");
-            btnBack.Location = new Point(705, 6);
-            btnBack.Margin = new Padding(2);
-            btnBack.Name = "btnBack";
-            btnBack.Size = new Size(37, 44);
-            btnBack.TabIndex = 7;
-            btnBack.Text = " ";
-            btnBack.UseVisualStyleBackColor = true;
-            btnBack.Click += btnBack_Click;
             // 
             // panel2
             // 
@@ -104,7 +86,7 @@
             panel2.Location = new Point(0, 0);
             panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(800, 560);
+            panel2.Size = new Size(1000, 700);
             panel2.TabIndex = 2;
             // 
             // btnLihatProduk
@@ -113,10 +95,10 @@
             btnLihatProduk.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnLihatProduk.Image = Properties.Resources.cargo_3045489__1_;
             btnLihatProduk.ImageAlign = ContentAlignment.TopCenter;
-            btnLihatProduk.Location = new Point(298, 235);
+            btnLihatProduk.Location = new Point(372, 294);
             btnLihatProduk.Margin = new Padding(2);
             btnLihatProduk.Name = "btnLihatProduk";
-            btnLihatProduk.Size = new Size(188, 114);
+            btnLihatProduk.Size = new Size(235, 142);
             btnLihatProduk.TabIndex = 5;
             btnLihatProduk.Text = "Lihat Produk";
             btnLihatProduk.TextAlign = ContentAlignment.BottomCenter;
@@ -130,10 +112,10 @@
             btnProfil.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnProfil.Image = Properties.Resources.user_7855633__1_;
             btnProfil.ImageAlign = ContentAlignment.TopCenter;
-            btnProfil.Location = new Point(526, 235);
+            btnProfil.Location = new Point(658, 294);
             btnProfil.Margin = new Padding(2);
             btnProfil.Name = "btnProfil";
-            btnProfil.Size = new Size(188, 114);
+            btnProfil.Size = new Size(235, 142);
             btnProfil.TabIndex = 4;
             btnProfil.Text = "Profil";
             btnProfil.TextAlign = ContentAlignment.BottomCenter;
@@ -147,10 +129,10 @@
             btnUnggahProduk.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnUnggahProduk.Image = Properties.Resources.uploading_3305741__1___3_;
             btnUnggahProduk.ImageAlign = ContentAlignment.TopCenter;
-            btnUnggahProduk.Location = new Point(66, 235);
+            btnUnggahProduk.Location = new Point(82, 294);
             btnUnggahProduk.Margin = new Padding(2);
             btnUnggahProduk.Name = "btnUnggahProduk";
-            btnUnggahProduk.Size = new Size(188, 114);
+            btnUnggahProduk.Size = new Size(235, 142);
             btnUnggahProduk.TabIndex = 0;
             btnUnggahProduk.Text = "Unggah Produk";
             btnUnggahProduk.TextAlign = ContentAlignment.BottomCenter;
@@ -160,9 +142,9 @@
             // 
             // homePageForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 560);
+            ClientSize = new Size(1000, 700);
             Controls.Add(panel1);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
@@ -179,7 +161,6 @@
         private Panel panel3;
         private Panel panel1;
         private Button btnExit;
-        private Button btnBack;
         private Panel panel2;
         private Button btnUnggahProduk;
         private Button btnLihatProduk;

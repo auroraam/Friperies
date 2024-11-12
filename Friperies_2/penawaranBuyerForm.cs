@@ -35,5 +35,12 @@ namespace Friperies_2
             buatPesananForm buatPesananForm = new buatPesananForm();
             buatPesananForm.Show();
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            profilForm profilForm = new profilForm();
+            profilForm.Show();
+        }
     }
 }

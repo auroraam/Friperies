@@ -17,7 +17,7 @@ namespace Friperies_2
         {
             InitializeComponent();
         }
-    
+
         private NpgsqlConnection conn;
         string connstring = "Host = localhost; Port = 5432; Username = postgres; Password = Fhpduadua22; Database = Friperies";
         public DataTable dt;
@@ -28,7 +28,7 @@ namespace Friperies_2
         private void penawaranForm_Load(object sender, EventArgs e)
         {
             conn = new NpgsqlConnection(connstring);
-        } 
+        }
 
         private void btnOfferload_Click(object sender, EventArgs e)
         {
@@ -86,7 +86,7 @@ namespace Friperies_2
                     cmd.Parameters.AddWithValue("$2", offerId);
                     cmd.ExecuteNonQuery();
                     // Refresh DataGridView setelah update
-                    btnOfferload_Click(null, null); 
+                    btnOfferload_Click(null, null);
                     MessageBox.Show($"Penawaran {offerId} telah di {status.ToLower()}.");
                 }
                 catch (Exception ex)
@@ -105,16 +105,23 @@ namespace Friperies_2
             DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                this.Hide(); 
-                
+                this.Hide();
+
                 signinForm signinForm = new signinForm();
-                signinForm.ShowDialog(); 
+                signinForm.ShowDialog();
             }
         }
 
-        private void btnExit_Click (object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            produkSellerForm produkSellerForm = new produkSellerForm();
+            produkSellerForm.Show();
         }
     }
 }

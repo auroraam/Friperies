@@ -65,7 +65,7 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(800, 60);
+            panel1.Size = new Size(1000, 74);
             panel1.TabIndex = 5;
             // 
             // btnExit
@@ -74,10 +74,10 @@
             btnExit.FlatStyle = FlatStyle.Flat;
             btnExit.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnExit.Image = Properties.Resources.cancel_5697779__1_;
-            btnExit.Location = new Point(746, 6);
+            btnExit.Location = new Point(932, 8);
             btnExit.Margin = new Padding(2);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(44, 44);
+            btnExit.Size = new Size(55, 55);
             btnExit.TabIndex = 8;
             btnExit.Text = " ";
             btnExit.UseVisualStyleBackColor = true;
@@ -89,21 +89,22 @@
             btnBack.FlatStyle = FlatStyle.Flat;
             btnBack.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnBack.Image = (Image)resources.GetObject("btnBack.Image");
-            btnBack.Location = new Point(705, 6);
+            btnBack.Location = new Point(881, 8);
             btnBack.Margin = new Padding(2);
             btnBack.Name = "btnBack";
-            btnBack.Size = new Size(44, 44);
+            btnBack.Size = new Size(55, 55);
             btnBack.TabIndex = 7;
             btnBack.Text = " ";
             btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
             // 
             // panel3
             // 
             panel3.BackgroundImage = Properties.Resources.Screenshot_2024_10_20_at_17_40_01_removebg_preview__1_;
-            panel3.Location = new Point(8, 8);
+            panel3.Location = new Point(10, 10);
             panel3.Margin = new Padding(2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(205, 42);
+            panel3.Size = new Size(256, 52);
             panel3.TabIndex = 2;
             // 
             // panel2
@@ -129,26 +130,26 @@
             panel2.Location = new Point(0, 0);
             panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(800, 560);
+            panel2.Size = new Size(1000, 700);
             panel2.TabIndex = 6;
             // 
             // btnProfillogout
             // 
             btnProfillogout.BackColor = Color.FromArgb(255, 128, 128);
-            btnProfillogout.Location = new Point(495, 302);
+            btnProfillogout.Location = new Point(619, 378);
             btnProfillogout.Margin = new Padding(2);
             btnProfillogout.Name = "btnProfillogout";
-            btnProfillogout.Size = new Size(129, 27);
+            btnProfillogout.Size = new Size(161, 34);
             btnProfillogout.TabIndex = 21;
             btnProfillogout.Text = "Log Out";
             btnProfillogout.UseVisualStyleBackColor = false;
             // 
             // btProduk
             // 
-            btProduk.Location = new Point(495, 171);
+            btProduk.Location = new Point(619, 214);
             btProduk.Margin = new Padding(2);
             btProduk.Name = "btProduk";
-            btProduk.Size = new Size(129, 27);
+            btProduk.Size = new Size(161, 34);
             btProduk.TabIndex = 20;
             btProduk.Text = "Produk Anda";
             btProduk.UseVisualStyleBackColor = true;
@@ -156,10 +157,10 @@
             // 
             // btPenawaran
             // 
-            btPenawaran.Location = new Point(495, 214);
+            btPenawaran.Location = new Point(619, 268);
             btPenawaran.Margin = new Padding(2);
             btPenawaran.Name = "btPenawaran";
-            btPenawaran.Size = new Size(129, 27);
+            btPenawaran.Size = new Size(161, 34);
             btPenawaran.TabIndex = 19;
             btPenawaran.Text = "Penawaran Anda";
             btPenawaran.UseVisualStyleBackColor = true;
@@ -167,10 +168,10 @@
             // 
             // btPesanan
             // 
-            btPesanan.Location = new Point(495, 259);
+            btPesanan.Location = new Point(619, 324);
             btPesanan.Margin = new Padding(2);
             btPesanan.Name = "btPesanan";
-            btPesanan.Size = new Size(129, 27);
+            btPesanan.Size = new Size(161, 34);
             btPesanan.TabIndex = 18;
             btPesanan.Text = "Pesanan Anda";
             btPesanan.UseVisualStyleBackColor = true;
@@ -179,67 +180,75 @@
             // lblUsername
             // 
             lblUsername.AutoSize = true;
-            lblUsername.Location = new Point(53, 214);
+            lblUsername.Location = new Point(66, 268);
+            lblUsername.Margin = new Padding(4, 0, 4, 0);
             lblUsername.Name = "lblUsername";
-            lblUsername.Size = new Size(82, 20);
+            lblUsername.Size = new Size(100, 25);
             lblUsername.TabIndex = 5;
             lblUsername.Text = "Username :";
             // 
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(53, 259);
+            lblEmail.Location = new Point(66, 324);
+            lblEmail.Margin = new Padding(4, 0, 4, 0);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(53, 20);
+            lblEmail.Size = new Size(63, 25);
             lblEmail.TabIndex = 6;
             lblEmail.Text = "Email :";
             // 
             // lblPass
             // 
             lblPass.AutoSize = true;
-            lblPass.Location = new Point(53, 302);
+            lblPass.Location = new Point(66, 378);
+            lblPass.Margin = new Padding(4, 0, 4, 0);
             lblPass.Name = "lblPass";
-            lblPass.Size = new Size(77, 20);
+            lblPass.Size = new Size(96, 25);
             lblPass.TabIndex = 7;
             lblPass.Text = "Password :";
             // 
             // lblAlamat
             // 
             lblAlamat.AutoSize = true;
-            lblAlamat.Location = new Point(53, 351);
+            lblAlamat.Location = new Point(66, 439);
+            lblAlamat.Margin = new Padding(4, 0, 4, 0);
             lblAlamat.Name = "lblAlamat";
-            lblAlamat.Size = new Size(64, 20);
+            lblAlamat.Size = new Size(77, 25);
             lblAlamat.TabIndex = 8;
             lblAlamat.Text = "Alamat :";
             // 
             // tbIdUser
             // 
-            tbIdUser.Location = new Point(153, 171);
+            tbIdUser.Location = new Point(191, 214);
+            tbIdUser.Margin = new Padding(4, 4, 4, 4);
             tbIdUser.Name = "tbIdUser";
-            tbIdUser.Size = new Size(264, 27);
+            tbIdUser.Size = new Size(329, 31);
             tbIdUser.TabIndex = 13;
             // 
             // tbUsername
             // 
-            tbUsername.Location = new Point(153, 214);
+            tbUsername.Location = new Point(191, 268);
+            tbUsername.Margin = new Padding(4, 4, 4, 4);
             tbUsername.Name = "tbUsername";
-            tbUsername.Size = new Size(264, 27);
+            tbUsername.Size = new Size(329, 31);
             tbUsername.TabIndex = 14;
             tbUsername.KeyDown += tbUsername_KeyDown;
             // 
             // tbEmail
             // 
-            tbEmail.Location = new Point(153, 259);
+            tbEmail.Location = new Point(191, 324);
+            tbEmail.Margin = new Padding(4, 4, 4, 4);
             tbEmail.Name = "tbEmail";
-            tbEmail.Size = new Size(264, 27);
+            tbEmail.Size = new Size(329, 31);
             tbEmail.TabIndex = 15;
             tbEmail.KeyDown += tbEmail_KeyDown;
             // 
             // tbPassword
             // 
-            tbPassword.Location = new Point(153, 302);
+            tbPassword.Location = new Point(191, 378);
+            tbPassword.Margin = new Padding(4, 4, 4, 4);
             tbPassword.Name = "tbPassword";
-            tbPassword.Size = new Size(264, 27);
+            tbPassword.Size = new Size(329, 31);
             tbPassword.TabIndex = 16;
             tbPassword.UseSystemPasswordChar = true;
             tbPassword.TextChanged += tbPassword_TextChanged;
@@ -247,9 +256,10 @@
             // 
             // tbAlamat
             // 
-            tbAlamat.Location = new Point(153, 348);
+            tbAlamat.Location = new Point(191, 435);
+            tbAlamat.Margin = new Padding(4, 4, 4, 4);
             tbAlamat.Name = "tbAlamat";
-            tbAlamat.Size = new Size(264, 27);
+            tbAlamat.Size = new Size(329, 31);
             tbAlamat.TabIndex = 17;
             tbAlamat.TextChanged += tbAlamat_TextChanged;
             tbAlamat.KeyDown += tbAlamat_KeyDown;
@@ -257,9 +267,10 @@
             // lblIdUser
             // 
             lblIdUser.AutoSize = true;
-            lblIdUser.Location = new Point(53, 171);
+            lblIdUser.Location = new Point(66, 214);
+            lblIdUser.Margin = new Padding(4, 0, 4, 0);
             lblIdUser.Name = "lblIdUser";
-            lblIdUser.Size = new Size(64, 20);
+            lblIdUser.Size = new Size(79, 25);
             lblIdUser.TabIndex = 4;
             lblIdUser.Text = "ID User :";
             // 
@@ -267,9 +278,10 @@
             // 
             lblProfil.AutoSize = true;
             lblProfil.Font = new Font("Segoe UI Semibold", 13.2000008F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            lblProfil.Location = new Point(53, 108);
+            lblProfil.Location = new Point(66, 135);
+            lblProfil.Margin = new Padding(4, 0, 4, 0);
             lblProfil.Name = "lblProfil";
-            lblProfil.Size = new Size(72, 31);
+            lblProfil.Size = new Size(83, 37);
             lblProfil.TabIndex = 3;
             lblProfil.Text = "Profil";
             // 
@@ -279,10 +291,10 @@
             btnHome.FlatAppearance.BorderSize = 3;
             btnHome.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnHome.Image = Properties.Resources.house_10723029__1_;
-            btnHome.Location = new Point(718, 478);
+            btnHome.Location = new Point(898, 598);
             btnHome.Margin = new Padding(2);
             btnHome.Name = "btnHome";
-            btnHome.Size = new Size(62, 62);
+            btnHome.Size = new Size(78, 78);
             btnHome.TabIndex = 1;
             btnHome.TextAlign = ContentAlignment.BottomCenter;
             btnHome.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -291,9 +303,9 @@
             // 
             // profilForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 560);
+            ClientSize = new Size(1000, 700);
             Controls.Add(panel1);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;

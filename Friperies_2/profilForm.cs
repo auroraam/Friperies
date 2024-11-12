@@ -95,7 +95,9 @@ namespace Friperies_2
 
         private void btPesanan_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            pesananBuyerForm pesananBuyerForm = new pesananBuyerForm();
+            pesananBuyerForm.Show();
         }
 
         private void tbAlamat_TextChanged(object sender, EventArgs e)
@@ -106,6 +108,13 @@ namespace Friperies_2
         private void tbPassword_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            homePageForm homePageForm = new homePageForm();
+            homePageForm.Show();
         }
     }
 }
