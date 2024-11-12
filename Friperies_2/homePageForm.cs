@@ -43,14 +43,14 @@ namespace Friperies_2
             DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                this.Hide(); 
-                
+                this.Hide();
+
                 signinForm signinForm = new signinForm();
-                signinForm.ShowDialog(); 
+                signinForm.ShowDialog();
             }
         }
 
-        private void btnExit_Click (object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }

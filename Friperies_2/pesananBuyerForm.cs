@@ -28,5 +28,12 @@ namespace Friperies_2
         {
             Application.Exit();
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            profilForm profilForm = new profilForm();
+            profilForm.Show();
+        }
     }
 }

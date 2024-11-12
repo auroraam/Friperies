@@ -27,11 +27,18 @@ namespace Friperies_2
 
         }
 
-        private void btnPenawaran_Click(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            buatPenawaranForm buatPenawaranForm = new buatPenawaranForm();
-            buatPenawaranForm.Show();
+            homePageForm homePageForm = new homePageForm();
+            homePageForm.Show();
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            homePageForm homePageForm = new homePageForm();
+            homePageForm.Show();
         }
     }
 }

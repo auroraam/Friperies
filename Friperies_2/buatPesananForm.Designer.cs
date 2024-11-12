@@ -61,7 +61,7 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(800, 60);
+            panel1.Size = new Size(1000, 74);
             panel1.TabIndex = 5;
             // 
             // btnExit
@@ -70,10 +70,10 @@
             btnExit.FlatStyle = FlatStyle.Flat;
             btnExit.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnExit.Image = Properties.Resources.cancel_5697779__1_;
-            btnExit.Location = new Point(746, 6);
+            btnExit.Location = new Point(932, 8);
             btnExit.Margin = new Padding(2);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(44, 44);
+            btnExit.Size = new Size(55, 55);
             btnExit.TabIndex = 8;
             btnExit.Text = " ";
             btnExit.UseVisualStyleBackColor = true;
@@ -85,21 +85,22 @@
             btnBack.FlatStyle = FlatStyle.Flat;
             btnBack.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnBack.Image = (Image)resources.GetObject("btnBack.Image");
-            btnBack.Location = new Point(705, 6);
+            btnBack.Location = new Point(881, 8);
             btnBack.Margin = new Padding(2);
             btnBack.Name = "btnBack";
-            btnBack.Size = new Size(44, 44);
+            btnBack.Size = new Size(55, 55);
             btnBack.TabIndex = 7;
             btnBack.Text = " ";
             btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
             // 
             // panel3
             // 
             panel3.BackgroundImage = Properties.Resources.Screenshot_2024_10_20_at_17_40_01_removebg_preview__1_;
-            panel3.Location = new Point(8, 8);
+            panel3.Location = new Point(10, 10);
             panel3.Margin = new Padding(2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(166, 42);
+            panel3.Size = new Size(208, 52);
             panel3.TabIndex = 2;
             // 
             // panel2
@@ -121,31 +122,34 @@
             panel2.Location = new Point(0, 0);
             panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(800, 560);
+            panel2.Size = new Size(1000, 700);
             panel2.TabIndex = 6;
             // 
             // tbBuatpesanankrm
             // 
-            tbBuatpesanankrm.Location = new Point(194, 336);
+            tbBuatpesanankrm.Location = new Point(242, 420);
+            tbBuatpesanankrm.Margin = new Padding(4);
             tbBuatpesanankrm.Name = "tbBuatpesanankrm";
-            tbBuatpesanankrm.Size = new Size(410, 27);
+            tbBuatpesanankrm.Size = new Size(512, 31);
             tbBuatpesanankrm.TabIndex = 13;
             // 
             // lblBuatpesanankrm
             // 
             lblBuatpesanankrm.AutoSize = true;
-            lblBuatpesanankrm.Location = new Point(55, 343);
+            lblBuatpesanankrm.Location = new Point(69, 429);
+            lblBuatpesanankrm.Margin = new Padding(4, 0, 4, 0);
             lblBuatpesanankrm.Name = "lblBuatpesanankrm";
-            lblBuatpesanankrm.Size = new Size(90, 20);
+            lblBuatpesanankrm.Size = new Size(109, 25);
             lblBuatpesanankrm.TabIndex = 12;
             lblBuatpesanankrm.Text = "Pengiriman :";
             // 
             // btnBuatpesanan
             // 
             btnBuatpesanan.BackColor = Color.White;
-            btnBuatpesanan.Location = new Point(412, 429);
+            btnBuatpesanan.Location = new Point(515, 536);
+            btnBuatpesanan.Margin = new Padding(4);
             btnBuatpesanan.Name = "btnBuatpesanan";
-            btnBuatpesanan.Size = new Size(132, 33);
+            btnBuatpesanan.Size = new Size(165, 41);
             btnBuatpesanan.TabIndex = 11;
             btnBuatpesanan.Text = "Buat Pesanan";
             btnBuatpesanan.UseVisualStyleBackColor = false;
@@ -154,40 +158,45 @@
             // btnPesananbatal
             // 
             btnPesananbatal.BackColor = Color.FromArgb(255, 128, 128);
-            btnPesananbatal.Location = new Point(249, 429);
+            btnPesananbatal.Location = new Point(311, 536);
+            btnPesananbatal.Margin = new Padding(4);
             btnPesananbatal.Name = "btnPesananbatal";
-            btnPesananbatal.Size = new Size(132, 33);
+            btnPesananbatal.Size = new Size(165, 41);
             btnPesananbatal.TabIndex = 10;
             btnPesananbatal.Text = "Batalkan Pesanan";
             btnPesananbatal.UseVisualStyleBackColor = false;
             // 
             // tbBuatpesanansts
             // 
-            tbBuatpesanansts.Location = new Point(194, 284);
+            tbBuatpesanansts.Location = new Point(242, 355);
+            tbBuatpesanansts.Margin = new Padding(4);
             tbBuatpesanansts.Name = "tbBuatpesanansts";
-            tbBuatpesanansts.Size = new Size(410, 27);
+            tbBuatpesanansts.Size = new Size(512, 31);
             tbBuatpesanansts.TabIndex = 9;
             // 
             // tbBuatpesanantgl
             // 
-            tbBuatpesanantgl.Location = new Point(194, 232);
+            tbBuatpesanantgl.Location = new Point(242, 290);
+            tbBuatpesanantgl.Margin = new Padding(4);
             tbBuatpesanantgl.Name = "tbBuatpesanantgl";
-            tbBuatpesanantgl.Size = new Size(410, 27);
+            tbBuatpesanantgl.Size = new Size(512, 31);
             tbBuatpesanantgl.TabIndex = 8;
             // 
             // tbBuatpesananitem
             // 
-            tbBuatpesananitem.Location = new Point(194, 184);
+            tbBuatpesananitem.Location = new Point(242, 230);
+            tbBuatpesananitem.Margin = new Padding(4);
             tbBuatpesananitem.Name = "tbBuatpesananitem";
-            tbBuatpesananitem.Size = new Size(410, 27);
+            tbBuatpesananitem.Size = new Size(512, 31);
             tbBuatpesananitem.TabIndex = 7;
             // 
             // lblBuatpesanansts
             // 
             lblBuatpesanansts.AutoSize = true;
-            lblBuatpesanansts.Location = new Point(55, 287);
+            lblBuatpesanansts.Location = new Point(69, 359);
+            lblBuatpesanansts.Margin = new Padding(4, 0, 4, 0);
             lblBuatpesanansts.Name = "lblBuatpesanansts";
-            lblBuatpesanansts.Size = new Size(113, 20);
+            lblBuatpesanansts.Size = new Size(138, 25);
             lblBuatpesanansts.TabIndex = 5;
             lblBuatpesanansts.Text = "Status Pesanan :";
             lblBuatpesanansts.Click += lblBuatpesanansts_Click;
@@ -195,18 +204,20 @@
             // lblBuatpesanantgl
             // 
             lblBuatpesanantgl.AutoSize = true;
-            lblBuatpesanantgl.Location = new Point(55, 235);
+            lblBuatpesanantgl.Location = new Point(69, 294);
+            lblBuatpesanantgl.Margin = new Padding(4, 0, 4, 0);
             lblBuatpesanantgl.Name = "lblBuatpesanantgl";
-            lblBuatpesanantgl.Size = new Size(68, 20);
+            lblBuatpesanantgl.Size = new Size(82, 25);
             lblBuatpesanantgl.TabIndex = 4;
             lblBuatpesanantgl.Text = "Tanggal :";
             // 
             // lblBuatpesananitem
             // 
             lblBuatpesananitem.AutoSize = true;
-            lblBuatpesananitem.Location = new Point(55, 187);
+            lblBuatpesananitem.Location = new Point(69, 234);
+            lblBuatpesananitem.Margin = new Padding(4, 0, 4, 0);
             lblBuatpesananitem.Name = "lblBuatpesananitem";
-            lblBuatpesananitem.Size = new Size(106, 20);
+            lblBuatpesananitem.Size = new Size(130, 25);
             lblBuatpesananitem.TabIndex = 3;
             lblBuatpesananitem.Text = "Nama Produk :";
             // 
@@ -214,9 +225,10 @@
             // 
             lblBuatPesanan.AutoSize = true;
             lblBuatPesanan.Font = new Font("Segoe UI Semibold", 13.2000008F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            lblBuatPesanan.Location = new Point(55, 113);
+            lblBuatPesanan.Location = new Point(69, 141);
+            lblBuatPesanan.Margin = new Padding(4, 0, 4, 0);
             lblBuatPesanan.Name = "lblBuatPesanan";
-            lblBuatPesanan.Size = new Size(156, 31);
+            lblBuatPesanan.Size = new Size(183, 37);
             lblBuatPesanan.TabIndex = 2;
             lblBuatPesanan.Text = "Buat Pesanan";
             // 
@@ -226,20 +238,21 @@
             btnHome.FlatAppearance.BorderSize = 3;
             btnHome.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnHome.Image = Properties.Resources.house_10723029__1_;
-            btnHome.Location = new Point(718, 478);
+            btnHome.Location = new Point(898, 598);
             btnHome.Margin = new Padding(2);
             btnHome.Name = "btnHome";
-            btnHome.Size = new Size(62, 62);
+            btnHome.Size = new Size(78, 78);
             btnHome.TabIndex = 1;
             btnHome.TextAlign = ContentAlignment.BottomCenter;
             btnHome.TextImageRelation = TextImageRelation.ImageAboveText;
             btnHome.UseVisualStyleBackColor = false;
+            btnHome.Click += btnHome_Click;
             // 
             // buatPesananForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 560);
+            ClientSize = new Size(1000, 700);
             Controls.Add(panel1);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;

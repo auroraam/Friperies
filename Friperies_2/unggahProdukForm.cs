@@ -78,18 +78,6 @@ namespace Friperies_2
             }
         }
 
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                this.Hide();
-
-                signinForm signinForm = new signinForm();
-                signinForm.ShowDialog();
-            }
-        }
-
         private void btnExit_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
@@ -98,6 +86,20 @@ namespace Friperies_2
         private void btnUnggahitem_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            homePageForm homePageForm = new homePageForm();
+            homePageForm.Show();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            homePageForm homePageForm = new homePageForm();
+            homePageForm.Show();
         }
     }
 }
