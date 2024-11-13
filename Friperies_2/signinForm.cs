@@ -18,7 +18,7 @@ namespace Friperies_2
             InitializeComponent();
         }
 
-        User loggedInUser = new User();
+        public User loggedInUser = new User();
 
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -66,7 +66,7 @@ namespace Friperies_2
 
                                 // Pindah ke homeForm setelah berhasil sign in
                                 this.Hide();
-                                homePageForm homePageForm = new homePageForm();
+                                homePageForm homePageForm = new homePageForm(loggedInUser);
                                 homePageForm.Show();
                             }
                             else

@@ -12,6 +12,7 @@ namespace Friperies_2
 {
     public partial class lihatProdukForm : Form
     {
+        public User loggedInUser;
         public lihatProdukForm()
         {
             InitializeComponent();
@@ -30,14 +31,14 @@ namespace Friperies_2
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            homePageForm homePageForm = new homePageForm();
+            homePageForm homePageForm = new homePageForm(loggedInUser);
             homePageForm.Show();
         }
 
         private void btnHome_Click(object sender, EventArgs e)
         {
             this.Hide();
-            homePageForm homePageForm = new homePageForm();
+            homePageForm homePageForm = new homePageForm(loggedInUser);
             homePageForm.Show();
         }
     }

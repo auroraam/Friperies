@@ -12,9 +12,11 @@ namespace Friperies_2
 {
     public partial class homePageForm : Form
     {
-        public homePageForm()
+        public User loggedInUser;
+        public homePageForm(User user)
         {
             InitializeComponent();
+            loggedInUser = user;
         }
 
         private void btnUnggahProduk_Click(object sender, EventArgs e)
@@ -34,8 +36,8 @@ namespace Friperies_2
         private void btnProfil_Click(object sender, EventArgs e)
         {
             this.Hide();
-            profilForm profilForm = new profilForm();
-            profilForm.Show();
+            profilForm profilForm = new profilForm(loggedInUser);
+            profilForm.Show(); 
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
