@@ -13,6 +13,7 @@ namespace Friperies_2
 {
     public partial class buatPenawaranForm : Form
     {
+        public User loggedInUser;
         public buatPenawaranForm(int itemID, string itemName, int itemPrice, int userID, string userName, string userEmail, string userPass, string userAddress)
         {
             InitializeComponent();
@@ -84,7 +85,7 @@ namespace Friperies_2
         private void btnHome_Click(object sender, EventArgs e)
         {
             this.Hide();
-            homePageForm homePageForm = new homePageForm();
+            homePageForm homePageForm = new homePageForm(loggedInUser);
             homePageForm.Show();
         }
 

@@ -13,6 +13,7 @@ namespace Friperies_2
 {
     public partial class penawaranSellerForm : Form
     {
+        public User loggedInUser;
         public penawaranSellerForm()
         {
             InitializeComponent();
@@ -122,6 +123,13 @@ namespace Friperies_2
             this.Hide();
             produkSellerForm produkSellerForm = new produkSellerForm();
             produkSellerForm.Show();
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            homePageForm homePageForm = new homePageForm(loggedInUser);
+            homePageForm.Show();
         }
     }
 }

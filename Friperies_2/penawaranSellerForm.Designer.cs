@@ -135,7 +135,7 @@
             // btnOfferload
             // 
             btnOfferload.Location = new Point(701, 512);
-            btnOfferload.Margin = new Padding(4, 4, 4, 4);
+            btnOfferload.Margin = new Padding(4);
             btnOfferload.Name = "btnOfferload";
             btnOfferload.Size = new Size(184, 39);
             btnOfferload.TabIndex = 9;
@@ -145,7 +145,7 @@
             // btnOffertolak
             // 
             btnOffertolak.Location = new Point(649, 214);
-            btnOffertolak.Margin = new Padding(4, 4, 4, 4);
+            btnOffertolak.Margin = new Padding(4);
             btnOffertolak.Name = "btnOffertolak";
             btnOffertolak.Size = new Size(149, 42);
             btnOffertolak.TabIndex = 8;
@@ -156,7 +156,7 @@
             // btnOfferterima
             // 
             btnOfferterima.Location = new Point(649, 164);
-            btnOfferterima.Margin = new Padding(4, 4, 4, 4);
+            btnOfferterima.Margin = new Padding(4);
             btnOfferterima.Name = "btnOfferterima";
             btnOfferterima.Size = new Size(149, 42);
             btnOfferterima.TabIndex = 7;
@@ -166,7 +166,7 @@
             // tbOfferhargaitem
             // 
             tbOfferhargaitem.Location = new Point(314, 214);
-            tbOfferhargaitem.Margin = new Padding(4, 4, 4, 4);
+            tbOfferhargaitem.Margin = new Padding(4);
             tbOfferhargaitem.Name = "tbOfferhargaitem";
             tbOfferhargaitem.Size = new Size(263, 31);
             tbOfferhargaitem.TabIndex = 6;
@@ -174,7 +174,7 @@
             // tbOffernamaitem
             // 
             tbOffernamaitem.Location = new Point(314, 164);
-            tbOffernamaitem.Margin = new Padding(4, 4, 4, 4);
+            tbOffernamaitem.Margin = new Padding(4);
             tbOffernamaitem.Name = "tbOffernamaitem";
             tbOffernamaitem.Size = new Size(263, 31);
             tbOffernamaitem.TabIndex = 5;
@@ -204,7 +204,7 @@
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(134, 290);
-            dataGridView1.Margin = new Padding(4, 4, 4, 4);
+            dataGridView1.Margin = new Padding(4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(751, 201);
@@ -224,6 +224,7 @@
             btnHome.TextAlign = ContentAlignment.BottomCenter;
             btnHome.TextImageRelation = TextImageRelation.ImageAboveText;
             btnHome.UseVisualStyleBackColor = false;
+            btnHome.Click += btnHome_Click;
             // 
             // penawaranSellerForm
             // 

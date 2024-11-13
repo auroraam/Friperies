@@ -13,13 +13,14 @@ namespace Friperies_2
 {
     public partial class unggahProdukForm : Form
     {
+        public User loggedInUser;
         public unggahProdukForm()
         {
             InitializeComponent();
         }
 
         private NpgsqlConnection conn;
-        string connstring = "Host = localhost; Port = 5432; Username = postgres; Password = Fhpduadua22; Database = Friperies";
+        string connstring = "Host = localhost; Port = 5432; Username = postgres; Password =feather0325;Database=friperiesfix";
         public DataTable dt;
         public static NpgsqlCommand cmd;
         private string sql = null;
@@ -56,8 +57,8 @@ namespace Friperies_2
             try
             {
                 conn.Open();
-                sql = @"INSERT INTO Item (ItemName, ItemCategory, ItemPrice, OwnerItem, LikesCounter) 
-                        VALUES ($1, $2, $3, $4, 0) RETURNING ItemID";
+                sql = @"INSERT INTO public.""Item"" (""ItemName"", ""ItemCategory"", ""ItemPrice"", ""OwnerItem"", ""LikesCounter"") 
+                        VALUES ($1, $2, $3, $4, 0) RETURNING ""ItemID""";
                 cmd = new NpgsqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("$1", tbNamaitem.Text);
                 cmd.Parameters.AddWithValue("$2", tbKtgitem.Text);
@@ -91,14 +92,14 @@ namespace Friperies_2
         private void btnHome_Click(object sender, EventArgs e)
         {
             this.Hide();
-            homePageForm homePageForm = new homePageForm();
+            homePageForm homePageForm = new homePageForm(loggedInUser);
             homePageForm.Show();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            homePageForm homePageForm = new homePageForm();
+            homePageForm homePageForm = new homePageForm(loggedInUser);
             homePageForm.Show();
         }
     }
