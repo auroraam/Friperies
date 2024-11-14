@@ -44,7 +44,7 @@ namespace Friperies_2
                     conn.Open();
 
                     // Query untuk mengecek apakah username dan password cocok
-                    string query = @"SELECT ""UserID"" FROM public.""User"" WHERE ""UserName"" = @UserName AND ""UserPass"" = @UserPass";
+                    string query = @"SELECT * FROM public.""User"" WHERE ""UserName"" = @UserName AND ""UserPass"" = @UserPass";
                     using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@UserName", userName);
@@ -57,10 +57,11 @@ namespace Friperies_2
                                 MessageBox.Show("Sign In Berhasil!");
 
                                 // Jika berhasil login, simpan informasi pengguna
-                                int UserID = reader.GetInt32(reader.GetOrdinal("UserID"));
+                                loggedInUser.userID = reader.GetInt32(reader.GetOrdinal("UserID"));
+                                loggedInUser.userEmail = reader.GetString(reader.GetOrdinal("UserEmail"));
+                                loggedInUser.userAddress = reader.GetString(reader.GetOrdinal("UserAddress"));
 
                                 // Set informasi login pada objek loggedInUser
-                                loggedInUser.userID = UserID;
                                 loggedInUser.userName = userName;
                                 loggedInUser.userPass = userPass;
 

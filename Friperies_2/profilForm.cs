@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic.ApplicationServices;
 using Npgsql;
 
 namespace Friperies_2
@@ -19,21 +20,23 @@ namespace Friperies_2
             InitializeComponent();
             loggedInUser = user;
             tbUsername.Text = loggedInUser.userName;
+            tbIdUser.Text = loggedInUser.userID.ToString();
+            tbEmail.Text = loggedInUser.userEmail;
+            tbPassword.Text = loggedInUser.userPass;
+            tbAlamat.Text = loggedInUser.userAddress;
         }
 
         private void tbUsername_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                MessageBox.Show("Username telah diubah. Apakah Anda setuju untuk mengubah Username?", "Ubah Username", MessageBoxButtons.YesNo);
-                if (DialogResult == DialogResult.Yes)
+                DialogResult dialogResult = MessageBox.Show("Username telah diubah. Apakah Anda setuju untuk mengubah Username?", "Ubah Username", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
                 {
                     string newUsername = tbUsername.Text;
-                    int userId = loggedInUser.userID; // Ganti dengan ID atau data spesifik pengguna
+                    int userId = loggedInUser.userID; 
 
-                    MessageBox.Show("UserID: " + userId + ", New Username: " + newUsername);
-                    // String koneksi PostgreSQL
-                    string connectionString = "Host=5432;Username=postgres;Password=feather0325;Database=friperiesfix";
+                    string connectionString = "Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix";
 
                     using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
                     {
@@ -47,10 +50,11 @@ namespace Friperies_2
                                 cmd.Parameters.AddWithValue("@UserID", userId);
 
                                 int rowsAffected = cmd.ExecuteNonQuery();
-                                MessageBox.Show("Rows affected: " + rowsAffected.ToString());
                                 if (rowsAffected > 0)
                                 {
                                     MessageBox.Show("Username berhasil diubah.");
+                                    loggedInUser.userName = newUsername;
+                                    tbUsername.Text = loggedInUser.userName;
                                 }
                                 else
                                 {
@@ -71,10 +75,43 @@ namespace Friperies_2
         {
             if (e.KeyCode == Keys.Enter)
             {
-                MessageBox.Show("Ubah Email", "Email telah diubah. Apakah Anda setuju untuk mengubah Email?", MessageBoxButtons.YesNo);
-                if (DialogResult == DialogResult.Yes)
+                DialogResult dialogResult = MessageBox.Show("Email telah diubah. Apakah Anda setuju untuk mengubah Email?", "Ubah Email",  MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    //ubah email di db
+                    string newEmail = tbEmail.Text;
+                    int userId = loggedInUser.userID;
+
+                    string connectionString = "Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix";
+
+                    using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
+                    {
+                        try
+                        {
+                            conn.Open();
+                            string query = @"UPDATE public.""User"" SET ""UserEmail"" = @UserEmail WHERE ""UserID"" = @UserID";
+                            using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
+                            {
+                                cmd.Parameters.AddWithValue("@UserEmail", newEmail);
+                                cmd.Parameters.AddWithValue("@UserID", userId);
+
+                                int rowsAffected = cmd.ExecuteNonQuery();
+                                if (rowsAffected > 0)
+                                {
+                                    MessageBox.Show("Email berhasil diubah.");
+                                    loggedInUser.userEmail = newEmail;
+                                    tbEmail.Text = loggedInUser.userEmail;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Gagal mengubah Email.");
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Terjadi kesalahan: " + ex.Message);
+                        }
+                    }
                 }
             }
         }
@@ -83,10 +120,43 @@ namespace Friperies_2
         {
             if (e.KeyCode == Keys.Enter)
             {
-                MessageBox.Show("Ubah Password", "Password telah diubah. Apakah Anda setuju untuk mengubah Username?", MessageBoxButtons.YesNo);
-                if (DialogResult == DialogResult.Yes)
+                DialogResult dialogResult = MessageBox.Show("Password telah diubah. Apakah Anda setuju untuk mengubah Username?", "Ubah Password", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    //ubah password di db
+                    string newPass = tbPassword.Text;
+                    int userId = loggedInUser.userID;
+
+                    string connectionString = "Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix";
+
+                    using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
+                    {
+                        try
+                        {
+                            conn.Open();
+                            string query = @"UPDATE public.""User"" SET ""UserPass"" = @UserPass WHERE ""UserID"" = @UserID";
+                            using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
+                            {
+                                cmd.Parameters.AddWithValue("@UserName", newPass);
+                                cmd.Parameters.AddWithValue("@UserID", userId);
+
+                                int rowsAffected = cmd.ExecuteNonQuery();
+                                if (rowsAffected > 0)
+                                {
+                                    MessageBox.Show("Password berhasil diubah.");
+                                    loggedInUser.userPass = newPass;
+                                    tbPassword.Text = loggedInUser.userPass;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Gagal mengubah Password.");
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Terjadi kesalahan: " + ex.Message);
+                        }
+                    }
                 }
             }
         }
@@ -95,10 +165,43 @@ namespace Friperies_2
         {
             if (e.KeyCode == Keys.Enter)
             {
-                MessageBox.Show("Ubah Alamat", "Alamat telah diubah. Apakah Anda setuju untuk mengubah Username?", MessageBoxButtons.YesNo);
-                if (DialogResult == DialogResult.Yes)
+                DialogResult dialogResult = MessageBox.Show("Alamat telah diubah. Apakah Anda setuju untuk mengubah Username?", "Ubah Alamat", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    //ubah alamat di db
+                    string newAddress = tbAlamat.Text;
+                    int userId = loggedInUser.userID;
+
+                    string connectionString = "Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix";
+
+                    using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
+                    {
+                        try
+                        {
+                            conn.Open();
+                            string query = @"UPDATE public.""User"" SET ""UserAddress"" = @UserAddress WHERE ""UserID"" = @UserID";
+                            using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
+                            {
+                                cmd.Parameters.AddWithValue("@UserAddress", newAddress);
+                                cmd.Parameters.AddWithValue("@UserID", userId);
+
+                                int rowsAffected = cmd.ExecuteNonQuery();
+                                if (rowsAffected > 0)
+                                {
+                                    MessageBox.Show("Alamat berhasil diubah.");
+                                    loggedInUser.userAddress = newAddress;
+                                    tbAlamat.Text = loggedInUser.userAddress;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Gagal mengubah Alamat.");
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Terjadi kesalahan: " + ex.Message);
+                        }
+                    }
                 }
             }
         }
