@@ -37,30 +37,20 @@
             btnUnggahfotoitem = new Button();
             lblUploadpage = new Label();
             btnUnggahitem = new Button();
-            lblUnggahhargaitem = new Label();
-            lblUnggahktgitem = new Label();
             lblUnggahdesitem = new Label();
-            lblUnggahnamaitem = new Label();
-            tbHargaitem = new TextBox();
-            tbKtgitem = new TextBox();
             rtbDesitem = new RichTextBox();
-            tbNamaitem = new TextBox();
-            pbUnggahitem = new PictureBox();
             btnHome = new Button();
+            tbHargaitem = new TextBox();
+            lblUnggahhargaitem = new Label();
+            pbUnggahitem = new PictureBox();
+            lblUnggahktgitem = new Label();
+            tbNamaitem = new TextBox();
+            lblUnggahnamaitem = new Label();
+            cbKategori = new ComboBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbUnggahitem).BeginInit();
             SuspendLayout();
-            // 
-            // unggahProdukForm
-            // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 560);
-            Name = "unggahProdukForm";
-            Text = "unggahProdukForm";
-            Load += unggahProdukForm_Load;
-            ResumeLayout(false);
             // 
             // panel3
             // 
@@ -118,6 +108,7 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(192, 192, 255);
+            panel2.Controls.Add(cbKategori);
             panel2.Controls.Add(btnUnggahfotoitem);
             panel2.Controls.Add(lblUploadpage);
             panel2.Controls.Add(btnUnggahitem);
@@ -126,7 +117,6 @@
             panel2.Controls.Add(lblUnggahdesitem);
             panel2.Controls.Add(lblUnggahnamaitem);
             panel2.Controls.Add(tbHargaitem);
-            panel2.Controls.Add(tbKtgitem);
             panel2.Controls.Add(rtbDesitem);
             panel2.Controls.Add(tbNamaitem);
             panel2.Controls.Add(pbUnggahitem);
@@ -168,24 +158,6 @@
             btnUnggahitem.UseVisualStyleBackColor = true;
             btnUnggahitem.Click += btnUnggahitem_Click;
             // 
-            // lblUnggahhargaitem
-            // 
-            lblUnggahhargaitem.AutoSize = true;
-            lblUnggahhargaitem.Location = new Point(263, 332);
-            lblUnggahhargaitem.Name = "lblUnggahhargaitem";
-            lblUnggahhargaitem.Size = new Size(57, 20);
-            lblUnggahhargaitem.TabIndex = 13;
-            lblUnggahhargaitem.Text = "Harga :";
-            // 
-            // lblUnggahktgitem
-            // 
-            lblUnggahktgitem.AutoSize = true;
-            lblUnggahktgitem.Location = new Point(263, 285);
-            lblUnggahktgitem.Name = "lblUnggahktgitem";
-            lblUnggahktgitem.Size = new Size(77, 20);
-            lblUnggahktgitem.TabIndex = 12;
-            lblUnggahktgitem.Text = "Kategori : ";
-            // 
             // lblUnggahdesitem
             // 
             lblUnggahdesitem.AutoSize = true;
@@ -195,29 +167,6 @@
             lblUnggahdesitem.TabIndex = 11;
             lblUnggahdesitem.Text = "Deskripsi :";
             // 
-            // lblUnggahnamaitem
-            // 
-            lblUnggahnamaitem.AutoSize = true;
-            lblUnggahnamaitem.Location = new Point(263, 152);
-            lblUnggahnamaitem.Name = "lblUnggahnamaitem";
-            lblUnggahnamaitem.Size = new Size(106, 20);
-            lblUnggahnamaitem.TabIndex = 10;
-            lblUnggahnamaitem.Text = "Nama Produk :";
-            // 
-            // tbHargaitem
-            // 
-            tbHargaitem.Location = new Point(428, 325);
-            tbHargaitem.Name = "tbHargaitem";
-            tbHargaitem.Size = new Size(221, 27);
-            tbHargaitem.TabIndex = 9;
-            // 
-            // tbKtgitem
-            // 
-            tbKtgitem.Location = new Point(428, 285);
-            tbKtgitem.Name = "tbKtgitem";
-            tbKtgitem.Size = new Size(221, 27);
-            tbKtgitem.TabIndex = 8;
-            // 
             // rtbDesitem
             // 
             rtbDesitem.Location = new Point(428, 196);
@@ -225,21 +174,6 @@
             rtbDesitem.Size = new Size(221, 68);
             rtbDesitem.TabIndex = 7;
             rtbDesitem.Text = "";
-            // 
-            // tbNamaitem
-            // 
-            tbNamaitem.Location = new Point(428, 152);
-            tbNamaitem.Name = "tbNamaitem";
-            tbNamaitem.Size = new Size(221, 27);
-            tbNamaitem.TabIndex = 6;
-            // 
-            // pbUnggahitem
-            // 
-            pbUnggahitem.Location = new Point(69, 152);
-            pbUnggahitem.Name = "pbUnggahitem";
-            pbUnggahitem.Size = new Size(150, 200);
-            pbUnggahitem.TabIndex = 5;
-            pbUnggahitem.TabStop = false;
             // 
             // btnHome
             // 
@@ -257,6 +191,66 @@
             btnHome.UseVisualStyleBackColor = false;
             btnHome.Click += btnHome_Click;
             // 
+            // tbHargaitem
+            // 
+            tbHargaitem.Location = new Point(428, 325);
+            tbHargaitem.Name = "tbHargaitem";
+            tbHargaitem.Size = new Size(221, 27);
+            tbHargaitem.TabIndex = 9;
+            // 
+            // lblUnggahhargaitem
+            // 
+            lblUnggahhargaitem.AutoSize = true;
+            lblUnggahhargaitem.Location = new Point(263, 332);
+            lblUnggahhargaitem.Name = "lblUnggahhargaitem";
+            lblUnggahhargaitem.Size = new Size(57, 20);
+            lblUnggahhargaitem.TabIndex = 13;
+            lblUnggahhargaitem.Text = "Harga :";
+            // 
+            // pbUnggahitem
+            // 
+            pbUnggahitem.BackColor = Color.White;
+            pbUnggahitem.BorderStyle = BorderStyle.Fixed3D;
+            pbUnggahitem.Location = new Point(69, 152);
+            pbUnggahitem.Name = "pbUnggahitem";
+            pbUnggahitem.Size = new Size(150, 200);
+            pbUnggahitem.TabIndex = 5;
+            pbUnggahitem.TabStop = false;
+            // 
+            // lblUnggahktgitem
+            // 
+            lblUnggahktgitem.AutoSize = true;
+            lblUnggahktgitem.Location = new Point(263, 285);
+            lblUnggahktgitem.Name = "lblUnggahktgitem";
+            lblUnggahktgitem.Size = new Size(77, 20);
+            lblUnggahktgitem.TabIndex = 12;
+            lblUnggahktgitem.Text = "Kategori : ";
+            // 
+            // tbNamaitem
+            // 
+            tbNamaitem.Location = new Point(428, 152);
+            tbNamaitem.Name = "tbNamaitem";
+            tbNamaitem.Size = new Size(221, 27);
+            tbNamaitem.TabIndex = 6;
+            // 
+            // lblUnggahnamaitem
+            // 
+            lblUnggahnamaitem.AutoSize = true;
+            lblUnggahnamaitem.Location = new Point(263, 152);
+            lblUnggahnamaitem.Name = "lblUnggahnamaitem";
+            lblUnggahnamaitem.Size = new Size(106, 20);
+            lblUnggahnamaitem.TabIndex = 10;
+            lblUnggahnamaitem.Text = "Nama Produk :";
+            // 
+            // cbKategori
+            // 
+            cbKategori.FormattingEnabled = true;
+            cbKategori.Items.AddRange(new object[] { "Usia 0 - 1 Tahun", "Usia 1 - 3 Tahun", "Usia 3 - 5 Tahun" });
+            cbKategori.Location = new Point(428, 285);
+            cbKategori.Name = "cbKategori";
+            cbKategori.Size = new Size(221, 28);
+            cbKategori.TabIndex = 17;
+            // 
             // unggahProdukForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -268,6 +262,7 @@
             Margin = new Padding(2);
             Name = "unggahProdukForm";
             Text = "unggahProdukForm";
+            Load += unggahProdukForm_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -283,17 +278,17 @@
         private Button btnBack;
         private Panel panel2;
         private Button btnHome;
-        private PictureBox pbUnggahitem;
-        private TextBox tbHargaitem;
-        private TextBox tbKtgitem;
         private RichTextBox rtbDesitem;
-        private TextBox tbNamaitem;
-        private Label lblUnggahhargaitem;
-        private Label lblUnggahktgitem;
         private Label lblUnggahdesitem;
-        private Label lblUnggahnamaitem;
         private Button btnUnggahitem;
         private Label lblUploadpage;
         private Button btnUnggahfotoitem;
+        private Label lblUnggahhargaitem;
+        private Label lblUnggahktgitem;
+        private Label lblUnggahnamaitem;
+        private TextBox tbHargaitem;
+        private TextBox tbNamaitem;
+        private PictureBox pbUnggahitem;
+        private ComboBox cbKategori;
     }
 }
