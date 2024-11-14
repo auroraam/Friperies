@@ -41,5 +41,20 @@ namespace Friperies_2
             homePageForm homePageForm = new homePageForm(loggedInUser);
             homePageForm.Show();
         }
+
+        private void btnBuatPenawaran_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMuatproduk_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

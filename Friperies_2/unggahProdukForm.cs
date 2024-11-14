@@ -37,13 +37,12 @@ namespace Friperies_2
             string imageLocation = "";
             try
             {
-                OpenFileDialog dialog = new OpenFileDialog();
-                dialog.Filter = "JPG files (*.jpg)|*.jpg|PNG files (*.png)|*.png|All files (*.*)|*.*";
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "JPG files (*.jpg)|*.jpg|PNG files (*.png)|*.png|All files (*.*)|*.*";
 
-                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    imageLocation = dialog.FileName;
-                    //image1.ImageLocation = imageLocation;
+                    pbUnggahitem.Image = new Bitmap(openFileDialog.FileName);
                 }
             }
             catch (Exception ex)

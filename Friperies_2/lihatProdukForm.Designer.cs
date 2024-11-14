@@ -28,66 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Label lblHargaitem1;
-            Label lblHargaitem2;
-            Label lblHargaitem3;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(lihatProdukForm));
             panel1 = new Panel();
             btnExit = new Button();
             btnBack = new Button();
             panel3 = new Panel();
             panel2 = new Panel();
-            pnlItem3 = new Panel();
-            lblItem3 = new Label();
-            btnItem3 = new Button();
-            pnlItem2 = new Panel();
-            lblItem2 = new Label();
-            btnItem2 = new Button();
-            pnlItem1 = new Panel();
-            lblItem1 = new Label();
-            btnItem1 = new Button();
-            rbKtg3 = new RadioButton();
-            rbKtg2 = new RadioButton();
-            rbKtg1 = new RadioButton();
-            lblPilihKtg = new Label();
+            btnBuatPenawaran = new Button();
+            btnMuatproduk = new Button();
+            lblUnggahhargaitem = new Label();
+            lblUnggahktgitem = new Label();
+            lblUnggahnamaitem = new Label();
+            tbHargaitem = new TextBox();
+            tbKtgitem = new TextBox();
+            tbNamaitem = new TextBox();
+            pbUnggahitem = new PictureBox();
+            dataGridView1 = new DataGridView();
             lblLihatitem = new Label();
             btnHome = new Button();
-            lblHargaitem1 = new Label();
-            lblHargaitem2 = new Label();
-            lblHargaitem3 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            pnlItem3.SuspendLayout();
-            pnlItem2.SuspendLayout();
-            pnlItem1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbUnggahitem).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
-            // 
-            // lblHargaitem1
-            // 
-            lblHargaitem1.AutoSize = true;
-            lblHargaitem1.Location = new Point(33, 212);
-            lblHargaitem1.Name = "lblHargaitem1";
-            lblHargaitem1.Size = new Size(84, 20);
-            lblHargaitem1.TabIndex = 2;
-            lblHargaitem1.Text = "IDR119.000";
-            // 
-            // lblHargaitem2
-            // 
-            lblHargaitem2.AutoSize = true;
-            lblHargaitem2.Location = new Point(33, 212);
-            lblHargaitem2.Name = "lblHargaitem2";
-            lblHargaitem2.Size = new Size(76, 20);
-            lblHargaitem2.TabIndex = 2;
-            lblHargaitem2.Text = "IDR99.000";
-            // 
-            // lblHargaitem3
-            // 
-            lblHargaitem3.AutoSize = true;
-            lblHargaitem3.Location = new Point(33, 212);
-            lblHargaitem3.Name = "lblHargaitem3";
-            lblHargaitem3.Size = new Size(84, 20);
-            lblHargaitem3.TabIndex = 2;
-            lblHargaitem3.Text = "IDR130.000";
             // 
             // panel1
             // 
@@ -116,6 +79,7 @@
             btnExit.TabIndex = 8;
             btnExit.Text = " ";
             btnExit.UseVisualStyleBackColor = true;
+            btnExit.Click += btnExit_Click;
             // 
             // btnBack
             // 
@@ -144,13 +108,16 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(192, 192, 255);
-            panel2.Controls.Add(pnlItem3);
-            panel2.Controls.Add(pnlItem2);
-            panel2.Controls.Add(pnlItem1);
-            panel2.Controls.Add(rbKtg3);
-            panel2.Controls.Add(rbKtg2);
-            panel2.Controls.Add(rbKtg1);
-            panel2.Controls.Add(lblPilihKtg);
+            panel2.Controls.Add(btnBuatPenawaran);
+            panel2.Controls.Add(btnMuatproduk);
+            panel2.Controls.Add(lblUnggahhargaitem);
+            panel2.Controls.Add(lblUnggahktgitem);
+            panel2.Controls.Add(lblUnggahnamaitem);
+            panel2.Controls.Add(tbHargaitem);
+            panel2.Controls.Add(tbKtgitem);
+            panel2.Controls.Add(tbNamaitem);
+            panel2.Controls.Add(pbUnggahitem);
+            panel2.Controls.Add(dataGridView1);
             panel2.Controls.Add(lblLihatitem);
             panel2.Controls.Add(btnHome);
             panel2.Dock = DockStyle.Bottom;
@@ -160,147 +127,98 @@
             panel2.Size = new Size(800, 560);
             panel2.TabIndex = 6;
             // 
-            // pnlItem3
+            // btnBuatPenawaran
             // 
-            pnlItem3.BackColor = Color.White;
-            pnlItem3.Controls.Add(lblHargaitem3);
-            pnlItem3.Controls.Add(lblItem3);
-            pnlItem3.Controls.Add(btnItem3);
-            pnlItem3.Location = new Point(513, 211);
-            pnlItem3.Name = "pnlItem3";
-            pnlItem3.Size = new Size(150, 250);
-            pnlItem3.TabIndex = 9;
+            btnBuatPenawaran.Location = new Point(551, 215);
+            btnBuatPenawaran.Name = "btnBuatPenawaran";
+            btnBuatPenawaran.Size = new Size(130, 29);
+            btnBuatPenawaran.TabIndex = 22;
+            btnBuatPenawaran.Text = "Buat Penawaran";
+            btnBuatPenawaran.UseVisualStyleBackColor = true;
+            btnBuatPenawaran.Click += btnBuatPenawaran_Click;
             // 
-            // lblItem3
+            // btnMuatproduk
             // 
-            lblItem3.AutoSize = true;
-            lblItem3.Location = new Point(7, 186);
-            lblItem3.Name = "lblItem3";
-            lblItem3.Size = new Size(135, 20);
-            lblItem3.TabIndex = 1;
-            lblItem3.Text = "Floral Woven Dress";
+            btnMuatproduk.Location = new Point(566, 511);
+            btnMuatproduk.Name = "btnMuatproduk";
+            btnMuatproduk.Size = new Size(115, 29);
+            btnMuatproduk.TabIndex = 21;
+            btnMuatproduk.Text = "Muat Produk";
+            btnMuatproduk.UseVisualStyleBackColor = true;
+            btnMuatproduk.Click += btnMuatproduk_Click;
             // 
-            // btnItem3
+            // lblUnggahhargaitem
             // 
-            btnItem3.BackgroundImage = (Image)resources.GetObject("btnItem3.BackgroundImage");
-            btnItem3.Location = new Point(25, 18);
-            btnItem3.Name = "btnItem3";
-            btnItem3.Size = new Size(100, 150);
-            btnItem3.TabIndex = 0;
-            btnItem3.UseVisualStyleBackColor = true;
+            lblUnggahhargaitem.AutoSize = true;
+            lblUnggahhargaitem.Location = new Point(190, 223);
+            lblUnggahhargaitem.Name = "lblUnggahhargaitem";
+            lblUnggahhargaitem.Size = new Size(57, 20);
+            lblUnggahhargaitem.TabIndex = 20;
+            lblUnggahhargaitem.Text = "Harga :";
             // 
-            // pnlItem2
+            // lblUnggahktgitem
             // 
-            pnlItem2.BackColor = Color.White;
-            pnlItem2.Controls.Add(lblHargaitem2);
-            pnlItem2.Controls.Add(lblItem2);
-            pnlItem2.Controls.Add(btnItem2);
-            pnlItem2.Location = new Point(296, 211);
-            pnlItem2.Name = "pnlItem2";
-            pnlItem2.Size = new Size(150, 250);
-            pnlItem2.TabIndex = 9;
+            lblUnggahktgitem.AutoSize = true;
+            lblUnggahktgitem.Location = new Point(190, 176);
+            lblUnggahktgitem.Name = "lblUnggahktgitem";
+            lblUnggahktgitem.Size = new Size(77, 20);
+            lblUnggahktgitem.TabIndex = 19;
+            lblUnggahktgitem.Text = "Kategori : ";
             // 
-            // lblItem2
+            // lblUnggahnamaitem
             // 
-            lblItem2.AutoSize = true;
-            lblItem2.Location = new Point(7, 186);
-            lblItem2.Name = "lblItem2";
-            lblItem2.Size = new Size(140, 20);
-            lblItem2.TabIndex = 1;
-            lblItem2.Text = "Bee You 3-Piece Set";
+            lblUnggahnamaitem.AutoSize = true;
+            lblUnggahnamaitem.Location = new Point(190, 132);
+            lblUnggahnamaitem.Name = "lblUnggahnamaitem";
+            lblUnggahnamaitem.Size = new Size(106, 20);
+            lblUnggahnamaitem.TabIndex = 18;
+            lblUnggahnamaitem.Text = "Nama Produk :";
             // 
-            // btnItem2
+            // tbHargaitem
             // 
-            btnItem2.BackgroundImage = (Image)resources.GetObject("btnItem2.BackgroundImage");
-            btnItem2.Location = new Point(25, 18);
-            btnItem2.Name = "btnItem2";
-            btnItem2.Size = new Size(100, 150);
-            btnItem2.TabIndex = 0;
-            btnItem2.UseVisualStyleBackColor = true;
+            tbHargaitem.Location = new Point(309, 216);
+            tbHargaitem.Name = "tbHargaitem";
+            tbHargaitem.Size = new Size(221, 27);
+            tbHargaitem.TabIndex = 17;
             // 
-            // pnlItem1
+            // tbKtgitem
             // 
-            pnlItem1.BackColor = Color.White;
-            pnlItem1.Controls.Add(lblHargaitem1);
-            pnlItem1.Controls.Add(lblItem1);
-            pnlItem1.Controls.Add(btnItem1);
-            pnlItem1.Location = new Point(61, 211);
-            pnlItem1.Name = "pnlItem1";
-            pnlItem1.Size = new Size(150, 250);
-            pnlItem1.TabIndex = 8;
+            tbKtgitem.Location = new Point(309, 176);
+            tbKtgitem.Name = "tbKtgitem";
+            tbKtgitem.Size = new Size(221, 27);
+            tbKtgitem.TabIndex = 16;
             // 
-            // lblItem1
+            // tbNamaitem
             // 
-            lblItem1.AutoSize = true;
-            lblItem1.Location = new Point(7, 186);
-            lblItem1.Name = "lblItem1";
-            lblItem1.Size = new Size(133, 20);
-            lblItem1.TabIndex = 1;
-            lblItem1.Text = "Frog Dungaree Set";
+            tbNamaitem.Location = new Point(309, 132);
+            tbNamaitem.Name = "tbNamaitem";
+            tbNamaitem.Size = new Size(221, 27);
+            tbNamaitem.TabIndex = 15;
             // 
-            // btnItem1
+            // pbUnggahitem
             // 
-            btnItem1.BackgroundImage = (Image)resources.GetObject("btnItem1.BackgroundImage");
-            btnItem1.Location = new Point(25, 18);
-            btnItem1.Name = "btnItem1";
-            btnItem1.Size = new Size(100, 150);
-            btnItem1.TabIndex = 0;
-            btnItem1.UseVisualStyleBackColor = true;
+            pbUnggahitem.BackColor = Color.White;
+            pbUnggahitem.BorderStyle = BorderStyle.Fixed3D;
+            pbUnggahitem.Location = new Point(64, 115);
+            pbUnggahitem.Name = "pbUnggahitem";
+            pbUnggahitem.Size = new Size(105, 140);
+            pbUnggahitem.TabIndex = 14;
+            pbUnggahitem.TabStop = false;
             // 
-            // rbKtg3
+            // dataGridView1
             // 
-            rbKtg3.AutoSize = true;
-            rbKtg3.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            rbKtg3.Location = new Point(509, 159);
-            rbKtg3.Name = "rbKtg3";
-            rbKtg3.Size = new Size(154, 27);
-            rbKtg3.TabIndex = 7;
-            rbKtg3.TabStop = true;
-            rbKtg3.Text = "Usia 3 - 5 Tahun";
-            rbKtg3.UseVisualStyleBackColor = true;
-            rbKtg3.CheckedChanged += rbKtg3_CheckedChanged;
-            // 
-            // rbKtg2
-            // 
-            rbKtg2.AutoSize = true;
-            rbKtg2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            rbKtg2.Location = new Point(294, 159);
-            rbKtg2.Name = "rbKtg2";
-            rbKtg2.Size = new Size(152, 27);
-            rbKtg2.TabIndex = 6;
-            rbKtg2.TabStop = true;
-            rbKtg2.Text = "Usia 1 - 3 Tahun";
-            rbKtg2.UseVisualStyleBackColor = true;
-            // 
-            // rbKtg1
-            // 
-            rbKtg1.AutoSize = true;
-            rbKtg1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            rbKtg1.Location = new Point(61, 159);
-            rbKtg1.Name = "rbKtg1";
-            rbKtg1.Size = new Size(152, 27);
-            rbKtg1.TabIndex = 5;
-            rbKtg1.TabStop = true;
-            rbKtg1.Text = "Usia 0 - 1 Tahun";
-            rbKtg1.UseVisualStyleBackColor = true;
-            rbKtg1.CheckedChanged += rbKtg1_CheckedChanged;
-            // 
-            // lblPilihKtg
-            // 
-            lblPilihKtg.AutoSize = true;
-            lblPilihKtg.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblPilihKtg.Location = new Point(310, 121);
-            lblPilihKtg.Name = "lblPilihKtg";
-            lblPilihKtg.Size = new Size(124, 25);
-            lblPilihKtg.TabIndex = 4;
-            lblPilihKtg.Text = "Pilih Kategori";
-            lblPilihKtg.TextAlign = ContentAlignment.TopCenter;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(64, 281);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(617, 214);
+            dataGridView1.TabIndex = 8;
             // 
             // lblLihatitem
             // 
             lblLihatitem.AutoSize = true;
             lblLihatitem.Font = new Font("Segoe UI Semibold", 13.2000008F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            lblLihatitem.Location = new Point(26, 84);
+            lblLihatitem.Location = new Point(21, 73);
             lblLihatitem.Name = "lblLihatitem";
             lblLihatitem.Size = new Size(146, 31);
             lblLihatitem.TabIndex = 2;
@@ -336,12 +254,8 @@
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            pnlItem3.ResumeLayout(false);
-            pnlItem3.PerformLayout();
-            pnlItem2.ResumeLayout(false);
-            pnlItem2.PerformLayout();
-            pnlItem1.ResumeLayout(false);
-            pnlItem1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbUnggahitem).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -354,18 +268,15 @@
         private Panel panel2;
         private Button btnHome;
         private Label lblLihatitem;
-        private RadioButton rbKtg1;
-        private Label lblPilihKtg;
-        private RadioButton rbKtg2;
-        private RadioButton rbKtg3;
-        private Panel pnlItem1;
-        private Button btnItem1;
-        private Panel pnlItem3;
-        private Label lblItem3;
-        private Button btnItem3;
-        private Panel pnlItem2;
-        private Label lblItem2;
-        private Button btnItem2;
-        private Label lblItem1;
+        private DataGridView dataGridView1;
+        private Label lblUnggahhargaitem;
+        private Label lblUnggahktgitem;
+        private Label lblUnggahnamaitem;
+        private TextBox tbHargaitem;
+        private TextBox tbKtgitem;
+        private TextBox tbNamaitem;
+        private PictureBox pbUnggahitem;
+        private Button btnMuatproduk;
+        private Button btnBuatPenawaran;
     }
 }
