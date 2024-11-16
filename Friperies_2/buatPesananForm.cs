@@ -7,30 +7,142 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
 
 namespace Friperies_2
 {
     public partial class buatPesananForm : Form
     {
         public User loggedInUser;
-        public buatPesananForm()
+        private int itemID;
+        private string itemName;
+        private int itemPrice;
+        private string selectedService;
+
+        public buatPesananForm(User user, int itemID, string itemName, int itemPrice)
         {
             InitializeComponent();
+            this.loggedInUser = user;
+            this.itemID = itemID;
+            this.itemName = itemName;
+            this.itemPrice = itemPrice;
+
+            tbBuatpesananitem.Text = itemName;
+            tbBuatpenananharga.Text = itemPrice.ToString();
+            // tbBuatpesananitem.ReadOnly = true;
+            // tbBuatpenananharga.ReadOnly = true;
+
+            tbBuatpesanantgl.Text = DateTime.Now.ToString("yyyy-MM-dd")
         }
 
-        private void btnPesananterima_Click(object sender, EventArgs e)
+        private void btnCekOngkir_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(tbAsal.Text) || string.IsNullOrWhiteSpace(tbTujuan.Text) || string.IsNullOrWhiteSpace(tbBerat.Text))
+            {
+                MessageBox.Show("Harap isi asal kota, kota tujuan, dan berat barang.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            int idAsal = Transaction.GetIdKotaList(tbAsal.Text.Trim());
+            int idTujuan = Transaction.GetIdKotaList(tbTujuan.Text.Trim());
+
+            if (idAsal == -1 || idTujuan == -1)
+            {
+                MessageBox.Show("Kota asal atau tujuan tidak valid. Harap periksa kembali.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!int.TryParse(tbBerat.Text, out int berat))
+            {
+                MessageBox.Show("Berat barang harus berupa angka.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var layananList = Transaction.GetLayananList(idAsal, idTujuan, berat, kurir);
+            gbCekhargaongkir.Items.Clear();
+            foreach (var layanan in layananList)
+            {
+                gbCekhargaongkir.Items.Add(layanan);
+            }
+        }
+
+        private string GetSelectedCourier()
+        {
+            if (rbJNE.Checked) return "jne";
+            if (rbTIKI.Checked) return "tiki";
+            if (rbPOS.Checked) return "pos";
+            return null;
+        }
+
+        private void gbCekhargaongkir_SelectedIndexChange(object sender, EventArgs e)
+        {
+            selectedService = gbCekhargaongkir.SelectedItem?.ToStirng();
+        }
+
+        private void btnBuatpesanan_Click(object sender, EventArgs e)
+        {
+            if(string.IsNullOrEmpty(selectedService))
+            {
+                MessageBox.Show("Harap pilih layanan pengiriman.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                using (var conn = new NpgsqlConnection("Host=localhost;Port=5432;Username=postgres;Password=;Database=friperiesfix"))
+                {
+                    conn.Open();
+
+                    var cmd = new NpgsqlCommand("INSERT INTO Transaction (ItemSold, SellerID, BuyerID, TransactionDate, TransactionStatus, Service) VALUES (@itemSold, @sellerID, @buyerID, @transactionDate, @transactionStatus, @service)", conn);
+                    cmd.Parameters.AddWithValue("itemSold", itemID);
+                    cmd.Parameters.AddWithValue("sellerID", GetSellerID());
+                    cmd.Parameters.AddWithValue("buyerID", loggedInUser.userID);
+                    cmd.Parameters.AddWithValue("transactionDate", DateTime.Now);
+                    cmd.Parameters.AddWithValue("transactionStatus", "Menunggu Pembayaran");
+                    cmd.Parameters.AddWithValue("service", selectedService);
+
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Pesanan berhasil dibuat!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Terjadi kesalahan: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private int GetSellerID()
+        {
+            int sellerID = -1;
+
+            try
+            {
+                using (var conn = new NpgsqlConnection("Host=localhost;Port=5432;Username=postgres;Password=;Database=friperiesfix"))
+                {
+                    conn.Open();
+
+                    var cmd = new NpgsqlCommand("SELECT OwnerItem FROM Item WHERE ItemID = @itemID", conn);
+                    cmd.Parameters.AddWithValue("itemID", itemID);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            sellerID = reader.GetInt32(reader.GetOrdinal("OwnerItem"));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error saat mengambil SellerID: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return sellerID;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void lblBuatpesanansts_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnHome_Click(object sender, EventArgs e)
