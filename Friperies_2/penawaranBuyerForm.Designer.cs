@@ -162,6 +162,7 @@
             btLoad.TabIndex = 21;
             btLoad.Text = "Muat Penawaran";
             btLoad.UseVisualStyleBackColor = true;
+            btLoad.Click += btLoad_Click;
             // 
             // btCheckOut
             // 
@@ -183,6 +184,7 @@
             btnDelete.TabIndex = 19;
             btnDelete.Text = "Hapus Penawaran";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // tbHarga
             // 

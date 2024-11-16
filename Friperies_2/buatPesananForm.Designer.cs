@@ -152,7 +152,7 @@
             btnBuatpesanan.TabIndex = 11;
             btnBuatpesanan.Text = "Buat Pesanan";
             btnBuatpesanan.UseVisualStyleBackColor = false;
-            btnBuatpesanan.Click += btnPesananterima_Click;
+            btnBuatpesanan.Click += btnBuatpesanan_Click;
             // 
             // btnPesananbatal
             // 

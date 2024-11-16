@@ -139,6 +139,7 @@
             btLoad.TabIndex = 24;
             btLoad.Text = "Muat Produk";
             btLoad.UseVisualStyleBackColor = true;
+            btLoad.Click += btLoad_Click;
             // 
             // tbKategori
             // 
@@ -169,6 +170,7 @@
             btnDelete.TabIndex = 19;
             btnDelete.Text = "Hapus Produk";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // tbHarga
             // 
@@ -278,6 +280,7 @@
             btPenawaran.TabIndex = 25;
             btPenawaran.Text = "Lihat Penawaran";
             btPenawaran.UseVisualStyleBackColor = true;
+            btPenawaran.Click += btPenawaran_Click;
             // 
             // produkSellerForm
             // 

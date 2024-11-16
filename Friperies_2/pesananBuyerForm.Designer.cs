@@ -137,6 +137,7 @@
             btLoad.TabIndex = 23;
             btLoad.Text = "Muat Pesanan";
             btLoad.UseVisualStyleBackColor = true;
+            btLoad.Click += btLoad_Click;
             // 
             // tbStatus
             // 
@@ -167,6 +168,7 @@
             btnDone.TabIndex = 19;
             btnDone.Text = "Pesanan sudah diterima";
             btnDone.UseVisualStyleBackColor = true;
+            btnDone.Click += btnDone_Click;
             // 
             // tbTanggal
             // 
