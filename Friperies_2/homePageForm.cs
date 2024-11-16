@@ -40,18 +40,6 @@ namespace Friperies_2
             profilForm.Show(); 
         }
 
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                this.Hide();
-
-                signinForm signinForm = new signinForm();
-                signinForm.ShowDialog();
-            }
-        }
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();

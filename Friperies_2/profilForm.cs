@@ -34,7 +34,7 @@ namespace Friperies_2
                 if (dialogResult == DialogResult.Yes)
                 {
                     string newUsername = tbUsername.Text;
-                    int userId = loggedInUser.userID; 
+                    int userId = loggedInUser.userID;
 
                     string connectionString = "Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix";
 
@@ -75,7 +75,7 @@ namespace Friperies_2
         {
             if (e.KeyCode == Keys.Enter)
             {
-                DialogResult dialogResult = MessageBox.Show("Email telah diubah. Apakah Anda setuju untuk mengubah Email?", "Ubah Email",  MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Email telah diubah. Apakah Anda setuju untuk mengubah Email?", "Ubah Email", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     string newEmail = tbEmail.Text;
@@ -221,21 +221,21 @@ namespace Friperies_2
         private void btProduk_Click(object sender, EventArgs e)
         {
             this.Hide();
-            produkSellerForm produkSeller = new produkSellerForm();
+            produkSellerForm produkSeller = new produkSellerForm(loggedInUser);
             produkSeller.Show();
         }
 
         private void btPenawaran_Click(object sender, EventArgs e)
         {
             this.Hide();
-            penawaranBuyerForm penawaranBuyer = new penawaranBuyerForm();
+            penawaranBuyerForm penawaranBuyer = new penawaranBuyerForm(loggedInUser);
             penawaranBuyer.Show();
         }
 
         private void btPesanan_Click(object sender, EventArgs e)
         {
             this.Hide();
-            pesananBuyerForm pesananBuyerForm = new pesananBuyerForm();
+            pesananBuyerForm pesananBuyerForm = new pesananBuyerForm(loggedInUser);
             pesananBuyerForm.Show();
         }
 
@@ -254,6 +254,18 @@ namespace Friperies_2
             this.Hide();
             homePageForm homePageForm = new homePageForm(loggedInUser);
             homePageForm.Show();
+        }
+
+        private void btnProfillogout_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+
+                signinForm signinForm = new signinForm();
+                signinForm.ShowDialog();
+            }
         }
     }
 }

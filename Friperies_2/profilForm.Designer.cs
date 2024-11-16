@@ -143,6 +143,7 @@
             btnProfillogout.TabIndex = 21;
             btnProfillogout.Text = "Log Out";
             btnProfillogout.UseVisualStyleBackColor = false;
+            btnProfillogout.Click += btnProfillogout_Click;
             // 
             // btProduk
             // 
@@ -220,7 +221,7 @@
             // tbIdUser
             // 
             tbIdUser.Location = new Point(191, 214);
-            tbIdUser.Margin = new Padding(4, 4, 4, 4);
+            tbIdUser.Margin = new Padding(4);
             tbIdUser.Name = "tbIdUser";
             tbIdUser.Size = new Size(329, 31);
             tbIdUser.TabIndex = 13;
@@ -228,7 +229,7 @@
             // tbUsername
             // 
             tbUsername.Location = new Point(191, 268);
-            tbUsername.Margin = new Padding(4, 4, 4, 4);
+            tbUsername.Margin = new Padding(4);
             tbUsername.Name = "tbUsername";
             tbUsername.Size = new Size(329, 31);
             tbUsername.TabIndex = 14;
@@ -237,7 +238,7 @@
             // tbEmail
             // 
             tbEmail.Location = new Point(191, 324);
-            tbEmail.Margin = new Padding(4, 4, 4, 4);
+            tbEmail.Margin = new Padding(4);
             tbEmail.Name = "tbEmail";
             tbEmail.Size = new Size(329, 31);
             tbEmail.TabIndex = 15;
@@ -246,7 +247,7 @@
             // tbPassword
             // 
             tbPassword.Location = new Point(191, 378);
-            tbPassword.Margin = new Padding(4, 4, 4, 4);
+            tbPassword.Margin = new Padding(4);
             tbPassword.Name = "tbPassword";
             tbPassword.Size = new Size(329, 31);
             tbPassword.TabIndex = 16;
@@ -257,7 +258,7 @@
             // tbAlamat
             // 
             tbAlamat.Location = new Point(191, 435);
-            tbAlamat.Margin = new Padding(4, 4, 4, 4);
+            tbAlamat.Margin = new Padding(4);
             tbAlamat.Name = "tbAlamat";
             tbAlamat.Size = new Size(329, 31);
             tbAlamat.TabIndex = 17;

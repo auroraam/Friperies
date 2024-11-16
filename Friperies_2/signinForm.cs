@@ -36,7 +36,7 @@ namespace Friperies_2
                 return;
             }
 
-            string connString = "Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix";
+            string connString = "Host=localhost;Port=5432;Username=postgres;Password=;Database=friperiesfix";
             using (NpgsqlConnection conn = new NpgsqlConnection(connString))
             {
                 try
