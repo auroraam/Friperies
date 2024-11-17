@@ -123,8 +123,8 @@ namespace Friperies_2
             {
                 this.Hide();
                 int ItemID = int.Parse(tbIdProduk.Text);
-                var penawaranSellerForm = new penawaranSellerForm(loggedInUser);
-                penawaranSellerForm.ShowDialog();
+                var penawaranSellerForm = new penawaranSellerForm(loggedInUser, ItemID);
+                penawaranSellerForm.Show();
             }
             catch (Exception ex)
             {

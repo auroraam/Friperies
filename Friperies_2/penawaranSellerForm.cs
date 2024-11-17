@@ -1,5 +1,7 @@
-﻿using Npgsql;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using Npgsql;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,63 +10,65 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Friperies_2
 {
     public partial class penawaranSellerForm : Form
     {
         public User loggedInUser;
-        public penawaranSellerForm(User user)
-        {
-            InitializeComponent();
-        }
-
+        public int ItemID;
         private NpgsqlConnection conn;
-        string connstring = "Host = localhost; Port = 5432; Username = postgres; Password = feather0325; Database = Friperies";
+        string connstring = "Host = localhost; Port = 5432; Username = postgres; Password = feather0325; Database = friperiesfix";
         public DataTable dt;
         public static NpgsqlCommand cmd;
         private string sql = null;
-        private DataGridViewRow r;
-
-        private void penawaranForm_Load(object sender, EventArgs e)
+        private DataGridViewRow row;
+        public penawaranSellerForm(User user, int id)
         {
+            InitializeComponent();
             conn = new NpgsqlConnection(connstring);
+            loggedInUser = user;
+            ItemID = id;
+            LoadOffer();
         }
 
-        private void btnOfferload_Click(object sender, EventArgs e)
+        private void OpenConnection()
+        {
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+        }
+
+        private void LoadOffer()
         {
             try
             {
-                conn.Open();
-                dataGridView1.DataSource = null;
-                sql = "SELECT * FROM Offer";
-                cmd = new NpgsqlCommand(sql, conn);
-                dt = new DataTable();
-                NpgsqlDataReader rd = cmd.ExecuteReader();
-                dt.Load(rd);
-                dataGridView1.DataSource = dt;
+                OpenConnection();
+                string sql = @"SELECT * FROM public.""Offer"" WHERE ""ItemOffered"" = @itemOffered";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@itemOffered", ItemID); // loggedInUser adalah pengguna saat ini
 
-                conn.Close();
+                    // Eksekusi command dengan adapter
+                    NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    // Tampilkan data di DataGridView
+                    dataGridView1.DataSource = dt;
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Fail!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+                MessageBox.Show($"Terjadi kesalahan saat memuat data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
+            }
+            finally
             {
-                DataGridViewRow row = dataGridView1.SelectedRows[0];
-                tbOffernamaitem.Text = row.Cells["ItemName"].Value.ToString();
-                tbOfferhargaitem.Text = row.Cells["OfferPrice"].Value.ToString();
+                conn.Close();
             }
-        }
-
-        private void btnOfferterima_Click(object sender, EventArgs e)
-        {
-            UpdateOfferStatus("Accepted");
         }
 
         private void btnOffertolak_Click(object sender, EventArgs e)
@@ -76,46 +80,29 @@ namespace Friperies_2
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                int offerId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["OfferId"].Value);
-
+                int offerId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["OfferID"].Value);
                 try
                 {
-                    conn.Open();
-                    sql = "UPDATE Offer SET OfferStatus = $1 WHERE OfferId = $2";
+                    OpenConnection();
+                    sql = @"UPDATE public.""Offer"" SET ""OfferStatus"" = @offerstatus WHERE ""OfferID"" = @offerid";
                     cmd = new NpgsqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("$1", status);
-                    cmd.Parameters.AddWithValue("$2", offerId);
+                    cmd.Parameters.AddWithValue("@offerstatus", status);
+                    cmd.Parameters.AddWithValue("@offerid", offerId);
                     cmd.ExecuteNonQuery();
                     // Refresh DataGridView setelah update
-                    btnOfferload_Click(null, null);
+                    LoadOffer();
                     MessageBox.Show($"Penawaran {offerId} telah di {status.ToLower()}.");
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error: " + ex.Message, "Fail!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                finally { conn.Close(); }
             }
             else
             {
                 MessageBox.Show("Pilih penawaran untuk di perbarui.");
             }
-        }
-
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                this.Hide();
-
-                signinForm signinForm = new signinForm();
-                signinForm.ShowDialog();
-            }
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -130,6 +117,69 @@ namespace Friperies_2
             this.Hide();
             homePageForm homePageForm = new homePageForm(loggedInUser);
             homePageForm.Show();
+        }
+
+        private void btnOfferterima_Click_1(object sender, EventArgs e)
+        {
+            UpdateOfferStatus("Accepted");
+        }
+
+        private void btnExit_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnOfferload_Click_1(object sender, EventArgs e)
+        {
+            LoadOffer();
+        }
+
+        protected (string itemname, int itemprice) GetNamaProduk(int iditem)
+        {
+            string itemname = null;
+            int itemprice = 0;
+            try
+            {
+                OpenConnection();
+                sql = @"select ""ItemName"", ""ItemPrice"" from public.""Item"" WHERE ""ItemID"" = @itemid";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@itemid", iditem);
+                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            itemname = reader.GetString(reader.GetOrdinal("ItemName"));
+                            itemprice = reader.GetInt32(reader.GetOrdinal("ItemPrice"));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Fail!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally 
+            { 
+                conn.Close();
+            }
+            return (itemname, itemprice);
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var (itemName, itemPrice) = GetNamaProduk(ItemID);
+                row = dataGridView1.Rows[e.RowIndex];
+                tbOffernamaitem.Text = itemName;
+                tbOfferhargaitem.Text = itemPrice.ToString();
+                tbHargaPenawaran.Text = row.Cells["OfferPrice"].Value.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Pilih data produk.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
