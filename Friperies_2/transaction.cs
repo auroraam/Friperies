@@ -59,8 +59,8 @@ namespace Friperies_2
             set {_transactionStatus = value;}
         }
 
-        private const string apiKey = "c31a7ac4eaed9d6d966f5af4cf2aa4b9";
-        private const string baseUrl = "https://api.rajaongkir.com/starter/";
+        protected const string apiKey = "c31a7ac4eaed9d6d966f5af4cf2aa4b9";
+        protected const string baseUrl = "https://api.rajaongkir.com/starter/";
 
         public static List<string> GetKotaList()
         {
@@ -111,8 +111,24 @@ namespace Friperies_2
                 $"origin={idAsal}&destination={idTujuan}&weight={berat}&courier={kurir}",
                 ParameterType.RequestBody);
             IRestResponse response = client.Execute(request);
+            Console.WriteLine("Response Content: " + response.Content);
+
+            if (!response.IsSuccessful)
+            {
+                throw new Exception($"API call failed: {response.StatusCode} - {response.Content}");
+            }
+
             JsonObject obj = (JsonObject)SimpleJson.DeserializeObject(response.Content);
+            if (!obj.ContainsKey("rajaongkir"))
+            {
+                throw new Exception("Unexpected response structure: 'rajaongkir' key not found.");
+            }
+
             JsonObject rajaObj = (JsonObject)obj["rajaongkir"];
+            if (!rajaObj.ContainsKey("results"))
+            {
+                throw new Exception("Unexpected response structure: 'results' key not found.");
+            }
             JsonArray resultsArray = (JsonArray)rajaObj["results"];
             JsonObject courierInfo = (JsonObject)resultsArray[0];
             JsonArray servicesArray = (JsonArray)courierInfo["costs"];

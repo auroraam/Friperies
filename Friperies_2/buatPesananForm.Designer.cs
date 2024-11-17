@@ -34,6 +34,9 @@
             btnBack = new Button();
             panel3 = new Panel();
             panel2 = new Panel();
+            gbCekHargaOngkir = new GroupBox();
+            tbAsal = new TextBox();
+            tbTujuan = new TextBox();
             btnCekOngkir = new Button();
             rbPOS = new RadioButton();
             rbTIKI = new RadioButton();
@@ -43,10 +46,7 @@
             label2 = new Label();
             tbBuatpesananharga = new TextBox();
             label1 = new Label();
-            tbAsal = new TextBox();
             lblAsal = new Label();
-            gbCekhargaongkir = new GroupBox();
-            tbTujuan = new TextBox();
             lblTujuan = new Label();
             btnBuatpesanan = new Button();
             btnPesananbatal = new Button();
@@ -115,7 +115,11 @@
             // 
             // panel2
             // 
+            panel2.AutoScroll = true;
             panel2.BackColor = Color.FromArgb(192, 192, 255);
+            panel2.Controls.Add(gbCekHargaOngkir);
+            panel2.Controls.Add(tbAsal);
+            panel2.Controls.Add(tbTujuan);
             panel2.Controls.Add(btnCekOngkir);
             panel2.Controls.Add(rbPOS);
             panel2.Controls.Add(rbTIKI);
@@ -125,10 +129,7 @@
             panel2.Controls.Add(label2);
             panel2.Controls.Add(tbBuatpesananharga);
             panel2.Controls.Add(label1);
-            panel2.Controls.Add(tbAsal);
             panel2.Controls.Add(lblAsal);
-            panel2.Controls.Add(gbCekhargaongkir);
-            panel2.Controls.Add(tbTujuan);
             panel2.Controls.Add(lblTujuan);
             panel2.Controls.Add(btnBuatpesanan);
             panel2.Controls.Add(btnPesananbatal);
@@ -144,6 +145,32 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(1000, 700);
             panel2.TabIndex = 6;
+            // 
+            // gbCekHargaOngkir
+            // 
+            gbCekHargaOngkir.BackColor = Color.White;
+            gbCekHargaOngkir.Location = new Point(596, 218);
+            gbCekHargaOngkir.Name = "gbCekHargaOngkir";
+            gbCekHargaOngkir.Size = new Size(355, 314);
+            gbCekHargaOngkir.TabIndex = 32;
+            gbCekHargaOngkir.TabStop = false;
+            gbCekHargaOngkir.Text = "Cek Ongkir:";
+            // 
+            // tbAsal
+            // 
+            tbAsal.Location = new Point(242, 370);
+            tbAsal.Margin = new Padding(4);
+            tbAsal.Name = "tbAsal";
+            tbAsal.Size = new Size(313, 31);
+            tbAsal.TabIndex = 31;
+            // 
+            // tbTujuan
+            // 
+            tbTujuan.Location = new Point(242, 415);
+            tbTujuan.Margin = new Padding(4);
+            tbTujuan.Name = "tbTujuan";
+            tbTujuan.Size = new Size(313, 31);
+            tbTujuan.TabIndex = 30;
             // 
             // btnCekOngkir
             // 
@@ -236,14 +263,6 @@
             label1.TabIndex = 17;
             label1.Text = "Harga:";
             // 
-            // tbAsal
-            // 
-            tbAsal.Location = new Point(242, 370);
-            tbAsal.Margin = new Padding(4);
-            tbAsal.Name = "tbAsal";
-            tbAsal.Size = new Size(313, 31);
-            tbAsal.TabIndex = 16;
-            // 
             // lblAsal
             // 
             lblAsal.AutoSize = true;
@@ -253,25 +272,6 @@
             lblAsal.Size = new Size(90, 25);
             lblAsal.TabIndex = 15;
             lblAsal.Text = "Kota Asal:";
-            // 
-            // gbCekhargaongkir
-            // 
-            gbCekhargaongkir.Location = new Point(632, 216);
-            gbCekhargaongkir.Margin = new Padding(4);
-            gbCekhargaongkir.Name = "gbCekhargaongkir";
-            gbCekhargaongkir.Padding = new Padding(4);
-            gbCekhargaongkir.Size = new Size(248, 316);
-            gbCekhargaongkir.TabIndex = 14;
-            gbCekhargaongkir.TabStop = false;
-            gbCekhargaongkir.Text = "Cek Harga Ongkir";
-            // 
-            // tbTujuan
-            // 
-            tbTujuan.Location = new Point(242, 415);
-            tbTujuan.Margin = new Padding(4);
-            tbTujuan.Name = "tbTujuan";
-            tbTujuan.Size = new Size(313, 31);
-            tbTujuan.TabIndex = 13;
             // 
             // lblTujuan
             // 
@@ -376,6 +376,7 @@
             ClientSize = new Size(1000, 700);
             Controls.Add(panel1);
             Controls.Add(panel2);
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
             Name = "buatPesananForm";
             Text = "pesananForm";
@@ -401,10 +402,7 @@
         private TextBox tbBuatpesanantgl;
         private TextBox tbBuatpesananitem;
         private Button btnBuatpesanan;
-        private TextBox tbTujuan;
         private Label lblTujuan;
-        private GroupBox gbCekhargaongkir;
-        private TextBox tbAsal;
         private Label lblAsal;
         private TextBox tbBuatpesananharga;
         private Label label1;
@@ -415,5 +413,8 @@
         private RadioButton rbTIKI;
         private RadioButton rbJNE;
         private Button btnCekOngkir;
+        private TextBox tbAsal;
+        private TextBox tbTujuan;
+        private GroupBox gbCekHargaOngkir;
     }
 }

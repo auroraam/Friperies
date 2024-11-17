@@ -44,6 +44,8 @@
             lblOffernamaitem = new Label();
             dataGridView1 = new DataGridView();
             btnHome = new Button();
+            tbHargaPenawaran = new TextBox();
+            label1 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -76,6 +78,7 @@
             btnExit.TabIndex = 8;
             btnExit.Text = " ";
             btnExit.UseVisualStyleBackColor = true;
+            btnExit.Click += btnExit_Click_1;
             // 
             // btnBack
             // 
@@ -104,6 +107,8 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(192, 192, 255);
+            panel2.Controls.Add(tbHargaPenawaran);
+            panel2.Controls.Add(label1);
             panel2.Controls.Add(lblOfferpage);
             panel2.Controls.Add(btnOfferload);
             panel2.Controls.Add(btnOffertolak);
@@ -141,6 +146,7 @@
             btnOfferload.TabIndex = 9;
             btnOfferload.Text = "Muat Penawaran";
             btnOfferload.UseVisualStyleBackColor = true;
+            btnOfferload.Click += btnOfferload_Click_1;
             // 
             // btnOffertolak
             // 
@@ -162,10 +168,11 @@
             btnOfferterima.TabIndex = 7;
             btnOfferterima.Text = "Terima";
             btnOfferterima.UseVisualStyleBackColor = true;
+            btnOfferterima.Click += btnOfferterima_Click_1;
             // 
             // tbOfferhargaitem
             // 
-            tbOfferhargaitem.Location = new Point(314, 214);
+            tbOfferhargaitem.Location = new Point(312, 191);
             tbOfferhargaitem.Margin = new Padding(4);
             tbOfferhargaitem.Name = "tbOfferhargaitem";
             tbOfferhargaitem.Size = new Size(263, 31);
@@ -173,7 +180,7 @@
             // 
             // tbOffernamaitem
             // 
-            tbOffernamaitem.Location = new Point(314, 164);
+            tbOffernamaitem.Location = new Point(312, 152);
             tbOffernamaitem.Margin = new Padding(4);
             tbOffernamaitem.Name = "tbOffernamaitem";
             tbOffernamaitem.Size = new Size(263, 31);
@@ -183,17 +190,17 @@
             // 
             lblOfferhargaitem.AutoSize = true;
             lblOfferhargaitem.ForeColor = SystemColors.ControlText;
-            lblOfferhargaitem.Location = new Point(134, 218);
+            lblOfferhargaitem.Location = new Point(132, 195);
             lblOfferhargaitem.Margin = new Padding(4, 0, 4, 0);
             lblOfferhargaitem.Name = "lblOfferhargaitem";
-            lblOfferhargaitem.Size = new Size(131, 25);
+            lblOfferhargaitem.Size = new Size(112, 25);
             lblOfferhargaitem.TabIndex = 4;
-            lblOfferhargaitem.Text = "Harga Produk :";
+            lblOfferhargaitem.Text = "Harga Awal :";
             // 
             // lblOffernamaitem
             // 
             lblOffernamaitem.AutoSize = true;
-            lblOffernamaitem.Location = new Point(134, 168);
+            lblOffernamaitem.Location = new Point(132, 156);
             lblOffernamaitem.Margin = new Padding(4, 0, 4, 0);
             lblOffernamaitem.Name = "lblOffernamaitem";
             lblOffernamaitem.Size = new Size(130, 25);
@@ -209,6 +216,7 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(751, 201);
             dataGridView1.TabIndex = 2;
+            dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // btnHome
             // 
@@ -225,6 +233,25 @@
             btnHome.TextImageRelation = TextImageRelation.ImageAboveText;
             btnHome.UseVisualStyleBackColor = false;
             btnHome.Click += btnHome_Click;
+            // 
+            // tbHargaPenawaran
+            // 
+            tbHargaPenawaran.Location = new Point(312, 230);
+            tbHargaPenawaran.Margin = new Padding(4);
+            tbHargaPenawaran.Name = "tbHargaPenawaran";
+            tbHargaPenawaran.Size = new Size(263, 31);
+            tbHargaPenawaran.TabIndex = 12;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.ForeColor = SystemColors.ControlText;
+            label1.Location = new Point(132, 234);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(162, 25);
+            label1.TabIndex = 11;
+            label1.Text = "Harga Ditawarkan :";
             // 
             // penawaranSellerForm
             // 
@@ -261,5 +288,7 @@
         private Button btnOfferterima;
         private Button btnOfferload;
         private Label lblOfferpage;
+        private TextBox tbHargaPenawaran;
+        private Label label1;
     }
 }

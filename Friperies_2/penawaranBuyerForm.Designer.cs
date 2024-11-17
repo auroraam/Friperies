@@ -36,6 +36,8 @@
             btnHome = new Button();
             lblPenawaran = new Label();
             panel2 = new Panel();
+            tbStatus = new TextBox();
+            label3 = new Label();
             btLoad = new Button();
             btCheckOut = new Button();
             btnDelete = new Button();
@@ -46,8 +48,6 @@
             tbIdPenawaran = new TextBox();
             lblIdPenawaran = new Label();
             dgvPenawaran = new DataGridView();
-            tbStatus = new TextBox();
-            label3 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPenawaran).BeginInit();
@@ -157,6 +157,26 @@
             panel2.Size = new Size(1000, 700);
             panel2.TabIndex = 7;
             // 
+            // tbStatus
+            // 
+            tbStatus.BackColor = Color.White;
+            tbStatus.Location = new Point(205, 264);
+            tbStatus.Margin = new Padding(4);
+            tbStatus.Name = "tbStatus";
+            tbStatus.ReadOnly = true;
+            tbStatus.Size = new Size(270, 31);
+            tbStatus.TabIndex = 23;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(32, 267);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(69, 25);
+            label3.TabIndex = 22;
+            label3.Text = "Status :";
+            // 
             // btLoad
             // 
             btLoad.Location = new Point(814, 542);
@@ -254,33 +274,14 @@
             // 
             dgvPenawaran.AllowUserToAddRows = false;
             dgvPenawaran.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPenawaran.Location = new Point(32, 301);
+            dgvPenawaran.Location = new Point(32, 313);
             dgvPenawaran.Margin = new Padding(2);
             dgvPenawaran.Name = "dgvPenawaran";
             dgvPenawaran.ReadOnly = true;
             dgvPenawaran.RowHeadersWidth = 62;
-            dgvPenawaran.Size = new Size(944, 231);
+            dgvPenawaran.Size = new Size(944, 219);
             dgvPenawaran.TabIndex = 4;
-            // 
-            // tbStatus
-            // 
-            tbStatus.BackColor = Color.White;
-            tbStatus.Location = new Point(205, 264);
-            tbStatus.Margin = new Padding(4);
-            tbStatus.Name = "tbStatus";
-            tbStatus.ReadOnly = true;
-            tbStatus.Size = new Size(270, 31);
-            tbStatus.TabIndex = 23;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(32, 267);
-            label3.Margin = new Padding(4, 0, 4, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(69, 25);
-            label3.TabIndex = 22;
-            label3.Text = "Status :";
+            dgvPenawaran.CellClick += dgvPenawaran_CellClick;
             // 
             // penawaranBuyerForm
             // 
