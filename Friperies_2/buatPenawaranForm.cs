@@ -14,14 +14,16 @@ namespace Friperies_2
     public partial class buatPenawaranForm : Form
     {
         public User loggedInUser;
-        public buatPenawaranForm(int itemID, string itemName, int itemPrice, int userID, string userName, string userEmail, string userPass, string userAddress)
+        public buatPenawaranForm(User user)
         {
             InitializeComponent();
             conn = new NpgsqlConnection(connstring);
-
-            currentOffer = new Offer(userID, userName, userEmail, userPass, userAddress, 0, itemID, itemPrice);
-            tbOffernamaitem.Text = itemName;
-            tbHargaawal.Text = itemPrice.ToString();
+            //belum bener
+            //tbOffernamaitem.Text = itemName;
+            //tbHargaawal.Text = itemPrice.ToString();
+            int itemPrice;
+            currentOffer = new Offer(loggedInUser.userID, loggedInUser.userName, loggedInUser.userEmail, loggedInUser.userPass, loggedInUser.userAddress, 0, itemID, itemPrice);
+            
         }
 
         private Offer currentOffer;

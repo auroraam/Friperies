@@ -18,7 +18,10 @@ namespace Friperies_2
         private string itemName;
         private int itemPrice;
         private string selectedService;
+        private void buatPesananForm_Load(object sender, EventArgs e)
+        {
 
+        }
         public buatPesananForm(User user, int itemID, string itemName, int itemPrice)
         {
             InitializeComponent();
@@ -28,65 +31,27 @@ namespace Friperies_2
             this.itemPrice = itemPrice;
 
             tbBuatpesananitem.Text = itemName;
-            tbBuatpenananharga.Text = itemPrice.ToString();
+            tbBuatpesananharga.Text = itemPrice.ToString();
             // tbBuatpesananitem.ReadOnly = true;
             // tbBuatpenananharga.ReadOnly = true;
 
-            tbBuatpesanantgl.Text = DateTime.Now.ToString("yyyy-MM-dd")
+            tbBuatpesanantgl.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
 
-        private void btnCekOngkir_Click(object sender, EventArgs e)
+        private void UpdateSelectedService()
         {
-            if (string.IsNullOrWhiteSpace(tbAsal.Text) || string.IsNullOrWhiteSpace(tbTujuan.Text) || string.IsNullOrWhiteSpace(tbBerat.Text))
-            {
-                MessageBox.Show("Harap isi asal kota, kota tujuan, dan berat barang.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            int idAsal = Transaction.GetIdKotaList(tbAsal.Text.Trim());
-            int idTujuan = Transaction.GetIdKotaList(tbTujuan.Text.Trim());
-
-            if (idAsal == -1 || idTujuan == -1)
-            {
-                MessageBox.Show("Kota asal atau tujuan tidak valid. Harap periksa kembali.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (!int.TryParse(tbBerat.Text, out int berat))
-            {
-                MessageBox.Show("Berat barang harus berupa angka.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            var layananList = Transaction.GetLayananList(idAsal, idTujuan, berat, kurir);
-            gbCekhargaongkir.Items.Clear();
-            foreach (var layanan in layananList)
-            {
-                gbCekhargaongkir.Items.Add(layanan);
-            }
-        }
-
-        private string GetSelectedCourier()
-        {
-            if (rbJNE.Checked) return "jne";
-            if (rbTIKI.Checked) return "tiki";
-            if (rbPOS.Checked) return "pos";
-            return null;
-        }
-
-        private void gbCekhargaongkir_SelectedIndexChange(object sender, EventArgs e)
-        {
-            selectedService = gbCekhargaongkir.SelectedItem?.ToStirng();
+            if (rbJNE.Checked) selectedService = "jne";
+            if (rbTIKI.Checked) selectedService = "tiki";
+            if (rbPOS.Checked) selectedService = "pos";
         }
 
         private void btnBuatpesanan_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(selectedService))
+            if (string.IsNullOrEmpty(selectedService))
             {
                 MessageBox.Show("Harap pilih layanan pengiriman.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
             try
             {
                 using (var conn = new NpgsqlConnection("Host=localhost;Port=5432;Username=postgres;Password=;Database=friperiesfix"))
@@ -158,5 +123,38 @@ namespace Friperies_2
             lihatProdukForm lihatProdukForm = new lihatProdukForm();
             lihatProdukForm.Show();
         }
+
+        private void btnCekOngkir_Click_1(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbAsal.Text) || string.IsNullOrWhiteSpace(tbTujuan.Text) || string.IsNullOrWhiteSpace(tbBerat.Text))
+            {
+                MessageBox.Show("Harap isi asal kota, kota tujuan, dan berat barang.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int idAsal = Transaction.GetIdKotaList(tbAsal.Text.Trim());
+            int idTujuan = Transaction.GetIdKotaList(tbTujuan.Text.Trim());
+
+            if (idAsal == -1 || idTujuan == -1)
+            {
+                MessageBox.Show("Kota asal atau tujuan tidak valid. Harap periksa kembali.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!int.TryParse(tbBerat.Text, out int berat))
+            {
+                MessageBox.Show("Berat barang harus berupa angka.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var layananList = Transaction.GetLayananList(idAsal, idTujuan, berat, selectedService);
+            //gbCekhargaongkir.Items.Clear();
+            foreach (var layanan in layananList)
+            {
+                //gbCekhargaongkir.Items.Add(layanan);
+            }
+        }
+
+
     }
 }

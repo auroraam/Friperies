@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RestSharp;
-using RestSharp.Serializers.Json;
+using Newtonsoft.Json;
 
 namespace Friperies_2
 {
-    internal class Transaction : User
+    public class Transaction : User
     {
         private int _transactionID;
         private int _itemID;
@@ -62,35 +62,20 @@ namespace Friperies_2
         private const string apiKey = "c31a7ac4eaed9d6d966f5af4cf2aa4b9";
         private const string baseUrl = "https://api.rajaongkir.com/starter/";
 
-        public List<string> GetKotaList()
+        public static List<string> GetKotaList()
         {
-            List<string> returnList = new List<string>(;)
+            List<string> returnList = new List<string>();
             var client = new RestClient($"{baseUrl}city");
             var request = new RestRequest(Method.GET);
             request.AddHeader("key", apiKey);
-
             IRestResponse response = client.Execute(request);
-
-            var deserializer = new JsonDeserializer();
-            var jsonResponse = deserializer.Deserializer<Dictionary<string, object>>(response);
-
-            if (jsonResponse.ContainsKey("rajaongkir"))
+            JsonObject obj = (JsonObject)SimpleJson.DeserializeObject(response.Content);
+            JsonObject rajaObj = (JsonObject)obj["rajaongkir"];
+            JsonArray cityListArray = (JsonArray)rajaObj["results"];
+            foreach (JsonObject city in cityListArray)
             {
-                var rajaOngkirData = jsonResponse["rajaongkir"] as Dictionary<string, object>;
-                if (rajaOngkirData != null && rajaOngkirData.ContainsKey("results"))
-                {
-                    var cityListArray = rajaOngkirData["results"] as List<object>;
-                    foreach (var city in cityListArray)
-                    {
-                        var cityData = city as Dictionary<string, object>;
-                        if (cityData != null && cityData.ContainsKey("city_name"))
-                        {
-                            returnList.Add(cityData["city_name"].ToString());
-                        }
-                    }
-                }
+                returnList.Add((string)city["city_name"]);
             }
-
             return returnList;
         }
 
@@ -100,32 +85,18 @@ namespace Friperies_2
             var client = new RestClient($"{baseUrl}city");
             var request = new RestRequest(Method.GET);
             request.AddHeader("key", apiKey);
-
             IRestResponse response = client.Execute(request);
-            var deserializer = new JsonDeserializer();
-            var jsonResponse = deserializer.Deserialize<Dictionary<string, object>>(response);
-
-            if (jsonResponse.ContainsKey("rajaongkir"))
+            JsonObject obj = (JsonObject)SimpleJson.DeserializeObject(response.Content);
+            JsonObject rajaObj = (JsonObject)obj["rajaongkir"];
+            JsonArray cityListArray = (JsonArray)rajaObj["results"];
+            foreach (JsonObject city in cityListArray)
             {
-                var rajaOngkirData = jsonResponse["rajaongkir"] as Dictionary<string, object>;
-                if (rajaOngkirData != null && rajaOngkirData.ContainsKey("results"))
+                if (((string) city["city_name"]) == kota)
                 {
-                    var cityListArray = rajaOngkirData["results"] as List<object>;
-                    foreach (var city in cityListArray)
-                    {
-                        var cityData = city as Dictionary<string, object>;
-                        if (cityData != null && cityData.ContainsKey("city_name") && cityData.ContainsKey("city_id"))
-                        {
-                            if (cityData["city_name"].ToString().Equals(kota, StringComparison.OrdinalIgnoreCase))
-                            {
-                                idKota = int.Parse(cityData["city_id"].ToString());
-                                break;
-                            }
-                        }
-                    }
+                    idKota = int.Parse((string)city["city_id"]);
+                    break;
                 }
             }
-
             return idKota;
         }
 
@@ -136,46 +107,25 @@ namespace Friperies_2
             var request = new RestRequest(Method.POST);
             request.AddHeader("content-type", "application/x-www-form-urlencoded");
             request.AddHeader("key", apiKey);
-
             request.AddParameter("application/x-www-form-urlencoded",
                 $"origin={idAsal}&destination={idTujuan}&weight={berat}&courier={kurir}",
                 ParameterType.RequestBody);
-
             IRestResponse response = client.Execute(request);
-            var deserializer = new JsonDeserializer();
-            var jsonResponse = deserializer.Deserialize<Dictionary<string, object>>(response);
-
-            if (jsonResponse.ContainsKey("rajaongkir"))
+            JsonObject obj = (JsonObject)SimpleJson.DeserializeObject(response.Content);
+            JsonObject rajaObj = (JsonObject)obj["rajaongkir"];
+            JsonArray resultsArray = (JsonArray)rajaObj["results"];
+            JsonObject courierInfo = (JsonObject)resultsArray[0];
+            JsonArray servicesArray = (JsonArray)courierInfo["costs"];
+            foreach (JsonObject service in servicesArray)
             {
-                var rajaOngkirData = jsonResponse["rajaongkir"] as Dictionary<string, object>;
-                if (rajaOngkirData != null && rajaOngkirData.ContainsKey("results"))
-                {
-                    var resultsArray = rajaOngkirData["results"] as List<object>;
-                    var courierInfo = resultsArray[0] as Dictionary<string, object>;
-                    if (courierInfo != null && courierInfo.ContainsKey("costs"))
-                    {
-                        var servicesArray = courierInfo["costs"] as List<object>;
-                        foreach (var service in servicesArray)
-                        {
-                            var serviceData = service as Dictionary<string, object>;
-                            if (serviceData != null)
-                            {
-                                string layanan = $"{courierInfo["name"]} - {serviceData["service"]}";
-
-                                var detail = serviceData["cost"] as List<object>;
-                                if (detail.Count > 0)
-                                {
-                                    var infoService = detail[0] as Dictionary<string, object>;
-                                    layanan += $" - Rp {infoService["value"]} - {infoService["etd"]} Hari";
-                                }
-
-                                returnList.Add(layanan);
-                            }
-                        }
-                    }
-                }
+                string layanan = (string)courierInfo["name"];
+                layanan += "-" + (string)service["service"];
+                JsonArray detail = (JsonArray)service["cost"];
+                JsonObject infoService = (JsonObject)detail[0];
+                layanan += " Rp" + (infoService["value"]).ToString();
+                layanan += " " + (string)infoService["etd"] + "Hari";
+                returnList.Add(layanan);
             }
-
             return returnList;
         }
 
