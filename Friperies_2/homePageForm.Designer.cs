@@ -28,15 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(homePageForm));
             panel3 = new Panel();
             panel1 = new Panel();
             btnExit = new Button();
             panel2 = new Panel();
+            label2 = new Label();
+            label1 = new Label();
+            lblOfferpage = new Label();
+            pictureBox1 = new PictureBox();
             btnLihatProduk = new Button();
             btnProfil = new Button();
             btnUnggahProduk = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel3
@@ -45,7 +51,7 @@
             panel3.Location = new Point(10, 10);
             panel3.Margin = new Padding(2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(255, 52);
+            panel3.Size = new Size(202, 52);
             panel3.TabIndex = 2;
             // 
             // panel1
@@ -79,6 +85,10 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(192, 192, 255);
+            panel2.Controls.Add(label2);
+            panel2.Controls.Add(label1);
+            panel2.Controls.Add(lblOfferpage);
+            panel2.Controls.Add(pictureBox1);
             panel2.Controls.Add(btnLihatProduk);
             panel2.Controls.Add(btnProfil);
             panel2.Controls.Add(btnUnggahProduk);
@@ -89,13 +99,53 @@
             panel2.Size = new Size(1000, 700);
             panel2.TabIndex = 2;
             // 
+            // label2
+            // 
+            label2.Location = new Point(511, 252);
+            label2.Name = "label2";
+            label2.Size = new Size(477, 128);
+            label2.TabIndex = 13;
+            label2.Text = "Temukan berbagai pilihan pakaian bayi berkualitas dengan harga terjangkau! Dukung gaya hidup berkelanjutan dengan menjual, membeli, atau menawar harga pakaian preloved untuk si kecil.";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label1.Location = new Point(511, 209);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(477, 38);
+            label1.TabIndex = 12;
+            label1.Text = "dan Ramah Lingkungan di Friperies!";
+            // 
+            // lblOfferpage
+            // 
+            lblOfferpage.AutoSize = true;
+            lblOfferpage.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            lblOfferpage.Location = new Point(511, 171);
+            lblOfferpage.Margin = new Padding(4, 0, 4, 0);
+            lblOfferpage.Name = "lblOfferpage";
+            lblOfferpage.Size = new Size(305, 38);
+            lblOfferpage.TabIndex = 11;
+            lblOfferpage.Text = "Belanja Pintar, Hemat,";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(72, 119);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(400, 300);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
+            // 
             // btnLihatProduk
             // 
             btnLihatProduk.FlatAppearance.BorderSize = 3;
             btnLihatProduk.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnLihatProduk.Image = Properties.Resources.cargo_3045489__1_;
             btnLihatProduk.ImageAlign = ContentAlignment.TopCenter;
-            btnLihatProduk.Location = new Point(372, 294);
+            btnLihatProduk.Location = new Point(375, 474);
             btnLihatProduk.Margin = new Padding(2);
             btnLihatProduk.Name = "btnLihatProduk";
             btnLihatProduk.Size = new Size(235, 142);
@@ -112,7 +162,7 @@
             btnProfil.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnProfil.Image = Properties.Resources.user_7855633__1_;
             btnProfil.ImageAlign = ContentAlignment.TopCenter;
-            btnProfil.Location = new Point(658, 294);
+            btnProfil.Location = new Point(661, 474);
             btnProfil.Margin = new Padding(2);
             btnProfil.Name = "btnProfil";
             btnProfil.Size = new Size(235, 142);
@@ -129,7 +179,7 @@
             btnUnggahProduk.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnUnggahProduk.Image = Properties.Resources.uploading_3305741__1___3_;
             btnUnggahProduk.ImageAlign = ContentAlignment.TopCenter;
-            btnUnggahProduk.Location = new Point(82, 294);
+            btnUnggahProduk.Location = new Point(85, 474);
             btnUnggahProduk.Margin = new Padding(2);
             btnUnggahProduk.Name = "btnUnggahProduk";
             btnUnggahProduk.Size = new Size(235, 142);
@@ -153,6 +203,8 @@
             Text = "homePageForm";
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -165,5 +217,9 @@
         private Button btnUnggahProduk;
         private Button btnLihatProduk;
         private Button btnProfil;
+        private PictureBox pictureBox1;
+        private Label label2;
+        private Label label1;
+        private Label lblOfferpage;
     }
 }

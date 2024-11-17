@@ -241,6 +241,7 @@
             dgvPesanan.RowHeadersWidth = 62;
             dgvPesanan.Size = new Size(944, 212);
             dgvPesanan.TabIndex = 4;
+            dgvPesanan.RowHeaderMouseClick += dgvPesanan_RowHeaderMouseClick;
             // 
             // lblProduk
             // 
