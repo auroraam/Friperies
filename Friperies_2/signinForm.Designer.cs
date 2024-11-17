@@ -67,7 +67,7 @@
             pnlFriperies.BackgroundImage = Properties.Resources.friperies__4_;
             pnlFriperies.Location = new Point(350, 200);
             pnlFriperies.Name = "pnlFriperies";
-            pnlFriperies.Size = new Size(227, 64);
+            pnlFriperies.Size = new Size(223, 64);
             pnlFriperies.TabIndex = 11;
             // 
             // lblUsername
