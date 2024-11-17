@@ -49,20 +49,11 @@ namespace Friperies_2
 
         private void btnBuatPenawaran_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(tbNamaitem.Text) && !string.IsNullOrEmpty(tbHargaitem.Text))
+            if (dataGridView1.SelectedRows.Count > 0)
             {
-                string namaItem = tbNamaitem.Text;
-                string kategori = tbKtgitem.Text;
-                int hargaAwal = int.Parse(tbHargaitem.Text);
                 int itemID = int.Parse(dataGridView1.SelectedRows[0].Cells["ItemID"].Value.ToString());
-
-                int userID = loggedInUser.userID;
-                string userName = loggedInUser.userName;
-                string userEmail = loggedInUser.userEmail;
-                string userPass = loggedInUser.userPass;
-                string userAddress = loggedInUser.userAddress;
-
-                buatPenawaranForm buatPenawaranForm = new buatPenawaranForm(itemID);
+                this.Hide();
+                buatPenawaranForm buatPenawaranForm = new buatPenawaranForm(itemID, loggedInUser);
                 buatPenawaranForm.Show();
             }
             else
@@ -90,7 +81,7 @@ namespace Friperies_2
             homePageForm.Show();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {

@@ -34,16 +34,16 @@
             btnExit = new Button();
             btnBack = new Button();
             panel2 = new Panel();
+            btnBuatpenawaran = new Button();
+            btnPenawaranbatal = new Button();
+            tbOfferprice = new TextBox();
+            lblOfferprice = new Label();
             lblMakeOfferpage = new Label();
             tbHargaawal = new TextBox();
             tbOffernamaitem = new TextBox();
             lblOfferhargaitem = new Label();
             lblOffernamaitem = new Label();
             btnHome = new Button();
-            tbOfferprice = new TextBox();
-            lblOfferprice = new Label();
-            btnBuatpenawaran = new Button();
-            btnPenawaranbatal = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -51,10 +51,10 @@
             // panel3
             // 
             panel3.BackgroundImage = Properties.Resources.Screenshot_2024_10_20_at_17_40_01_removebg_preview__1_;
-            panel3.Location = new Point(8, 8);
+            panel3.Location = new Point(10, 10);
             panel3.Margin = new Padding(2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(204, 42);
+            panel3.Size = new Size(205, 52);
             panel3.TabIndex = 2;
             // 
             // panel1
@@ -68,7 +68,7 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(800, 60);
+            panel1.Size = new Size(1000, 74);
             panel1.TabIndex = 6;
             // 
             // btnExit
@@ -77,10 +77,10 @@
             btnExit.FlatStyle = FlatStyle.Flat;
             btnExit.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnExit.Image = Properties.Resources.cancel_5697779__1_;
-            btnExit.Location = new Point(746, 6);
+            btnExit.Location = new Point(932, 8);
             btnExit.Margin = new Padding(2);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(44, 44);
+            btnExit.Size = new Size(55, 55);
             btnExit.TabIndex = 8;
             btnExit.Text = " ";
             btnExit.UseVisualStyleBackColor = true;
@@ -92,10 +92,10 @@
             btnBack.FlatStyle = FlatStyle.Flat;
             btnBack.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnBack.Image = (Image)resources.GetObject("btnBack.Image");
-            btnBack.Location = new Point(705, 6);
+            btnBack.Location = new Point(881, 8);
             btnBack.Margin = new Padding(2);
             btnBack.Name = "btnBack";
-            btnBack.Size = new Size(44, 44);
+            btnBack.Size = new Size(55, 55);
             btnBack.TabIndex = 7;
             btnBack.Text = " ";
             btnBack.UseVisualStyleBackColor = true;
@@ -118,49 +118,97 @@
             panel2.Location = new Point(0, 0);
             panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(800, 560);
+            panel2.Size = new Size(1000, 700);
             panel2.TabIndex = 7;
+            // 
+            // btnBuatpenawaran
+            // 
+            btnBuatpenawaran.BackColor = Color.White;
+            btnBuatpenawaran.Location = new Point(518, 459);
+            btnBuatpenawaran.Margin = new Padding(4, 4, 4, 4);
+            btnBuatpenawaran.Name = "btnBuatpenawaran";
+            btnBuatpenawaran.Size = new Size(165, 41);
+            btnBuatpenawaran.TabIndex = 14;
+            btnBuatpenawaran.Text = "Buat Penawaran";
+            btnBuatpenawaran.UseVisualStyleBackColor = false;
+            btnBuatpenawaran.Click += btnBuatpenawaran_Click;
+            // 
+            // btnPenawaranbatal
+            // 
+            btnPenawaranbatal.BackColor = Color.FromArgb(255, 128, 128);
+            btnPenawaranbatal.Location = new Point(280, 459);
+            btnPenawaranbatal.Margin = new Padding(4, 4, 4, 4);
+            btnPenawaranbatal.Name = "btnPenawaranbatal";
+            btnPenawaranbatal.Size = new Size(199, 41);
+            btnPenawaranbatal.TabIndex = 13;
+            btnPenawaranbatal.Text = "Batalkan Penawaran";
+            btnPenawaranbatal.UseVisualStyleBackColor = false;
+            btnPenawaranbatal.Click += btnPenawaranbatal_Click;
+            // 
+            // tbOfferprice
+            // 
+            tbOfferprice.Location = new Point(249, 369);
+            tbOfferprice.Margin = new Padding(4, 4, 4, 4);
+            tbOfferprice.Name = "tbOfferprice";
+            tbOfferprice.Size = new Size(433, 31);
+            tbOfferprice.TabIndex = 12;
+            // 
+            // lblOfferprice
+            // 
+            lblOfferprice.AutoSize = true;
+            lblOfferprice.ForeColor = SystemColors.ControlText;
+            lblOfferprice.Location = new Point(75, 369);
+            lblOfferprice.Margin = new Padding(4, 0, 4, 0);
+            lblOfferprice.Name = "lblOfferprice";
+            lblOfferprice.Size = new Size(158, 25);
+            lblOfferprice.TabIndex = 11;
+            lblOfferprice.Text = "Harga Penawaran :";
             // 
             // lblMakeOfferpage
             // 
             lblMakeOfferpage.AutoSize = true;
             lblMakeOfferpage.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            lblMakeOfferpage.Location = new Point(60, 131);
+            lblMakeOfferpage.Location = new Point(75, 164);
+            lblMakeOfferpage.Margin = new Padding(4, 0, 4, 0);
             lblMakeOfferpage.Name = "lblMakeOfferpage";
-            lblMakeOfferpage.Size = new Size(185, 31);
+            lblMakeOfferpage.Size = new Size(227, 38);
             lblMakeOfferpage.TabIndex = 10;
             lblMakeOfferpage.Text = "Buat Penawaran";
             // 
             // tbHargaawal
             // 
-            tbHargaawal.Location = new Point(199, 246);
+            tbHargaawal.Location = new Point(249, 308);
+            tbHargaawal.Margin = new Padding(4, 4, 4, 4);
             tbHargaawal.Name = "tbHargaawal";
-            tbHargaawal.Size = new Size(347, 27);
+            tbHargaawal.Size = new Size(433, 31);
             tbHargaawal.TabIndex = 6;
             // 
             // tbOffernamaitem
             // 
-            tbOffernamaitem.Location = new Point(199, 196);
+            tbOffernamaitem.Location = new Point(249, 245);
+            tbOffernamaitem.Margin = new Padding(4, 4, 4, 4);
             tbOffernamaitem.Name = "tbOffernamaitem";
-            tbOffernamaitem.Size = new Size(347, 27);
+            tbOffernamaitem.Size = new Size(433, 31);
             tbOffernamaitem.TabIndex = 5;
             // 
             // lblOfferhargaitem
             // 
             lblOfferhargaitem.AutoSize = true;
             lblOfferhargaitem.ForeColor = SystemColors.ControlText;
-            lblOfferhargaitem.Location = new Point(60, 246);
+            lblOfferhargaitem.Location = new Point(75, 308);
+            lblOfferhargaitem.Margin = new Padding(4, 0, 4, 0);
             lblOfferhargaitem.Name = "lblOfferhargaitem";
-            lblOfferhargaitem.Size = new Size(94, 20);
+            lblOfferhargaitem.Size = new Size(112, 25);
             lblOfferhargaitem.TabIndex = 4;
             lblOfferhargaitem.Text = "Harga Awal :";
             // 
             // lblOffernamaitem
             // 
             lblOffernamaitem.AutoSize = true;
-            lblOffernamaitem.Location = new Point(60, 196);
+            lblOffernamaitem.Location = new Point(75, 245);
+            lblOffernamaitem.Margin = new Padding(4, 0, 4, 0);
             lblOffernamaitem.Name = "lblOffernamaitem";
-            lblOffernamaitem.Size = new Size(106, 20);
+            lblOffernamaitem.Size = new Size(130, 25);
             lblOffernamaitem.TabIndex = 3;
             lblOffernamaitem.Text = "Nama Produk :";
             // 
@@ -170,63 +218,25 @@
             btnHome.FlatAppearance.BorderSize = 3;
             btnHome.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnHome.Image = Properties.Resources.house_10723029__1_;
-            btnHome.Location = new Point(718, 478);
+            btnHome.Location = new Point(898, 598);
             btnHome.Margin = new Padding(2);
             btnHome.Name = "btnHome";
-            btnHome.Size = new Size(62, 62);
+            btnHome.Size = new Size(78, 78);
             btnHome.TabIndex = 1;
             btnHome.TextAlign = ContentAlignment.BottomCenter;
             btnHome.TextImageRelation = TextImageRelation.ImageAboveText;
             btnHome.UseVisualStyleBackColor = false;
             btnHome.Click += btnHome_Click;
             // 
-            // tbOfferprice
-            // 
-            tbOfferprice.Location = new Point(199, 295);
-            tbOfferprice.Name = "tbOfferprice";
-            tbOfferprice.Size = new Size(347, 27);
-            tbOfferprice.TabIndex = 12;
-            // 
-            // lblOfferprice
-            // 
-            lblOfferprice.AutoSize = true;
-            lblOfferprice.ForeColor = SystemColors.ControlText;
-            lblOfferprice.Location = new Point(60, 295);
-            lblOfferprice.Name = "lblOfferprice";
-            lblOfferprice.Size = new Size(132, 20);
-            lblOfferprice.TabIndex = 11;
-            lblOfferprice.Text = "Harga Penawaran :";
-            // 
-            // btnBuatpenawaran
-            // 
-            btnBuatpenawaran.BackColor = Color.White;
-            btnBuatpenawaran.Location = new Point(414, 367);
-            btnBuatpenawaran.Name = "btnBuatpenawaran";
-            btnBuatpenawaran.Size = new Size(132, 33);
-            btnBuatpenawaran.TabIndex = 14;
-            btnBuatpenawaran.Text = "Buat Penawaran";
-            btnBuatpenawaran.UseVisualStyleBackColor = false;
-            btnBuatpenawaran.Click += btnBuatpenawaran_Click;
-            // 
-            // btnPenawaranbatal
-            // 
-            btnPenawaranbatal.BackColor = Color.FromArgb(255, 128, 128);
-            btnPenawaranbatal.Location = new Point(224, 367);
-            btnPenawaranbatal.Name = "btnPenawaranbatal";
-            btnPenawaranbatal.Size = new Size(159, 33);
-            btnPenawaranbatal.TabIndex = 13;
-            btnPenawaranbatal.Text = "Batalkan Penawaran";
-            btnPenawaranbatal.UseVisualStyleBackColor = false;
-            btnPenawaranbatal.Click += btnPenawaranbatal_Click;
-            // 
             // buatPenawaranForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 560);
+            ClientSize = new Size(1000, 700);
             Controls.Add(panel1);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 4, 4, 4);
             Name = "buatPenawaranForm";
             Text = "buatPenawaranForm";
             panel1.ResumeLayout(false);

@@ -223,7 +223,7 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(771, 268);
             dataGridView1.TabIndex = 8;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // lblLihatitem
             // 

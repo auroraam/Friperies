@@ -15,7 +15,7 @@ namespace Friperies_2
     {
         public User loggedInUser;
         public int itemID;
-        public buatPenawaranForm(int id)
+        public buatPenawaranForm(int id, User user)
         {
             InitializeComponent();
             conn = new NpgsqlConnection(connstring);
@@ -23,6 +23,7 @@ namespace Friperies_2
             //tbOffernamaitem.Text = itemName;
             //tbHargaawal.Text = itemPrice.ToString();
             itemID = id;
+            loggedInUser = user;
             int itemPrice;
             currentOffer = new Offer();
         }
