@@ -7,16 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
 
 namespace Friperies_2
 {
     public partial class lihatProdukForm : Form
     {
         public User loggedInUser;
-        public lihatProdukForm()
-
         private NpgsqlConnection conn;
         private string connString = "Host=localhost;Port=5432;Username=postgres;Password=;Database=Friperies";
+        private DataGridViewRow row;
+        public lihatProdukForm()
         {
             InitializeComponent();
             conn = new NpgsqlConnection(connString);
@@ -45,43 +46,6 @@ namespace Friperies_2
             }
         }
 
-        private void rbKtg1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rbKtg3_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            homePageForm homePageForm = new homePageForm(loggedInUser);
-            homePageForm.Show();
-        }
-
-        private void btnHome_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            homePageForm homePageForm = new homePageForm(loggedInUser);
-            homePageForm.Show();
-        }
-
-        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEvenetArgs e)
-        {
-            int rowIndex >= e.RowIndex;
-
-            if (rowIndex >= 0)
-            {
-                DataGridView row = dataGridView1.Rows[rowIndex];
-                tbNamaitem.Text = row.Cells["ItemName"].Value.ToString();
-                tbKtgitem.Text = row.Cells["ItemCategory"].Value.ToString();
-                tbHargaitem.Text = row.Cells["ItemPrice"].Value.ToString();
-            }
-        }
-
         private void btnBuatPenawaran_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(tbNamaitem.Text) && !string.IsNullOrEmpty(tbHargaitem.Text))
@@ -97,8 +61,8 @@ namespace Friperies_2
                 string userPass = loggedInUser.userPass;
                 string userAddress = loggedInUser.userAddress;
 
-                buatPenawaranForm buatPenawaranForm = new buatPenawaranForm();
-                buatPenawaranForm.ShowDialaog();
+                buatPenawaranForm buatPenawaranForm = new buatPenawaranForm(loggedInUser);
+                buatPenawaranForm.Show();
             }
             else
             {
@@ -106,14 +70,34 @@ namespace Friperies_2
             }
         }
 
-        private void btnMuatproduk_Click(object sender, EventArgs e)
+        private void btnBack_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            homePageForm homePageForm = new homePageForm(loggedInUser);
+            homePageForm.Show();
+        }
+
+        private void btnMuatproduk_Click_1(object sender, EventArgs e)
         {
             LoadProduk();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void btnHome_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Hide();
+            homePageForm homePageForm = new homePageForm(loggedInUser);
+            homePageForm.Show();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                row = dataGridView1.Rows[e.RowIndex];
+                tbNamaitem.Text = row.Cells["ItemName"].Value.ToString();
+                tbKtgitem.Text = row.Cells["ItemCategory"].Value.ToString();
+                tbHargaitem.Text = row.Cells["ItemPrice"].Value.ToString();
+            }
         }
     }
 }
