@@ -21,9 +21,6 @@ namespace Friperies_2
         {
             InitializeComponent();
             conn = new NpgsqlConnection(connstring);
-            //belum bener
-            //tbOffernamaitem.Text = itemName;
-            //tbHargaawal.Text = itemPrice.ToString();
             ItemID = id;
             tbOffernamaitem.Text = itemName = name;
             tbHargaawal.Text = itemPrice = price;

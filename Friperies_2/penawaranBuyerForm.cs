@@ -125,11 +125,16 @@ namespace Friperies_2
         {
             if(dgvPenawaran.SelectedRows.Count > 0)
             {
+                int offereditem = Convert.ToInt32(row.Cells["ItemOffered"].Value);
+                int ItemID = offereditem;
+                string itemname = GetNamaProduk(ItemID);
+                int itemprice = Convert.ToInt32(row.Cells["OfferPrice"].Value);
                 string status = row.Cells["OfferStatus"].Value.ToString();
+                int offerid = Convert.ToInt32(row.Cells["OfferID"].Value);
                 if (status == "Accepted")
                 {
                     this.Hide();
-                    buatPesananForm buatPesananForm = new buatPesananForm(loggedInUser);
+                    buatPesananForm buatPesananForm = new buatPesananForm(loggedInUser, offerid, itemname, itemprice, offereditem);
                     buatPesananForm.Show();
                 }
                 else
