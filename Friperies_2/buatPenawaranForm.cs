@@ -14,13 +14,15 @@ namespace Friperies_2
     public partial class buatPenawaranForm : Form
     {
         public User loggedInUser;
-        public buatPenawaranForm(User user)
+        public int itemID;
+        public buatPenawaranForm(int id)
         {
             InitializeComponent();
             conn = new NpgsqlConnection(connstring);
             //belum bener
             //tbOffernamaitem.Text = itemName;
             //tbHargaawal.Text = itemPrice.ToString();
+            itemID = id;
             int itemPrice;
             currentOffer = new Offer();
         }
@@ -31,7 +33,7 @@ namespace Friperies_2
         string connstring = "Host = localhost; Port = 5432; Username = postgres; Password = feather0325; Database = Friperies";
         private NpgsqlCommand cmd;
         private string sql;
-        private int itemID;
+        //private int itemID;
 
         private void OpenConnection()
         {
@@ -93,7 +95,7 @@ namespace Friperies_2
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            lihatProdukForm lihatProdukForm = new lihatProdukForm();
+            lihatProdukForm lihatProdukForm = new lihatProdukForm(loggedInUser);
             lihatProdukForm.Show();
         }
 

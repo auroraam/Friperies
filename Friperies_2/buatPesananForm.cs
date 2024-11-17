@@ -120,7 +120,7 @@ namespace Friperies_2
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            lihatProdukForm lihatProdukForm = new lihatProdukForm();
+            lihatProdukForm lihatProdukForm = new lihatProdukForm(loggedInUser);
             lihatProdukForm.Show();
         }
 
