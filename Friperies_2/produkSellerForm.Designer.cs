@@ -254,6 +254,7 @@
             dgvPenawaran.RowHeadersWidth = 62;
             dgvPenawaran.Size = new Size(944, 218);
             dgvPenawaran.TabIndex = 4;
+            dgvPenawaran.CellClick += dgvPenawaran_CellClick;
             // 
             // lblProduk
             // 
