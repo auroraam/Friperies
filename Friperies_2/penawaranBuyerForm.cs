@@ -14,64 +14,61 @@ namespace Friperies_2
     public partial class penawaranBuyerForm : Form
     {
         public User loggedInUser;
+        private NpgsqlConnection conn;
+        string connstring = "Host = localhost; Port = 5432; Username = postgres; Password = feather0325; Database = friperiesfix";
+        public DataTable dt;
+        public static NpgsqlCommand cmd;
+        private string sql = null;
+        private DataGridViewRow row;
         public penawaranBuyerForm(User user)
         {
             InitializeComponent();
-            this.loggedInUser = user;
+            loggedInUser = user;
+            conn = new NpgsqlConnection(connstring);
+            LoadOffer();
         }
 
-        private void btLoad_Click(object sender, EventArgs e)
+        private void OpenConnection()
+        {
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+        }
+
+        private void LoadOffer()
         {
             try
             {
-                using (var conn = new NpgsqlConnection("Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix"))
+                OpenConnection();
+                string sql = @"SELECT * FROM public.""Offer"" WHERE ""OwnerOffer"" = @owneroffer";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(sql, conn))
                 {
-                    conn.Open();
-                    var query = @"
-                        SELECT 
-                            Offer.OfferID, 
-                            Item.ItemName, 
-                            Offer.OfferPrice, 
-                            Offer.OfferStatus 
-                        FROM 
-                            Offer 
-                        INNER JOIN 
-                            Item 
-                        ON 
-                            Offer.ItemOffered = Item.ItemID 
-                        WHERE 
-                            Offer.OwnerOffer = @buyerID";
-                    var cmd = new NpgsqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("buyerID", loggedInUser.userID);
+                    cmd.Parameters.AddWithValue("@owneroffer", loggedInUser.userID); // loggedInUser adalah pengguna saat ini
 
-                    using (var reader = cmd.ExecuteReader())
-                    {
-                        var dt = new DataTable();
-                        dt.Load(reader);
-                        dgvPenawaran.DataSource = dt;
-                    }
+                    // Eksekusi command dengan adapter
+                    NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    // Tampilkan data di DataGridView
+                    dgvPenawaran.DataSource = dt;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error saat memuat penawaran: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Terjadi kesalahan saat memuat data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
-        private void dgvPenawaran_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void btLoad_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int rowIndex = e.RowIndex;
-                tbIdPenawaran.Text = dgvPenawaran.Rows[rowIndex].Cells["OfferID"].Value.ToString();
-                tbNamaProduk.Text = dgvPenawaran.Rows[rowIndex].Cells["ItemName"].Value.ToString();
-                tbHarga.Text = dgvPenawaran.Rows[rowIndex].Cells["OfferPrice"].Value.ToString();
-                tbStatus.Text = dgvPenawaran.Rows[rowIndex].Cells["OfferStatus"].Value.ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error saat memilih penawaran: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            LoadOffer();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -126,9 +123,20 @@ namespace Friperies_2
 
         private void btCheckOut_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            buatPesananForm buatPesananForm = new buatPesananForm(loggedInUser);
-            buatPesananForm.Show();
+            if(dgvPenawaran.SelectedRows.Count > 0)
+            {
+                string status = row.Cells["OfferStatus"].Value.ToString();
+                if (status == "Accepted")
+                {
+                    this.Hide();
+                    buatPesananForm buatPesananForm = new buatPesananForm(loggedInUser);
+                    buatPesananForm.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Tidak dapat membuat pesanan karena penawaran belum diterima.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -136,6 +144,55 @@ namespace Friperies_2
             this.Hide();
             profilForm profilForm = new profilForm(loggedInUser);
             profilForm.Show();
+        }
+
+        protected string GetNamaProduk(int iditem)
+        {
+            string itemname = null;
+            try
+            {
+                OpenConnection();
+                sql = @"select ""ItemName"" from public.""Item"" WHERE ""ItemID"" = @itemid";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@itemid", iditem);
+                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            itemname = reader.GetString(reader.GetOrdinal("ItemName"));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Fail!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return itemname;
+        }
+
+        private void dgvPenawaran_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                row = dgvPenawaran.Rows[e.RowIndex];
+                int offereditem = Convert.ToInt32(row.Cells["ItemOffered"].Value);
+                int ItemID = offereditem;
+                string itemname = GetNamaProduk(ItemID);
+                tbIdPenawaran.Text = row.Cells["OfferID"].Value.ToString();
+                tbNamaProduk.Text = itemname;
+                tbHarga.Text = row.Cells["OfferPrice"].Value.ToString();
+                tbStatus.Text = row.Cells["OfferStatus"].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error saat memilih penawaran: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
