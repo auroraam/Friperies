@@ -14,24 +14,24 @@ namespace Friperies_2
     public partial class buatPenawaranForm : Form
     {
         public User loggedInUser;
-        public int itemID;
-        public buatPenawaranForm(int id, User user)
+        public int ItemID;
+        public string itemName;
+        public string itemPrice;
+        public buatPenawaranForm(int id, string name, string price, User user)
         {
             InitializeComponent();
             conn = new NpgsqlConnection(connstring);
             //belum bener
             //tbOffernamaitem.Text = itemName;
             //tbHargaawal.Text = itemPrice.ToString();
-            itemID = id;
+            ItemID = id;
+            tbOffernamaitem.Text = itemName = name;
+            tbHargaawal.Text = itemPrice = price;
             loggedInUser = user;
-            int itemPrice;
-            currentOffer = new Offer();
         }
 
-        private Offer currentOffer;
-
         private NpgsqlConnection conn;
-        string connstring = "Host = localhost; Port = 5432; Username = postgres; Password = feather0325; Database = Friperies";
+        string connstring = "Host = localhost; Port = 5432; Username = postgres; Password = feather0325; Database = friperiesfix";
         private NpgsqlCommand cmd;
         private string sql;
         //private int itemID;
@@ -64,20 +64,28 @@ namespace Friperies_2
             {
                 OpenConnection();
                 int offerPrice = int.Parse(tbOfferprice.Text);
-                currentOffer.offerPrice = offerPrice;
+                string OfferStatus = "Pending" ;
 
-                currentOffer.NewOffer(0, currentOffer.itemID, offerPrice, currentOffer.OwnerOffer);
-
-                string sql = "INSERT INTO Offer (ItemOffered, OwnerOffer, OfferPrice, OfferStatus) VALUES (@itemID, @ownerOffer, @itemPrice, @offerStatus)";
+                string sql = @"INSERT INTO public.""Offer"" (""ItemOffered"",""OwnerOffer"", ""OfferPrice"", ""OfferStatus"") VALUES (@itemID, @ownerOffer, @offerPrice, @offerStatus)";
                 using (var cmd = new NpgsqlCommand(sql, conn))
                 {
-                    cmd.Parameters.AddWithValue("itemID", currentOffer.itemID);
-                    cmd.Parameters.AddWithValue("ownerOffer", currentOffer.OwnerOffer);
-                    cmd.Parameters.AddWithValue("offerPrice", currentOffer.offerPrice);
-                    cmd.Parameters.AddWithValue("offerStatus", currentOffer.OfferStatus);
+                    cmd.Parameters.AddWithValue("@itemID", ItemID);
+                    cmd.Parameters.AddWithValue("@ownerOffer", loggedInUser.userID);
+                    cmd.Parameters.AddWithValue("@offerPrice", offerPrice);
+                    cmd.Parameters.AddWithValue("@offerStatus", OfferStatus);
 
                     int rowsAffected = cmd.ExecuteNonQuery();
-                    MessageBox.Show($"{rowsAffected} penawaran berhasil ditambahkan.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show($"{rowsAffected} penawaran berhasil ditambahkan.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Hide();
+                        homePageForm homePageForm = new homePageForm(loggedInUser);
+                        homePageForm.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Gagal membuat penawaran baru", "Offer Fail!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             catch (Exception ex)

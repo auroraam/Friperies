@@ -12,7 +12,7 @@ namespace Friperies_2
         protected int _itemID;
         protected int _ownerOffer;
         protected int _offerPrice;
-        protected bool _offerStatus;
+        protected string _offerStatus;
 
         public Offer()
             : base()
@@ -21,7 +21,7 @@ namespace Friperies_2
             _itemID = itemID;
             _offerPrice = offerPrice;
             _ownerOffer = userID;
-            _offerStatus = false;
+            _offerStatus = "Pending";
         }
 
         public int offerID
@@ -32,6 +32,7 @@ namespace Friperies_2
         public int itemID
         {
             get { return _itemID;}
+            set { _offerID = value; }
         }
 
         public int OwnerOffer
@@ -45,10 +46,10 @@ namespace Friperies_2
             set { _offerPrice = value; }
         }
         
-        public bool OfferStatus
+        public string OfferStatus
         {
             get { return _offerStatus; }
-            private set { _offerStatus = value; }
+            set { _offerStatus = value; }
         }
 
         public void NewOffer(int offerID, int itemID, int offerPrice, int userID)
@@ -57,7 +58,7 @@ namespace Friperies_2
             _itemID = itemID;
             _offerPrice = offerPrice;
             _ownerOffer = userID;
-            _offerStatus = false;
+            _offerStatus = "Pending";
             Console.WriteLine($"Offer {offerID} created.");
         }
 
@@ -73,15 +74,15 @@ namespace Friperies_2
             _itemID = 0;
             _offerPrice = 0;
             _ownerOffer = 0;
-            _offerStatus = false;
+            _offerStatus = null;
             Console.WriteLine($"Offer {offerID} deleted.");
         }
 
         public void AcceptOffer(int offerID, int itemID)
         {
-            if(!_offerStatus)
+            if(_offerStatus == "Pending")
             {
-                OfferStatus = true;
+                OfferStatus = "Accepted";
             }
             else
             {

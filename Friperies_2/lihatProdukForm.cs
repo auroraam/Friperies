@@ -51,9 +51,11 @@ namespace Friperies_2
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                int itemID = int.Parse(dataGridView1.SelectedRows[0].Cells["ItemID"].Value.ToString());
+                int ItemID = int.Parse(dataGridView1.SelectedRows[0].Cells["ItemID"].Value.ToString());
+                string itemName = dataGridView1.SelectedRows[0].Cells["ItemName"].Value.ToString();
+                string itemPrice = dataGridView1.SelectedRows[0].Cells["ItemPrice"].Value.ToString();
                 this.Hide();
-                buatPenawaranForm buatPenawaranForm = new buatPenawaranForm(itemID, loggedInUser);
+                buatPenawaranForm buatPenawaranForm = new buatPenawaranForm(ItemID, itemName, itemPrice, loggedInUser);
                 buatPenawaranForm.Show();
             }
             else
