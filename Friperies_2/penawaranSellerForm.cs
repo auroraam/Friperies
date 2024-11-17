@@ -14,13 +14,13 @@ namespace Friperies_2
     public partial class penawaranSellerForm : Form
     {
         public User loggedInUser;
-        public penawaranSellerForm()
+        public penawaranSellerForm(User user)
         {
             InitializeComponent();
         }
 
         private NpgsqlConnection conn;
-        string connstring = "Host = localhost; Port = 5432; Username = postgres; Password = Fhpduadua22; Database = Friperies";
+        string connstring = "Host = localhost; Port = 5432; Username = postgres; Password = feather0325; Database = Friperies";
         public DataTable dt;
         public static NpgsqlCommand cmd;
         private string sql = null;
@@ -121,7 +121,7 @@ namespace Friperies_2
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            produkSellerForm produkSellerForm = new produkSellerForm();
+            produkSellerForm produkSellerForm = new produkSellerForm(loggedInUser);
             produkSellerForm.Show();
         }
 

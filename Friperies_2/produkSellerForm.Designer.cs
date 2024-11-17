@@ -34,6 +34,7 @@
             btnExit = new Button();
             btnBack = new Button();
             panel2 = new Panel();
+            btPenawaran = new Button();
             btLoad = new Button();
             tbKategori = new TextBox();
             label3 = new Label();
@@ -47,7 +48,6 @@
             dgvPenawaran = new DataGridView();
             lblProduk = new Label();
             btnHome = new Button();
-            btPenawaran = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPenawaran).BeginInit();
@@ -129,6 +129,17 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(1000, 700);
             panel2.TabIndex = 8;
+            // 
+            // btPenawaran
+            // 
+            btPenawaran.Location = new Point(633, 150);
+            btPenawaran.Margin = new Padding(2);
+            btPenawaran.Name = "btPenawaran";
+            btPenawaran.Size = new Size(165, 148);
+            btPenawaran.TabIndex = 25;
+            btPenawaran.Text = "Lihat Penawaran";
+            btPenawaran.UseVisualStyleBackColor = true;
+            btPenawaran.Click += btPenawaran_Click;
             // 
             // btLoad
             // 
@@ -270,17 +281,6 @@
             btnHome.TextImageRelation = TextImageRelation.ImageAboveText;
             btnHome.UseVisualStyleBackColor = false;
             btnHome.Click += btnHome_Click;
-            // 
-            // btPenawaran
-            // 
-            btPenawaran.Location = new Point(633, 150);
-            btPenawaran.Margin = new Padding(2);
-            btPenawaran.Name = "btPenawaran";
-            btPenawaran.Size = new Size(165, 148);
-            btPenawaran.TabIndex = 25;
-            btPenawaran.Text = "Lihat Penawaran";
-            btPenawaran.UseVisualStyleBackColor = true;
-            btPenawaran.Click += btPenawaran_Click;
             // 
             // produkSellerForm
             // 

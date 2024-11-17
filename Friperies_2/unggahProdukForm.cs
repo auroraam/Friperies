@@ -1,5 +1,6 @@
 ﻿using Npgsql;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,9 +15,10 @@ namespace Friperies_2
     public partial class unggahProdukForm : Form
     {
         public User loggedInUser;
-        public unggahProdukForm()
+        public unggahProdukForm(User user)
         {
             InitializeComponent();
+            loggedInUser = user;
         }
 
         private NpgsqlConnection conn;
@@ -25,7 +27,6 @@ namespace Friperies_2
         public static NpgsqlCommand cmd;
         private string sql = null;
         private string imageLocation = "";
-        private int currentUserId = 101;
 
         private void unggahProdukForm_Load(object sender, EventArgs e)
         {
@@ -34,15 +35,15 @@ namespace Friperies_2
 
         private void btnUnggahfotoitem_Click(object sender, EventArgs e)
         {
-            string imageLocation = "";
             try
             {
                 OpenFileDialog openFileDialog = new OpenFileDialog();
                 openFileDialog.Filter = "JPG files (*.jpg)|*.jpg|PNG files (*.png)|*.png|All files (*.*)|*.*";
 
-                if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    pbUnggahitem.Image = new Bitmap(openFileDialog.FileName);
+                    imageLocation = openFileDialog.FileName; // Simpan lokasi gambar
+                    pbUnggahitem.Image = new Bitmap(imageLocation); // Tampilkan di PictureBox
                 }
             }
             catch (Exception ex)
@@ -55,37 +56,52 @@ namespace Friperies_2
         {
             try
             {
+                if (string.IsNullOrEmpty(imageLocation))
+                {
+                    MessageBox.Show("Silakan unggah gambar terlebih dahulu.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Membaca file gambar menjadi byte array
+                byte[] imageBytes = File.ReadAllBytes(imageLocation);
+
                 conn.Open();
-                sql = @"INSERT INTO public.""Item"" (""ItemName"", ""ItemCategory"", ""ItemPrice"", ""OwnerItem"", ""LikesCounter"") 
-                        VALUES ($1, $2, $3, $4, 0) RETURNING ""ItemID""";
-                cmd = new NpgsqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("$1", tbNamaitem.Text);
-                cmd.Parameters.AddWithValue("$2", tbKtgitem.Text);
-                cmd.Parameters.AddWithValue("$3", Convert.ToInt32(tbHargaitem.Text));
-                cmd.Parameters.AddWithValue("$4", currentUserId);
+                sql = @"INSERT INTO public.""Item"" (""ItemName"", ""ItemPrice"", ""OwnerItem"", ""ItemImage"") 
+                VALUES (@1, @2, @3, @4) RETURNING ""ItemID""";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@1", tbNamaitem.Text);
+                    cmd.Parameters.AddWithValue("@2", Convert.ToInt32(tbHargaitem.Text));
+                    cmd.Parameters.AddWithValue("@3", loggedInUser.userID);
+                    cmd.Parameters.AddWithValue("@4", imageBytes); // Tambahkan byte array gambar
 
-                int newItemID = (int)cmd.ExecuteScalar();
-
-                MessageBox.Show($"Data Produk Berhasil diunggah dengan ID: {newItemID}", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                tbNamaitem.Text = rtbDesitem.Text = tbKtgitem.Text = tbHargaitem.Text = "";
-                //image1.Image = null;
-                imageLocation = "";
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show($"Data Produk Berhasil", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        tbNamaitem.Text = rtbDesitem.Text = tbHargaitem.Text = "";
+                        pbUnggahitem.Image = null; // Reset PictureBox
+                        imageLocation = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Gagal mengunggah", "Upload Failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Upload Failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
         private void btnExit_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void btnUnggahitem_Click_1(object sender, EventArgs e)
-        {
-
         }
 
         private void btnHome_Click(object sender, EventArgs e)

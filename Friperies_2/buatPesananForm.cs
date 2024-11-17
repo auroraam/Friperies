@@ -22,7 +22,7 @@ namespace Friperies_2
         {
 
         }
-        public buatPesananForm(User user, int itemID, string itemName, int itemPrice)
+        public buatPesananForm(User user)
         {
             InitializeComponent();
             this.loggedInUser = user;
@@ -54,7 +54,7 @@ namespace Friperies_2
             }
             try
             {
-                using (var conn = new NpgsqlConnection("Host=localhost;Port=5432;Username=postgres;Password=;Database=friperiesfix"))
+                using (var conn = new NpgsqlConnection("Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix"))
                 {
                     conn.Open();
 
@@ -82,7 +82,7 @@ namespace Friperies_2
 
             try
             {
-                using (var conn = new NpgsqlConnection("Host=localhost;Port=5432;Username=postgres;Password=;Database=friperiesfix"))
+                using (var conn = new NpgsqlConnection("Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix"))
                 {
                     conn.Open();
 

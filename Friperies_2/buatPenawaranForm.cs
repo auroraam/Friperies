@@ -22,14 +22,13 @@ namespace Friperies_2
             //tbOffernamaitem.Text = itemName;
             //tbHargaawal.Text = itemPrice.ToString();
             int itemPrice;
-            currentOffer = new Offer(loggedInUser.userID, loggedInUser.userName, loggedInUser.userEmail, loggedInUser.userPass, loggedInUser.userAddress, 0, itemID, itemPrice);
-            
+            currentOffer = new Offer();
         }
 
         private Offer currentOffer;
 
         private NpgsqlConnection conn;
-        string connstring = "Host = localhost; Port = 5432; Username = postgres; Password = ; Database = Friperies";
+        string connstring = "Host = localhost; Port = 5432; Username = postgres; Password = feather0325; Database = Friperies";
         private NpgsqlCommand cmd;
         private string sql;
         private int itemID;
@@ -62,16 +61,16 @@ namespace Friperies_2
             {
                 OpenConnection();
                 int offerPrice = int.Parse(tbOfferprice.Text);
-                currentOffer.OfferPrice = offerPrice;
+                currentOffer.offerPrice = offerPrice;
 
-                currentOffer.NewOffer(0, currentOffer.ItemID, offerPrice, currentOffer.OwnerOffer);
+                currentOffer.NewOffer(0, currentOffer.itemID, offerPrice, currentOffer.OwnerOffer);
 
                 string sql = "INSERT INTO Offer (ItemOffered, OwnerOffer, OfferPrice, OfferStatus) VALUES (@itemID, @ownerOffer, @itemPrice, @offerStatus)";
                 using (var cmd = new NpgsqlCommand(sql, conn))
                 {
-                    cmd.Parameters.AddWithValue("itemID", currentOffer.ItemID);
+                    cmd.Parameters.AddWithValue("itemID", currentOffer.itemID);
                     cmd.Parameters.AddWithValue("ownerOffer", currentOffer.OwnerOffer);
-                    cmd.Parameters.AddWithValue("offerPrice", currentOffer.OfferPrice);
+                    cmd.Parameters.AddWithValue("offerPrice", currentOffer.offerPrice);
                     cmd.Parameters.AddWithValue("offerStatus", currentOffer.OfferStatus);
 
                     int rowsAffected = cmd.ExecuteNonQuery();

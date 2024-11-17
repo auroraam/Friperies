@@ -8,13 +8,13 @@ namespace Friperies_2
 {
     internal class Offer : User
     {
-        private int _offerID;
-        private int _itemID;
-        private int _ownerOffer;
-        private int _offerPrice;
-        private bool _offerStatus;
+        protected int _offerID;
+        protected int _itemID;
+        protected int _ownerOffer;
+        protected int _offerPrice;
+        protected bool _offerStatus;
 
-        public Offer(int userID, string userName, string userEmail, string userPass, string userAddress, int offerID, int itemID, int offerPrice)
+        public Offer()
             : base()
         {
             _offerID = offerID;
@@ -24,12 +24,12 @@ namespace Friperies_2
             _offerStatus = false;
         }
 
-        public int OfferID
+        public int offerID
         {
             get { return _offerID; }
         } 
 
-        public int ItemID
+        public int itemID
         {
             get { return _itemID;}
         }
@@ -39,7 +39,7 @@ namespace Friperies_2
             get { return _ownerOffer;}
         }
 
-        public int OfferPrice
+        public int offerPrice
         {
             get { return _offerPrice; }
             set { _offerPrice = value; }

@@ -25,7 +25,7 @@ namespace Friperies_2
         {
             try
             {
-               using (var conn = new NpgsqlConnection("Host=localhost;Port=5432;Username=postgres;Password=;Database=friperiesfix"))
+               using (var conn = new NpgsqlConnection("Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix"))
                 {
                     conn.Open();
                     string query = @"
@@ -86,7 +86,7 @@ namespace Friperies_2
 
             try
             {
-                using (var conn = new NpgsqlConnection("Host=localhost;Port=5432;Username=postgres;Password=;Database=friperiesfix"))
+                using (var conn = new NpgsqlConnection("Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix"))
                 {
                     conn.Open();
                     string query = "UPDATE Transaction SET TransactionStatus = 'Completed' WHERE TransactionID = @transactionID";

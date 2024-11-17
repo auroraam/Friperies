@@ -22,7 +22,7 @@ namespace Friperies_2
         private void btnUnggahProduk_Click(object sender, EventArgs e)
         {
             this.Hide();
-            unggahProdukForm unggahProdukForm = new unggahProdukForm();
+            unggahProdukForm unggahProdukForm = new unggahProdukForm(loggedInUser);
             unggahProdukForm.Show();
         }
 

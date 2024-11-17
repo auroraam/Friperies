@@ -1,4 +1,3 @@
-C:\Users\hp\Source\Repos\auroraam\Friperies\Friperies_2\obj\Debug\net8.0-windows\Friperies_2.Form1.resources
 C:\Users\hp\Source\Repos\auroraam\Friperies\Friperies_2\obj\Debug\net8.0-windows\Friperies_2.csproj.GenerateResource.cache
 C:\Users\hp\Source\Repos\auroraam\Friperies\Friperies_2\obj\Debug\net8.0-windows\Friperies_2.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\hp\Source\Repos\auroraam\Friperies\Friperies_2\obj\Debug\net8.0-windows\Friperies_2.AssemblyInfoInputs.cache
@@ -6,7 +5,6 @@ C:\Users\hp\Source\Repos\auroraam\Friperies\Friperies_2\obj\Debug\net8.0-windows
 C:\Users\hp\Source\Repos\auroraam\Friperies\Friperies_2\obj\Debug\net8.0-windows\Friperies_2.csproj.CoreCompileInputs.cache
 C:\Users\hp\Source\Repos\auroraam\Friperies\Friperies_2\obj\Debug\net8.0-windows\Friperies_2.sourcelink.json
 C:\Users\hp\source\repos\auroraam\Friperies\Friperies_2\obj\Debug\net8.0-windows\Friperies_2.Properties.Resources.resources
-C:\Users\hp\Source\Repos\auroraam\Friperies\Friperies_2\obj\Debug\net8.0-windows\Friperies_2.homeForm.resources
 C:\Users\hp\Source\Repos\auroraam\Friperies\Friperies_2\obj\Debug\net8.0-windows\Friperies_2.signinForm.resources
 C:\Users\hp\Source\Repos\auroraam\Friperies\Friperies_2\obj\Debug\net8.0-windows\Friperies_2.signupForm.resources
 C:\Users\hp\Source\Repos\auroraam\Friperies\Friperies_2\obj\Debug\net8.0-windows\Friperies_2.csproj.AssemblyReference.cache
@@ -61,3 +59,5 @@ C:\Users\Asus\Source\Repos\auroraam\Friperies\Friperies_2\obj\Debug\net8.0-windo
 C:\Users\Asus\Source\Repos\auroraam\Friperies\Friperies_2\obj\Debug\net8.0-windows\Friperies_2.dll
 C:\Users\Asus\Source\Repos\auroraam\Friperies\Friperies_2\obj\Debug\net8.0-windows\refint\Friperies_2.dll
 C:\Users\Asus\Source\Repos\auroraam\Friperies\Friperies_2\obj\Debug\net8.0-windows\Friperies_2.pdb
+C:\Users\hp\Source\Repos\auroraam\Friperies\Friperies_2\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+C:\Users\hp\Source\Repos\auroraam\Friperies\Friperies_2\bin\Debug\net8.0-windows\RestSharp.dll

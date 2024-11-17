@@ -24,7 +24,7 @@ namespace Friperies_2
         {
             try
             {
-                using (var conn = new NpgsqlConnection("Host=localhost;Port=5432;Username=postgres;Password=;Database=friperiesfix"))
+                using (var conn = new NpgsqlConnection("Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix"))
                 {
                     conn.Open();
                     var query = "SELECT ItemID, ItemName, Category, Price FROM Item WHERE OwnerItem = @ownerItem";
@@ -35,7 +35,7 @@ namespace Friperies_2
                     {
                         var dt = new DataTable();
                         dt.Load(reader);
-                        dgvPenawaran.DataSource = dt; 
+                        dgvPenawaran.DataSource = dt;
                     }
                 }
             }
@@ -43,22 +43,6 @@ namespace Friperies_2
             {
                 MessageBox.Show($"Error saat memuat produk: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void dgvPenawaran_RowHeaderMouseClick(object sender, DataGridViewCellMouseEvenetArgs e)
-        {
-           try
-            {
-                int rowIndex = e.RowIndex;
-                tbIdProduk.Text = dgvPenawaran.Rows[rowIndex].Cells["ItemID"].Value.ToString();
-                tbNamaProduk.Text = dgvPenawaran.Rows[rowIndex].Cells["ItemName"].Value.ToString();
-                tbKategori.Text = dgvPenawaran.Rows[rowIndex].Cells["ItemCategory"].Value.ToString();
-                tbHarga.Text = dgvPenawaran.Rows[rowIndex].Cells["ItemPrice"].Value.ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error saat memilih produk: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } 
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -71,7 +55,7 @@ namespace Friperies_2
 
             try
             {
-                using (var conn = new NpgsqlConnection("Host=localhost;Port=5432;Username=postgres;Password=;Database=friperiesfix"))
+                using (var conn = new NpgsqlConnection("Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix"))
                 {
                     conn.Open();
                     var query = "DELETE FROM Item WHERE ItemID = @itemID AND OwnerItem = @ownerItem";
@@ -108,7 +92,7 @@ namespace Friperies_2
             try
             {
                 int ItemID = int.Parse(tbIdProduk.Text);
-                var penawaranSellerForm = new penawaranSellerForm(ItemID, loggedInUser);
+                var penawaranSellerForm = new penawaranSellerForm(loggedInUser);
                 penawaranSellerForm.ShowDialog();
             }
             catch (Exception ex)
@@ -134,6 +118,11 @@ namespace Friperies_2
             this.Hide();
             profilForm profilForm = new profilForm(loggedInUser);
             profilForm.Show();
+        }
+
+        private void btLoad_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

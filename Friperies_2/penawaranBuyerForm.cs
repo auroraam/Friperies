@@ -24,7 +24,7 @@ namespace Friperies_2
         {
             try
             {
-                using (var conn = new NpgsqlConnection("Host=localhost;Port=5432;Username=postgres;Password=;Database=friperiesfix"))
+                using (var conn = new NpgsqlConnection("Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix"))
                 {
                     conn.Open();
                     var query = @"
@@ -84,7 +84,7 @@ namespace Friperies_2
 
             try
             {
-                using (var conn = new NpgsqlConnection("Host=localhost;Port=5432;Username=postgres;Password=;Database=friperiesfix"))
+                using (var conn = new NpgsqlConnection("Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix"))
                 {
                     conn.Open();
 
@@ -127,7 +127,7 @@ namespace Friperies_2
         private void btCheckOut_Click(object sender, EventArgs e)
         {
             this.Hide();
-            buatPesananForm buatPesananForm = new buatPesananForm();
+            buatPesananForm buatPesananForm = new buatPesananForm(loggedInUser);
             buatPesananForm.Show();
         }
 
