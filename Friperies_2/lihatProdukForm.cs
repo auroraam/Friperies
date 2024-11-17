@@ -15,11 +15,12 @@ namespace Friperies_2
     {
         public User loggedInUser;
         private NpgsqlConnection conn;
-        private string connString = "Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=Friperies";
+        private string connString = "Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix";
         private DataGridViewRow row;
-        public lihatProdukForm()
+        public lihatProdukForm(User user)
         {
             InitializeComponent();
+            loggedInUser = user;
             conn = new NpgsqlConnection(connString);
             LoadProduk();
         }
@@ -29,7 +30,7 @@ namespace Friperies_2
             try
             {
                 conn.Open();
-                string sql = "select * from Item";
+                string sql = @"select * from public.""Item""";
                 NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -61,7 +62,7 @@ namespace Friperies_2
                 string userPass = loggedInUser.userPass;
                 string userAddress = loggedInUser.userAddress;
 
-                buatPenawaranForm buatPenawaranForm = new buatPenawaranForm(loggedInUser);
+                buatPenawaranForm buatPenawaranForm = new buatPenawaranForm(itemID);
                 buatPenawaranForm.Show();
             }
             else
@@ -97,6 +98,19 @@ namespace Friperies_2
                 tbNamaitem.Text = row.Cells["ItemName"].Value.ToString();
                 tbKtgitem.Text = row.Cells["ItemCategory"].Value.ToString();
                 tbHargaitem.Text = row.Cells["ItemPrice"].Value.ToString();
+
+                if (row.Cells["ItemImage"].Value != DBNull.Value)
+                {
+                    byte[] imageData = (byte[])row.Cells["ItemImage"].Value;
+                    using (var ms = new MemoryStream(imageData))
+                    {
+                        pbUnggahitem.Image = Image.FromStream(ms);
+                    }
+                }
+                else
+                {
+                    pbUnggahitem.Image = null; // Jika data foto kosong
+                }
             }
         }
     }

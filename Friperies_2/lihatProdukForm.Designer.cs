@@ -135,6 +135,7 @@
             btnBuatPenawaran.TabIndex = 22;
             btnBuatPenawaran.Text = "Buat Penawaran";
             btnBuatPenawaran.UseVisualStyleBackColor = true;
+            btnBuatPenawaran.Click += btnBuatPenawaran_Click;
             // 
             // btnMuatproduk
             // 
@@ -209,6 +210,7 @@
             pbUnggahitem.Margin = new Padding(4);
             pbUnggahitem.Name = "pbUnggahitem";
             pbUnggahitem.Size = new Size(130, 174);
+            pbUnggahitem.SizeMode = PictureBoxSizeMode.StretchImage;
             pbUnggahitem.TabIndex = 14;
             pbUnggahitem.TabStop = false;
             // 

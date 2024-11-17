@@ -120,7 +120,7 @@ namespace Friperies_2
         {
             if (e.KeyCode == Keys.Enter)
             {
-                DialogResult dialogResult = MessageBox.Show("Password telah diubah. Apakah Anda setuju untuk mengubah Username?", "Ubah Password", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Password telah diubah. Apakah Anda setuju untuk mengubah Password?", "Ubah Password", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     string newPass = tbPassword.Text;
@@ -133,10 +133,11 @@ namespace Friperies_2
                         try
                         {
                             conn.Open();
+                            // Ganti dengan nama kolom yang sesuai jika berbeda
                             string query = @"UPDATE public.""User"" SET ""UserPass"" = @UserPass WHERE ""UserID"" = @UserID";
                             using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
                             {
-                                cmd.Parameters.AddWithValue("@UserName", newPass);
+                                cmd.Parameters.AddWithValue("@UserPass", newPass);
                                 cmd.Parameters.AddWithValue("@UserID", userId);
 
                                 int rowsAffected = cmd.ExecuteNonQuery();

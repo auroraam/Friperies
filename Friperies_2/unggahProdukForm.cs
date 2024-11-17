@@ -64,16 +64,18 @@ namespace Friperies_2
 
                 // Membaca file gambar menjadi byte array
                 byte[] imageBytes = File.ReadAllBytes(imageLocation);
+                string itemCategory = cbKategori.Text;
 
                 conn.Open();
-                sql = @"INSERT INTO public.""Item"" (""ItemName"", ""ItemPrice"", ""OwnerItem"", ""ItemImage"") 
-                VALUES (@1, @2, @3, @4) RETURNING ""ItemID""";
+                sql = @"INSERT INTO public.""Item"" (""ItemName"", ""ItemPrice"", ""OwnerItem"", ""ItemImage"", ""ItemCategory"") 
+                VALUES (@1, @2, @3, @4, @5) RETURNING ""ItemID""";
                 using (NpgsqlCommand cmd = new NpgsqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@1", tbNamaitem.Text);
                     cmd.Parameters.AddWithValue("@2", Convert.ToInt32(tbHargaitem.Text));
                     cmd.Parameters.AddWithValue("@3", loggedInUser.userID);
                     cmd.Parameters.AddWithValue("@4", imageBytes); // Tambahkan byte array gambar
+                    cmd.Parameters.AddWithValue("@5", itemCategory);
 
                     int rowsAffected = cmd.ExecuteNonQuery();
                     if (rowsAffected > 0)
