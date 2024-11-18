@@ -13,6 +13,7 @@ namespace Friperies_2
         protected string _userName;
         protected string _userEmail;
         protected string _userPass; 
+        protected string _userAddress;
 
         public User()
         {
@@ -20,6 +21,7 @@ namespace Friperies_2
             _userEmail = userEmail;
             _userPass = userPass;
             _userName = userName;
+            _userAddress = userAddress;
         }
 
         public int userID
@@ -41,6 +43,11 @@ namespace Friperies_2
         {
             get {return _userPass;}
             set {_userPass = value;}
+        }
+        public string userAddress 
+        {
+            get {return _userAddress;}
+            set {_userAddress = value;}
         }
     }
 }

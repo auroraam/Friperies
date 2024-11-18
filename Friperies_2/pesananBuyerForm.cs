@@ -92,7 +92,7 @@ namespace Friperies_2
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: " + ex.Message, "Failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -117,7 +117,7 @@ namespace Friperies_2
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error displaying order details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error : {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

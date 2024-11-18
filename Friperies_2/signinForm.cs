@@ -36,12 +36,13 @@ namespace Friperies_2
                 return;
             }
 
-            string connString = dbConfig.ConnectionString;
-            using (NpgsqlConnection conn = new NpgsqlConnection(connString))
+            using (NpgsqlConnection conn = new NpgsqlConnection(dbConfig.ConnectionString))
             {
                 try
                 {
                     conn.Open();
+
+                    // Query untuk mengecek apakah username dan password cocok
                     string query = @"SELECT * FROM public.""User"" WHERE ""UserName"" = @UserName AND ""UserPass"" = @UserPass";
                     using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
                     {
@@ -55,6 +56,7 @@ namespace Friperies_2
                                 // Jika berhasil login, simpan informasi pengguna
                                 loggedInUser.userID = reader.GetInt32(reader.GetOrdinal("UserID"));
                                 loggedInUser.userEmail = reader.GetString(reader.GetOrdinal("UserEmail"));
+                                loggedInUser.userAddress = reader.GetString(reader.GetOrdinal("UserAddress"));
 
                                 // Set informasi login pada objek loggedInUser
                                 loggedInUser.userName = userName;

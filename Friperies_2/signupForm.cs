@@ -13,9 +13,17 @@ namespace Friperies_2
 {
     public partial class signupForm : Form
     {
+        List<string> listKota = new List<string>();
         public signupForm()
         {
             InitializeComponent();
+            listKota = Transaction.GetKotaList();
+            foreach (string kota in listKota)
+            {
+                tbAlamat.AutoCompleteCustomSource.Add(kota);
+                tbAlamat.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                tbAlamat.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            }
         }
 
         private void signupForm_Load(object sender, EventArgs e)
@@ -45,6 +53,14 @@ namespace Friperies_2
             if (string.IsNullOrWhiteSpace(userName) || string.IsNullOrWhiteSpace(userEmail) || string.IsNullOrWhiteSpace(userPass) || string.IsNullOrWhiteSpace(userAddress))
             {
                 MessageBox.Show("Semua field harus diisi!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int idAlamat = Transaction.GetIdKotaList(tbAlamat.Text.Trim());
+
+            if (idAlamat == -1)
+            {
+                MessageBox.Show("Kota asal atau tujuan tidak valid. Harap periksa kembali.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

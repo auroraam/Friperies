@@ -32,8 +32,7 @@ namespace Friperies_2
                 string sql = @"SELECT * FROM public.""Item"" WHERE ""OwnerItem"" = @ownerItem";
                 using (NpgsqlCommand cmd = new NpgsqlCommand(sql, conn))
                 {
-                    cmd.Parameters.AddWithValue("@ownerItem", loggedInUser.userID); // loggedInUser adalah pengguna saat ini
-
+                    cmd.Parameters.AddWithValue("@ownerItem", loggedInUser.userID); 
                     // Eksekusi command dengan adapter
                     NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
                     DataTable dt = new DataTable();

@@ -35,6 +35,7 @@ namespace Friperies_2
         {
             InitializeComponent();
             loggedInUser = user;
+            tbTujuan.Text = GetAlamatBuyer(loggedInUser.userID);
             offerid = id;
             tbBuatpesananitem.Text = itemname = name;
             itemPrice = price;
@@ -45,9 +46,6 @@ namespace Friperies_2
             listKota = Transaction.GetKotaList();
             foreach(string kota in listKota)
             {
-                tbAsal.AutoCompleteCustomSource.Add(kota);
-                tbAsal.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                tbAsal.AutoCompleteSource = AutoCompleteSource.CustomSource;
                 tbTujuan.AutoCompleteCustomSource.Add(kota);
                 tbTujuan.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
                 tbTujuan.AutoCompleteSource = AutoCompleteSource.CustomSource;
@@ -82,6 +80,36 @@ namespace Friperies_2
             {
                 conn.Open();
             }
+        }
+
+        protected string GetAlamatBuyer(int iduser)
+        {
+            string alamat = null;
+            try
+            {
+                OpenConnection();
+                string sql = @"select ""UserAddress"" from public.""User"" WHERE ""UserID"" = @UserID";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@UserID", iduser);
+                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            alamat = reader.GetString(reader.GetOrdinal("UserAddress"));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Fail!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return alamat;
         }
 
         protected (int itemid, int sellerid) GetVarItem(int offeritemid)
@@ -126,7 +154,7 @@ namespace Friperies_2
             var (itemID, SellerID) = GetVarItem(offereditem);
             try
             {
-                using (var conn = new NpgsqlConnection("Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix"))
+                using (var conn = new NpgsqlConnection(dbConfig.ConnectionString))
                 {
                     conn.Open();
                     string sql = @"INSERT INTO public.""Transaction""(""ItemSold"", ""SellerID"", ""BuyerID"", ""TransactionDate"", ""TransactionStatus"", ""TransactionService"") VALUES(@itemSold, @sellerID, @buyerID, @transactionDate, @transactionStatus, @service)";
@@ -142,14 +170,14 @@ namespace Friperies_2
                         int rowsAffected = cmd.ExecuteNonQuery();
                         if (rowsAffected > 0)
                         {
-                            MessageBox.Show($"{rowsAffected} pesanan berhasil dibuat.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Pesanan berhasil dibuat.", "Transaction Succeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Hide();
                             pesananBuyerForm pesananBuyerForm = new pesananBuyerForm(loggedInUser);
                             pesananBuyerForm.Show();
                         }
                         else
                         {
-                            MessageBox.Show("Gagal membuat pesanan baru", "Transaction Fail!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Gagal membuat pesanan.", "Transaction Failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }

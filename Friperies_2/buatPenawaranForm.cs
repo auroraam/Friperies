@@ -47,11 +47,13 @@ namespace Friperies_2
 
         private void btnPenawaranbatal_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Apakah Anda yakin akan mebatalkan penawaran?", "Konfirmasi Pembatalan", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Apakah Anda yakin akan membatalkan penawaran?", "Konfirmasi Pembatalan", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
-                this.Close();
+                this.Hide();
+                lihatProdukForm lihatProdukForm = new lihatProdukForm(loggedInUser);
+                lihatProdukForm.Show();
             }
         }
 
@@ -74,14 +76,14 @@ namespace Friperies_2
                     int rowsAffected = cmd.ExecuteNonQuery();
                     if (rowsAffected > 0)
                     {
-                        MessageBox.Show($"{rowsAffected} penawaran berhasil ditambahkan.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Penawaran berhasil dibuat.", "Offer Succeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Hide();
                         homePageForm homePageForm = new homePageForm(loggedInUser);
                         homePageForm.Show();
                     }
                     else
                     {
-                        MessageBox.Show("Gagal membuat penawaran baru", "Offer Fail!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Gagal membuat penawaran.", "Offer Failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

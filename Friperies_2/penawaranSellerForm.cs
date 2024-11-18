@@ -49,7 +49,7 @@ namespace Friperies_2
                 string sql = @"SELECT * FROM public.""Offer"" WHERE ""ItemOffered"" = @itemOffered";
                 using (NpgsqlCommand cmd = new NpgsqlCommand(sql, conn))
                 {
-                    cmd.Parameters.AddWithValue("@itemOffered", ItemID); // loggedInUser adalah pengguna saat ini
+                    cmd.Parameters.AddWithValue("@itemOffered", ItemID); 
 
                     // Eksekusi command dengan adapter
                     NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
@@ -91,11 +91,11 @@ namespace Friperies_2
                     cmd.ExecuteNonQuery();
                     // Refresh DataGridView setelah update
                     LoadOffer();
-                    MessageBox.Show($"Penawaran {offerId} telah di {status.ToLower()}.");
+                    MessageBox.Show($"Penawaran telah di {status.ToLower()}.");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: " + ex.Message, "Fail!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error: " + ex.Message, "Failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally { conn.Close(); }
             }
