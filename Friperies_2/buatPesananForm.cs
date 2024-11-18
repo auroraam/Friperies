@@ -24,7 +24,7 @@ namespace Friperies_2
         private int offereditem;
         private string selectedService;
         private NpgsqlConnection conn;
-        string connstring = "Host = localhost; Port = 5432; Username = postgres; Password = feather0325; Database = friperiesfix";
+        string connstring = dbConfig.ConnectionString;
         private NpgsqlCommand cmd;
         List<string> listKota = new List<string>();
         private void buatPesananForm_Load(object sender, EventArgs e)

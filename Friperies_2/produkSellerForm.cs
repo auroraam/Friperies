@@ -15,7 +15,7 @@ namespace Friperies_2
     {
         public User loggedInUser;
         private NpgsqlConnection conn;
-        private string connString = "Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix";
+        private string connString = dbConfig.ConnectionString;
         private DataGridViewRow row;
         public produkSellerForm(User user)
         {
@@ -85,7 +85,7 @@ namespace Friperies_2
 
             try
             {
-                using (var conn = new NpgsqlConnection("Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix"))
+                using (var conn = new NpgsqlConnection(connString))
                 {
                     conn.Open();
                     var query = @"DELETE FROM public.""Item"" WHERE ""ItemID"" = @itemID AND ""OwnerItem"" = @ownerItem";

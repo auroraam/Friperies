@@ -28,7 +28,7 @@ namespace Friperies_2
         }
 
         private NpgsqlConnection conn;
-        string connstring = "Host = localhost; Port = 5432; Username = postgres; Password = feather0325; Database = friperiesfix";
+        string connstring = dbConfig.ConnectionString;
         private NpgsqlCommand cmd;
         private string sql;
         //private int itemID;

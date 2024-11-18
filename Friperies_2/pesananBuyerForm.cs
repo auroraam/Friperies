@@ -18,7 +18,7 @@ namespace Friperies_2
         public User loggedInUser;
         public int ItemID;
         private NpgsqlConnection conn;
-        string connstring = "Host = localhost; Port = 5432; Username = postgres; Password = feather0325; Database = friperiesfix";
+        string connstring = dbConfig.ConnectionString;
         public DataTable dt;
         public static NpgsqlCommand cmd;
         private string sql = null;
@@ -131,7 +131,7 @@ namespace Friperies_2
 
             try
             {
-                using (var conn = new NpgsqlConnection("Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix"))
+                using (var conn = new NpgsqlConnection(connstring))
                 {
                     conn.Open();
                     string query = @"UPDATE public.""Transaction"" SET ""TransactionStatus"" = 'Completed' WHERE ""TransactionID"" = @transactionID";

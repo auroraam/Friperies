@@ -23,7 +23,6 @@ namespace Friperies_2
             tbIdUser.Text = loggedInUser.userID.ToString();
             tbEmail.Text = loggedInUser.userEmail;
             tbPassword.Text = loggedInUser.userPass;
-            tbAlamat.Text = loggedInUser.userAddress;
         }
 
         private void tbUsername_KeyDown(object sender, KeyEventArgs e)
@@ -36,7 +35,7 @@ namespace Friperies_2
                     string newUsername = tbUsername.Text;
                     int userId = loggedInUser.userID;
 
-                    string connectionString = "Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix";
+                    string connectionString = dbConfig.ConnectionString;
 
                     using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
                     {
@@ -81,7 +80,7 @@ namespace Friperies_2
                     string newEmail = tbEmail.Text;
                     int userId = loggedInUser.userID;
 
-                    string connectionString = "Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix";
+                    string connectionString = dbConfig.ConnectionString;
 
                     using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
                     {
@@ -126,7 +125,7 @@ namespace Friperies_2
                     string newPass = tbPassword.Text;
                     int userId = loggedInUser.userID;
 
-                    string connectionString = "Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix";
+                    string connectionString = dbConfig.ConnectionString;
 
                     using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
                     {
@@ -161,52 +160,7 @@ namespace Friperies_2
                 }
             }
         }
-
-        private void tbAlamat_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                DialogResult dialogResult = MessageBox.Show("Alamat telah diubah. Apakah Anda setuju untuk mengubah Username?", "Ubah Alamat", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    string newAddress = tbAlamat.Text;
-                    int userId = loggedInUser.userID;
-
-                    string connectionString = "Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix";
-
-                    using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
-                    {
-                        try
-                        {
-                            conn.Open();
-                            string query = @"UPDATE public.""User"" SET ""UserAddress"" = @UserAddress WHERE ""UserID"" = @UserID";
-                            using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
-                            {
-                                cmd.Parameters.AddWithValue("@UserAddress", newAddress);
-                                cmd.Parameters.AddWithValue("@UserID", userId);
-
-                                int rowsAffected = cmd.ExecuteNonQuery();
-                                if (rowsAffected > 0)
-                                {
-                                    MessageBox.Show("Alamat berhasil diubah.");
-                                    loggedInUser.userAddress = newAddress;
-                                    tbAlamat.Text = loggedInUser.userAddress;
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Gagal mengubah Alamat.");
-                                }
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Terjadi kesalahan: " + ex.Message);
-                        }
-                    }
-                }
-            }
-        }
-
+        
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();

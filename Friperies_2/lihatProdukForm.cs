@@ -15,7 +15,7 @@ namespace Friperies_2
     {
         public User loggedInUser;
         private NpgsqlConnection conn;
-        private string connString = "Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix";
+        private string connString = dbConfig.ConnectionString;
         private DataGridViewRow row;
         public lihatProdukForm(User user)
         {
