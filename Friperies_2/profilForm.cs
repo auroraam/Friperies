@@ -15,10 +15,18 @@ namespace Friperies_2
     public partial class profilForm : Form
     {
         public User loggedInUser;
+        List<string> listKota = new List<string>();
         public profilForm(User user)
         {
             InitializeComponent();
             loggedInUser = user;
+            listKota = Transaction.GetKotaList();
+            foreach (string kota in listKota)
+            {
+                tbAlamat.AutoCompleteCustomSource.Add(kota);
+                tbAlamat.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                tbAlamat.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            }
             tbUsername.Text = loggedInUser.userName;
             tbIdUser.Text = loggedInUser.userID.ToString();
             tbEmail.Text = loggedInUser.userEmail;
@@ -35,10 +43,7 @@ namespace Friperies_2
                 {
                     string newUsername = tbUsername.Text;
                     int userId = loggedInUser.userID;
-
-                    string connectionString = "Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix";
-
-                    using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
+                    using (NpgsqlConnection conn = new NpgsqlConnection(dbConfig.ConnectionString))
                     {
                         try
                         {
@@ -80,10 +85,7 @@ namespace Friperies_2
                 {
                     string newEmail = tbEmail.Text;
                     int userId = loggedInUser.userID;
-
-                    string connectionString = "Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix";
-
-                    using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
+                    using (NpgsqlConnection conn = new NpgsqlConnection(dbConfig.ConnectionString))
                     {
                         try
                         {
@@ -125,10 +127,7 @@ namespace Friperies_2
                 {
                     string newPass = tbPassword.Text;
                     int userId = loggedInUser.userID;
-
-                    string connectionString = "Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix";
-
-                    using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
+                    using (NpgsqlConnection conn = new NpgsqlConnection(dbConfig.ConnectionString))
                     {
                         try
                         {
@@ -171,10 +170,14 @@ namespace Friperies_2
                 {
                     string newAddress = tbAlamat.Text;
                     int userId = loggedInUser.userID;
+                    int idAlamat = Transaction.GetIdKotaList(tbAlamat.Text.Trim());
 
-                    string connectionString = "Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix";
-
-                    using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
+                    if (idAlamat == -1)
+                    {
+                        MessageBox.Show("Kota asal atau tujuan tidak valid. Harap periksa kembali.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    using (NpgsqlConnection conn = new NpgsqlConnection(dbConfig.ConnectionString))
                     {
                         try
                         {

@@ -36,8 +36,7 @@ namespace Friperies_2
                 return;
             }
 
-            string connString = "Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix";
-            using (NpgsqlConnection conn = new NpgsqlConnection(connString))
+            using (NpgsqlConnection conn = new NpgsqlConnection(dbConfig.ConnectionString))
             {
                 try
                 {
@@ -54,8 +53,6 @@ namespace Friperies_2
                         {
                             if (reader.Read())
                             {
-                                MessageBox.Show("Sign In Berhasil!");
-
                                 // Jika berhasil login, simpan informasi pengguna
                                 loggedInUser.userID = reader.GetInt32(reader.GetOrdinal("UserID"));
                                 loggedInUser.userEmail = reader.GetString(reader.GetOrdinal("UserEmail"));

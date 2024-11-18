@@ -22,7 +22,7 @@ namespace Friperies_2
         }
 
         private NpgsqlConnection conn;
-        string connstring = "Host = localhost; Port = 5432; Username = postgres; Password =feather0325;Database=friperiesfix";
+        string connstring = dbConfig.ConnectionString;
         public DataTable dt;
         public static NpgsqlCommand cmd;
         private string sql = null;
@@ -48,7 +48,7 @@ namespace Friperies_2
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Fail!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: " + ex.Message, "Upload photo failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -80,7 +80,7 @@ namespace Friperies_2
                     int rowsAffected = cmd.ExecuteNonQuery();
                     if (rowsAffected > 0)
                     {
-                        MessageBox.Show($"Data Produk Berhasil", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show($"Produk berhasil diunggah!", "Upload Succeed!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         tbNamaitem.Text = rtbDesitem.Text = tbHargaitem.Text = "";
                         pbUnggahitem.Image = null; // Reset PictureBox
                         imageLocation = "";
