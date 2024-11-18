@@ -10,7 +10,7 @@ Ketua Kelompok: Aurora Ma'isyah
 |Flavia Hidayriamraata Pualam|22/494376/TK/54219|
 
 # Class Diagram:
-![image alt](https://github.com/auroraam/Friperies/blob/6f32b4d1e14b19f65a4723cecaaa71b100399cf6/images/FriperiesClassDiagram.png)
+![image alt](https://github.com/auroraam/Friperies/blob/main/images/classdiagramfix.png)
 
 # ER Diagram:
-![image alt](https://github.com/auroraam/Friperies/blob/6f32b4d1e14b19f65a4723cecaaa71b100399cf6/images/FriperiesERD.png)
+![image alt](https://github.com/auroraam/Friperies/blob/main/images/erdfix.png)
