@@ -16,16 +16,17 @@ namespace Friperies_2
         private int _buyerID;
         private DateTime _transactionDate;
         private string _transactionStatus;
+        private string _transactionService;
 
-        public Transaction(int userID, string userName, string userEmail, string userPass, string userAddress, int transactionID, int itemID)
+        public Transaction(int userID, int transactionID, int itemID)
             : base ()
         {
             _transactionID = transactionID;
-            _itemID = itemID;  // Mengambil itemID dari item terkait
-            //_sellerID = Item.OwnerItem;  // Mengambil sellerID dari ownerItem di kelas Item
+            _itemID = itemID;
             _buyerID = userID;
             _transactionDate = DateTime.Now;
             _transactionStatus = "Pembayaran";
+            _transactionService = null;
         }
 
         public int TransactionID
@@ -57,6 +58,12 @@ namespace Friperies_2
         {
             get {return _transactionStatus;}
             set {_transactionStatus = value;}
+        }
+
+        public string TransactionService
+        {
+            get { return _transactionService;}
+            set { _transactionService = value;}
         }
 
         protected const string apiKey = "c31a7ac4eaed9d6d966f5af4cf2aa4b9";
@@ -143,34 +150,6 @@ namespace Friperies_2
                 returnList.Add(layanan);
             }
             return returnList;
-        }
-
-        public void NewTransaction(int transactionID, int itemID, int userID)
-        {
-            Item item = Item.items.Find(i => i.ItemID == itemID);
-            _transactionID = transactionID;
-            _itemID = itemID;  // Mengambil itemID dari item terkait
-            _sellerID = item.OwnerItem;  // Mengambil sellerID dari ownerItem di kelas Item
-            _buyerID = userID;
-            _transactionDate = DateTime.Now;
-            _transactionStatus = "Pembayaran";
-            Console.WriteLine($"Transaction {transactionID} created.");
-        }
-
-        public void TransactionUpdate(int transactionID, string transactionStatus)
-        {
-            _transactionStatus = transactionStatus;
-            Console.WriteLine($"Transaction status updated to {transactionStatus}.");
-        }
-
-        public void TransactionDelete(int transactionID) 
-        {
-            _transactionID = 0;
-            _itemID = 0;
-            _sellerID = 0; 
-            _buyerID = 0;
-            _transactionStatus = null;
-            Console.WriteLine($"Transaction {transactionID} deleted.");
         }
     }
 }
