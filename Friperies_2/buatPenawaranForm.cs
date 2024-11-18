@@ -39,12 +39,6 @@ namespace Friperies_2
                 conn.Open();
         }
 
-        private void CloseConnection()
-        {
-            if (conn.State == System.Data.ConnectionState.Open)
-                conn.Close();
-        }
-
         private void btnPenawaranbatal_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Apakah Anda yakin akan membatalkan penawaran?", "Konfirmasi Pembatalan", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
