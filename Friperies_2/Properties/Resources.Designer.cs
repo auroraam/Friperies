@@ -103,6 +103,16 @@ namespace Friperies_2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cargo_3045489__1___1_ {
+            get {
+                object obj = ResourceManager.GetObject("cargo_3045489 (1) (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap friperies__1_ {
             get {
                 object obj = ResourceManager.GetObject("friperies (1)", resourceCulture);
@@ -273,9 +283,29 @@ namespace Friperies_2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap uploading_3305741__1___3___1_ {
+            get {
+                object obj = ResourceManager.GetObject("uploading_3305741 (1) (3) (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap user_7855633__1_ {
             get {
                 object obj = ResourceManager.GetObject("user_7855633 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_7855633__1___1_ {
+            get {
+                object obj = ResourceManager.GetObject("user_7855633 (1) (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

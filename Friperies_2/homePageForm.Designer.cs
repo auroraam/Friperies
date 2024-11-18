@@ -143,8 +143,7 @@
             // 
             btnLihatProduk.FlatAppearance.BorderSize = 3;
             btnLihatProduk.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLihatProduk.Image = Properties.Resources.cargo_3045489__1_;
-            btnLihatProduk.ImageAlign = ContentAlignment.TopCenter;
+            btnLihatProduk.Image = Properties.Resources.cargo_3045489__1___1_;
             btnLihatProduk.Location = new Point(375, 474);
             btnLihatProduk.Margin = new Padding(2);
             btnLihatProduk.Name = "btnLihatProduk";
@@ -160,8 +159,7 @@
             // 
             btnProfil.FlatAppearance.BorderSize = 3;
             btnProfil.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnProfil.Image = Properties.Resources.user_7855633__1_;
-            btnProfil.ImageAlign = ContentAlignment.TopCenter;
+            btnProfil.Image = Properties.Resources.user_7855633__1___1_;
             btnProfil.Location = new Point(661, 474);
             btnProfil.Margin = new Padding(2);
             btnProfil.Name = "btnProfil";
@@ -177,8 +175,7 @@
             // 
             btnUnggahProduk.FlatAppearance.BorderSize = 3;
             btnUnggahProduk.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnUnggahProduk.Image = Properties.Resources.uploading_3305741__1___3_;
-            btnUnggahProduk.ImageAlign = ContentAlignment.TopCenter;
+            btnUnggahProduk.Image = Properties.Resources.uploading_3305741__1___3___1_;
             btnUnggahProduk.Location = new Point(85, 474);
             btnUnggahProduk.Margin = new Padding(2);
             btnUnggahProduk.Name = "btnUnggahProduk";
