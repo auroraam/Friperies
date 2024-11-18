@@ -96,7 +96,7 @@ namespace Friperies_2
                     if (rowsAffected > 0)
                     {
                         MessageBox.Show("Produk berhasil dihapus!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        btLoad_Click(sender, e);
+                        LoadProduk();
                     }
                     else
                     {

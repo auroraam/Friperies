@@ -23,9 +23,6 @@ namespace Friperies_2
         private int itemPrice;
         private int offereditem;
         private string selectedService;
-        private NpgsqlConnection conn;
-        string connstring = dbConfig.ConnectionString;
-        private NpgsqlCommand cmd;
         List<string> listKota = new List<string>();
         private void buatPesananForm_Load(object sender, EventArgs e)
         {
@@ -42,16 +39,21 @@ namespace Friperies_2
             offereditem = offeritem;
             tbBuatpesananharga.Text = itemPrice.ToString();
             tbBuatpesanantgl.Text = DateTime.Now.ToString("yyyy-MM-dd");
-            conn = new NpgsqlConnection(connstring);
             listKota = Transaction.GetKotaList();
             foreach(string kota in listKota)
             {
-                tbTujuan.AutoCompleteCustomSource.Add(kota);
-                tbTujuan.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                tbTujuan.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                tbAsal.AutoCompleteCustomSource.Add(kota);
+                tbAsal.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                tbAsal.AutoCompleteSource = AutoCompleteSource.CustomSource;
             }
         }
-        
+
+        private NpgsqlConnection conn;
+        string connstring = dbConfig.ConnectionString;
+        public DataTable dt;
+        public static NpgsqlCommand cmd;
+        private string sql = null;
+
         private int GetIdKota(string kota)
         {
             int idKota = -1;
@@ -74,11 +76,17 @@ namespace Friperies_2
             if (rbTIKI.Checked) selectedService = "tiki";
             if (rbPOS.Checked) selectedService = "pos";
         }
+
         private void OpenConnection()
         {
+            if (conn == null)
+            {
+                conn = new NpgsqlConnection(dbConfig.ConnectionString); // Inisialisasi jika null
+            }
+
             if (conn.State == ConnectionState.Closed)
             {
-                conn.Open();
+                conn.Open(); // Buka koneksi hanya jika statusnya tertutup
             }
         }
 
@@ -88,7 +96,7 @@ namespace Friperies_2
             try
             {
                 OpenConnection();
-                string sql = @"select ""UserAddress"" from public.""User"" WHERE ""UserID"" = @UserID";
+                sql = @"select ""UserAddress"" from public.""User"" WHERE ""UserID"" = @UserID";
                 using (NpgsqlCommand cmd = new NpgsqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@UserID", iduser);
@@ -105,10 +113,6 @@ namespace Friperies_2
             {
                 MessageBox.Show("Error: " + ex.Message, "Fail!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally
-            {
-                conn.Close();
-            }
             return alamat;
         }
 
@@ -119,7 +123,7 @@ namespace Friperies_2
             try
             {
                 OpenConnection();
-                string sql = @"select ""ItemID"", ""OwnerItem"" from public.""Item"" WHERE ""ItemID"" = @offeritemid";
+                sql = @"select ""ItemID"", ""OwnerItem"" from public.""Item"" WHERE ""ItemID"" = @offeritemid";
                 using (NpgsqlCommand cmd = new NpgsqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@offeritemid", offeritemid);
@@ -137,10 +141,6 @@ namespace Friperies_2
             {
                 MessageBox.Show("Error: " + ex.Message, "Fail!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally
-            {
-                conn.Close();
-            }
             return (itemid, sellerid);
         }
 
@@ -151,40 +151,41 @@ namespace Friperies_2
                 MessageBox.Show("Harap pilih layanan pengiriman.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            var (itemID, SellerID) = GetVarItem(offereditem);
             try
             {
-                using (var conn = new NpgsqlConnection(dbConfig.ConnectionString))
+                OpenConnection();
+                var (itemID, SellerID) = GetVarItem(offereditem);
+                string sql = @"INSERT INTO public.""Transaction""(""ItemSold"", ""SellerID"", ""BuyerID"", ""TransactionDate"", ""TransactionStatus"", ""TransactionService"") VALUES(@itemSold, @sellerID, @buyerID, @transactionDate, @transactionStatus, @service)";
+                using (var cmd = new NpgsqlCommand(sql, conn))
                 {
-                    conn.Open();
-                    string sql = @"INSERT INTO public.""Transaction""(""ItemSold"", ""SellerID"", ""BuyerID"", ""TransactionDate"", ""TransactionStatus"", ""TransactionService"") VALUES(@itemSold, @sellerID, @buyerID, @transactionDate, @transactionStatus, @service)";
-                    using (NpgsqlCommand cmd = new NpgsqlCommand(sql, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@itemSold", itemID);
-                        cmd.Parameters.AddWithValue("@sellerID", SellerID);
-                        cmd.Parameters.AddWithValue("@buyerID", loggedInUser.userID);
-                        cmd.Parameters.AddWithValue("@transactionDate", DateTime.Now);
-                        cmd.Parameters.AddWithValue("@transactionStatus", "Pembayaran");
-                        cmd.Parameters.AddWithValue("@service", selectedService);
+                    cmd.Parameters.AddWithValue("@itemSold", itemID);
+                    cmd.Parameters.AddWithValue("@sellerID", SellerID);
+                    cmd.Parameters.AddWithValue("@buyerID", loggedInUser.userID);
+                    cmd.Parameters.AddWithValue("@transactionDate", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@transactionStatus", "Pembayaran");
+                    cmd.Parameters.AddWithValue("@service", selectedService);
 
-                        int rowsAffected = cmd.ExecuteNonQuery();
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Pesanan berhasil dibuat.", "Transaction Succeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Hide();
-                            pesananBuyerForm pesananBuyerForm = new pesananBuyerForm(loggedInUser);
-                            pesananBuyerForm.Show();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Gagal membuat pesanan.", "Transaction Failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Pesanan berhasil dibuat.", "Transaction Succeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Hide();
+                        pesananBuyerForm pesananBuyerForm = new pesananBuyerForm(loggedInUser);
+                        pesananBuyerForm.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Gagal membuat pesanan.", "Transaction Failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Terjadi kesalahan: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 

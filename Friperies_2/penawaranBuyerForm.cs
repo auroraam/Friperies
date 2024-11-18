@@ -84,9 +84,7 @@ namespace Friperies_2
                 using (var conn = new NpgsqlConnection(connstring))
                 {
                     conn.Open();
-
-                    var query = "DELETE FROM Offer WHERE OfferID = @offerID";
-
+                    string query = @"DELETE FROM public.""Offer"" WHERE ""OfferID"" = @offerID";
                     var cmd = new NpgsqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("offerID", int.Parse(tbIdPenawaran.Text));
 
@@ -95,7 +93,7 @@ namespace Friperies_2
                     if (rowsAffected > 0)
                     {
                         MessageBox.Show("Penawaran berhasil dihapus!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        btLoad_Click(sender, e);
+                        LoadOffer();
                     }
                     else
                     {
