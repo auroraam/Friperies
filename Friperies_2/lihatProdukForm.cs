@@ -51,12 +51,20 @@ namespace Friperies_2
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                int ItemID = int.Parse(dataGridView1.SelectedRows[0].Cells["ItemID"].Value.ToString());
-                string itemName = dataGridView1.SelectedRows[0].Cells["ItemName"].Value.ToString();
-                string itemPrice = dataGridView1.SelectedRows[0].Cells["ItemPrice"].Value.ToString();
-                this.Hide();
-                buatPenawaranForm buatPenawaranForm = new buatPenawaranForm(ItemID, itemName, itemPrice, loggedInUser);
-                buatPenawaranForm.Show();
+                int owneritem = int.Parse(dataGridView1.SelectedRows[0].Cells["OwnerItem"].Value.ToString());
+                if(owneritem == loggedInUser.userID)
+                {
+                    MessageBox.Show("Produk yang anda pilih adalah milik anda. Silakan pilih produk lain.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    int ItemID = int.Parse(dataGridView1.SelectedRows[0].Cells["ItemID"].Value.ToString());
+                    string itemName = dataGridView1.SelectedRows[0].Cells["ItemName"].Value.ToString();
+                    string itemPrice = dataGridView1.SelectedRows[0].Cells["ItemPrice"].Value.ToString();
+                    this.Hide();
+                    buatPenawaranForm buatPenawaranForm = new buatPenawaranForm(ItemID, itemName, itemPrice, loggedInUser);
+                    buatPenawaranForm.Show();
+                }
             }
             else
             {
