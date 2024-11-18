@@ -8,6 +8,6 @@ namespace Friperies_2
 {
     public static class dbConfig
     {
-        public static string ConnectionString => "Host=localhost;Port=5432;Username=postgres;Password=feather0325;Database=friperiesfix";
+        public static string ConnectionString => "Host=localhost;Port=5432;Username=postgres;Password=yourpassword;Database=friperiesfix";
     }
 }
