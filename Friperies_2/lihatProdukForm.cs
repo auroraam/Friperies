@@ -27,23 +27,11 @@ namespace Friperies_2
 
         private void LoadProduk()
         {
-            try
+            string sql = @"SELECT * FROM public.""Item""";
+            DataTable dt = dbConfig.LoadData(sql, null);
+            if (dt != null)
             {
-                conn.Open();
-                string sql = @"select * from public.""Item""";
-                NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
                 dataGridView1.DataSource = dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Terjadi kesalahan saat memuat data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-            finally
-            {
-                conn.Close();
             }
         }
 

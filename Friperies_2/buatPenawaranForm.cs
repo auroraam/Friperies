@@ -55,30 +55,22 @@ namespace Friperies_2
         {
             try
             {
-                OpenConnection();
                 int offerPrice = int.Parse(tbOfferprice.Text);
-                string OfferStatus = "Pending" ;
+                string offerStatus = "Pending" ;
 
                 string sql = @"INSERT INTO public.""Offer"" (""ItemOffered"",""OwnerOffer"", ""OfferPrice"", ""OfferStatus"") VALUES (@itemID, @ownerOffer, @offerPrice, @offerStatus)";
-                using (var cmd = new NpgsqlCommand(sql, conn))
+                var parameters = new Dictionary<string, object>
                 {
-                    cmd.Parameters.AddWithValue("@itemID", ItemID);
-                    cmd.Parameters.AddWithValue("@ownerOffer", loggedInUser.userID);
-                    cmd.Parameters.AddWithValue("@offerPrice", offerPrice);
-                    cmd.Parameters.AddWithValue("@offerStatus", OfferStatus);
-
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("Penawaran berhasil dibuat.", "Offer Succeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Hide();
-                        homePageForm homePageForm = new homePageForm(loggedInUser);
-                        homePageForm.Show();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Gagal membuat penawaran.", "Offer Failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    { "@itemID", ItemID },
+                    { "@ownerOffer", loggedInUser.userID },
+                    { "@offerPrice", offerPrice },
+                    { "@offerStatus", offerStatus }
+                };
+                if (dbConfig.ExecuteNonQuery(sql, parameters, "Penawaran berhasil dibuat.", "Gagal membuat penawaran."))
+                {
+                    this.Hide();
+                    homePageForm homePageForm = new homePageForm(loggedInUser);
+                    homePageForm.Show();
                 }
             }
             catch (Exception ex)

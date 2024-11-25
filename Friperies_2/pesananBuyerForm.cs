@@ -41,28 +41,16 @@ namespace Friperies_2
 
         public void LoadOrders()
         {
-            try
+            string sql = @"SELECT * FROM public.""Transaction"" WHERE ""BuyerID"" = @userID";
+            var parameters = new Dictionary<string, object>
             {
-                OpenConnection();
-                string sql = @"SELECT * FROM public.""Transaction"" WHERE ""BuyerID"" = @userID";
-                using (NpgsqlCommand cmd = new NpgsqlCommand(sql, conn))
-                {
-                    cmd.Parameters.AddWithValue("@userID", loggedInUser.userID);
-                    NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
+                { "@userID", loggedInUser.userID }
+            };
 
-                    dgvPesanan.DataSource = dt;
-                }
-            }
-            catch (Exception ex)
+            DataTable dt = dbConfig.LoadData(sql, parameters);
+            if (dt != null)
             {
-                MessageBox.Show($"Terjadi kesalahan saat memuat data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-            finally
-            {
-                conn.Close();
+                dgvPesanan.DataSource = dt;
             }
         }
 
