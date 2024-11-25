@@ -66,6 +66,14 @@ namespace Friperies_2
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 int offerId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["OfferID"].Value);
+                if (status == "Accepted")
+                {
+                    if (IsOfferAlreadyAccepted(ItemID))
+                    {
+                        MessageBox.Show("Gagal menerima penawaran. Sudah ada penawaran yang diterima untuk item ini.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
                 try
                 {
                     OpenConnection();
@@ -166,5 +174,31 @@ namespace Friperies_2
                 MessageBox.Show("Pilih data produk.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private bool IsOfferAlreadyAccepted(int itemId)
+        {
+            bool isAccepted = false;
+            try
+            {
+                OpenConnection();
+                sql = @"SELECT COUNT(*) FROM public.""Offer"" WHERE ""ItemOffered"" = @itemId AND ""OfferStatus"" = 'Accepted'";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@itemId", itemId);
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    isAccepted = count > 0; // Jika ada penawaran yang diterima, return true
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error saat memeriksa status offer: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return isAccepted;
+        }
+
     }
 }
