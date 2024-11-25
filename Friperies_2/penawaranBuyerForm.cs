@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Supabase;
+using System.Net.Http;
 using Npgsql;
 
 namespace Friperies_2
@@ -38,31 +40,16 @@ namespace Friperies_2
 
         private void LoadOffer()
         {
-            try
+            string sql = @"SELECT * FROM public.""Offer"" WHERE ""OwnerOffer"" = @owneroffer";
+            var parameters = new Dictionary<string, object>
             {
-                OpenConnection();
-                string sql = @"SELECT * FROM public.""Offer"" WHERE ""OwnerOffer"" = @owneroffer";
-                using (NpgsqlCommand cmd = new NpgsqlCommand(sql, conn))
-                {
-                    cmd.Parameters.AddWithValue("@owneroffer", loggedInUser.userID); // loggedInUser adalah pengguna saat ini
+                { "@owneroffer", loggedInUser.userID }
+            };
 
-                    // Eksekusi command dengan adapter
-                    NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-
-                    // Tampilkan data di DataGridView
-                    dgvPenawaran.DataSource = dt;
-                }
-            }
-            catch (Exception ex)
+            DataTable dt = dbConfig.LoadData(sql, parameters);
+            if (dt != null)
             {
-                MessageBox.Show($"Terjadi kesalahan saat memuat data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-            finally
-            {
-                conn.Close();
+                dgvPenawaran.DataSource = dt;
             }
         }
 
@@ -79,32 +66,10 @@ namespace Friperies_2
                 return;
             }
 
-            try
-            {
-                using (var conn = new NpgsqlConnection(connstring))
-                {
-                    conn.Open();
-                    string query = @"DELETE FROM public.""Offer"" WHERE ""OfferID"" = @offerID";
-                    var cmd = new NpgsqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("offerID", int.Parse(tbIdPenawaran.Text));
-
-                    int rowsAffected = cmd.ExecuteNonQuery();
-
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("Penawaran berhasil dihapus!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadOffer();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Penawaran gagal dihapus atau tidak ditemukan.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error saat menghapus penawaran: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            int offerID = int.Parse(tbIdPenawaran.Text);
+            Offer offer = new Offer(); // Buat instance Offer
+            offer.delete(offerID); // Panggil metode delete
+            LoadOffer(); // Refresh data penawaran
         }
 
         private void btnExit_Click(object sender, EventArgs e)

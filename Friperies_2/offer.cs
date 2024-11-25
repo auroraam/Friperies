@@ -68,14 +68,19 @@ namespace Friperies_2
             Console.WriteLine($"Offer price updated to {offerPrice}.");
         }
 
-        public void OfferDelete(int offerID)
+        public override void delete(int offerID)
         {
-            _offerID = 0;
-            _itemID = 0;
-            _offerPrice = 0;
-            _ownerOffer = 0;
-            _offerStatus = null;
-            Console.WriteLine($"Offer {offerID} deleted.");
+            string query = @"DELETE FROM public.""Offer"" WHERE ""OfferID"" = @offerID";
+
+            var parameters = new Dictionary<string, object>
+            {
+                { "@offerID", offerID }
+            };
+
+            if (dbConfig.ExecuteDelete(query, parameters, "Penawaran berhasil dihapus!", "Penawaran gagal dihapus atau tidak ditemukan."))
+            {
+                Console.WriteLine($"Offer with ID {offerID} deleted.");
+            }
         }
 
         public void AcceptOffer(int offerID, int itemID)

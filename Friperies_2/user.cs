@@ -49,5 +49,10 @@ namespace Friperies_2
             get {return _userAddress;}
             set {_userAddress = value;}
         }
+
+        public virtual void delete(int userid)
+        {
+            return;
+        }
     }
 }

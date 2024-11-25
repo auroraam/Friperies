@@ -26,30 +26,16 @@ namespace Friperies_2
         }
         private void LoadProduk()
         {
-            try
+            string sql = @"SELECT * FROM public.""Item"" WHERE ""OwnerItem"" = @ownerItem";
+            var parameters = new Dictionary<string, object>
             {
-                conn.Open();
-                string sql = @"SELECT * FROM public.""Item"" WHERE ""OwnerItem"" = @ownerItem";
-                using (NpgsqlCommand cmd = new NpgsqlCommand(sql, conn))
-                {
-                    cmd.Parameters.AddWithValue("@ownerItem", loggedInUser.userID); 
-                    // Eksekusi command dengan adapter
-                    NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
+                { "@ownerItem", loggedInUser.userID }
+            };
 
-                    // Tampilkan data di DataGridView
-                    dgvPenawaran.DataSource = dt;
-                }
-            }
-            catch (Exception ex)
+            DataTable dt = dbConfig.LoadData(sql, parameters);
+            if (dt != null)
             {
-                MessageBox.Show($"Terjadi kesalahan saat memuat data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-            finally
-            {
-                conn.Close();
+                dgvPenawaran.DataSource = dt;
             }
         }
 
@@ -82,32 +68,10 @@ namespace Friperies_2
                 return;
             }
 
-            try
-            {
-                using (var conn = new NpgsqlConnection(connString))
-                {
-                    conn.Open();
-                    var query = @"DELETE FROM public.""Item"" WHERE ""ItemID"" = @itemID AND ""OwnerItem"" = @ownerItem";
-                    var cmd = new NpgsqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@itemID", int.Parse(tbIdProduk.Text));
-                    cmd.Parameters.AddWithValue("@ownerItem", loggedInUser.userID);
-
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("Produk berhasil dihapus!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadProduk();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Produk gagal dihapus atau tidak ditemukan.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error saat menghapus produk: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            int itemID = int.Parse(tbIdProduk.Text);
+            Item item = new Item(loggedInUser.userID, itemID, null, 0); // Buat instance Item dengan ID
+            item.delete(itemID); // Panggil metode delete
+            LoadProduk(); // Refresh data produk
         }
 
         private void btPenawaran_Click(object sender, EventArgs e)

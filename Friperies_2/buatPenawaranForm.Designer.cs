@@ -125,7 +125,7 @@
             // 
             btnBuatpenawaran.BackColor = Color.White;
             btnBuatpenawaran.Location = new Point(518, 459);
-            btnBuatpenawaran.Margin = new Padding(4, 4, 4, 4);
+            btnBuatpenawaran.Margin = new Padding(4);
             btnBuatpenawaran.Name = "btnBuatpenawaran";
             btnBuatpenawaran.Size = new Size(165, 41);
             btnBuatpenawaran.TabIndex = 14;
@@ -137,7 +137,7 @@
             // 
             btnPenawaranbatal.BackColor = Color.FromArgb(255, 128, 128);
             btnPenawaranbatal.Location = new Point(280, 459);
-            btnPenawaranbatal.Margin = new Padding(4, 4, 4, 4);
+            btnPenawaranbatal.Margin = new Padding(4);
             btnPenawaranbatal.Name = "btnPenawaranbatal";
             btnPenawaranbatal.Size = new Size(199, 41);
             btnPenawaranbatal.TabIndex = 13;
@@ -148,7 +148,7 @@
             // tbOfferprice
             // 
             tbOfferprice.Location = new Point(249, 369);
-            tbOfferprice.Margin = new Padding(4, 4, 4, 4);
+            tbOfferprice.Margin = new Padding(4);
             tbOfferprice.Name = "tbOfferprice";
             tbOfferprice.Size = new Size(433, 31);
             tbOfferprice.TabIndex = 12;
@@ -178,16 +178,18 @@
             // tbHargaawal
             // 
             tbHargaawal.Location = new Point(249, 308);
-            tbHargaawal.Margin = new Padding(4, 4, 4, 4);
+            tbHargaawal.Margin = new Padding(4);
             tbHargaawal.Name = "tbHargaawal";
+            tbHargaawal.ReadOnly = true;
             tbHargaawal.Size = new Size(433, 31);
             tbHargaawal.TabIndex = 6;
             // 
             // tbOffernamaitem
             // 
             tbOffernamaitem.Location = new Point(249, 245);
-            tbOffernamaitem.Margin = new Padding(4, 4, 4, 4);
+            tbOffernamaitem.Margin = new Padding(4);
             tbOffernamaitem.Name = "tbOffernamaitem";
+            tbOffernamaitem.ReadOnly = true;
             tbOffernamaitem.Size = new Size(433, 31);
             tbOffernamaitem.TabIndex = 5;
             // 
@@ -236,7 +238,7 @@
             Controls.Add(panel1);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "buatPenawaranForm";
             Text = "buatPenawaranForm";
             panel1.ResumeLayout(false);

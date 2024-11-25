@@ -82,6 +82,7 @@ namespace Friperies_2
                     {
                         MessageBox.Show($"Produk berhasil diunggah!", "Upload Succeed!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         tbNamaitem.Text = rtbDesitem.Text = tbHargaitem.Text = "";
+                        cbKategori.Text = "";
                         pbUnggahitem.Image = null; // Reset PictureBox
                         imageLocation = "";
                     }

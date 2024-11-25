@@ -43,31 +43,16 @@ namespace Friperies_2
 
         private void LoadOffer()
         {
-            try
+            string sql = @"SELECT * FROM public.""Offer"" WHERE ""ItemOffered"" = @itemOffered";
+            var parameters = new Dictionary<string, object>
             {
-                OpenConnection();
-                string sql = @"SELECT * FROM public.""Offer"" WHERE ""ItemOffered"" = @itemOffered";
-                using (NpgsqlCommand cmd = new NpgsqlCommand(sql, conn))
-                {
-                    cmd.Parameters.AddWithValue("@itemOffered", ItemID); 
+                { "@itemOffered", ItemID }
+            };
 
-                    // Eksekusi command dengan adapter
-                    NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-
-                    // Tampilkan data di DataGridView
-                    dataGridView1.DataSource = dt;
-                }
-            }
-            catch (Exception ex)
+            DataTable dt = dbConfig.LoadData(sql, parameters);
+            if (dt != null)
             {
-                MessageBox.Show($"Terjadi kesalahan saat memuat data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-            finally
-            {
-                conn.Close();
+                dataGridView1.DataSource = dt;
             }
         }
 

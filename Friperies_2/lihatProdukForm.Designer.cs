@@ -183,6 +183,7 @@
             tbHargaitem.Location = new Point(386, 270);
             tbHargaitem.Margin = new Padding(4);
             tbHargaitem.Name = "tbHargaitem";
+            tbHargaitem.ReadOnly = true;
             tbHargaitem.Size = new Size(275, 31);
             tbHargaitem.TabIndex = 17;
             // 
@@ -191,6 +192,7 @@
             tbKtgitem.Location = new Point(386, 220);
             tbKtgitem.Margin = new Padding(4);
             tbKtgitem.Name = "tbKtgitem";
+            tbKtgitem.ReadOnly = true;
             tbKtgitem.Size = new Size(275, 31);
             tbKtgitem.TabIndex = 16;
             // 
@@ -199,6 +201,7 @@
             tbNamaitem.Location = new Point(386, 165);
             tbNamaitem.Margin = new Padding(4);
             tbNamaitem.Name = "tbNamaitem";
+            tbNamaitem.ReadOnly = true;
             tbNamaitem.Size = new Size(275, 31);
             tbNamaitem.TabIndex = 15;
             // 

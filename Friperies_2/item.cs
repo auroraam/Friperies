@@ -52,5 +52,20 @@ namespace Friperies_2
             get { return _ownerItem; }
             set { _ownerItem = value; }
         }
+
+        public override void delete(int itemid)
+        {
+            string query = @"DELETE FROM public.""Item"" WHERE ""ItemID"" = @itemID";
+
+            var parameters = new Dictionary<string, object>
+            {
+                { "@itemID", itemid },
+            };
+
+            if (dbConfig.ExecuteDelete(query, parameters, "Produk berhasil dihapus!", "Produk gagal dihapus atau tidak ditemukan."))
+            {
+                Console.WriteLine($"Item with ID {itemid} deleted.");
+            }
+        }
     }
 }
