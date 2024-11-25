@@ -161,6 +161,7 @@
             tbAsal.Location = new Point(242, 370);
             tbAsal.Margin = new Padding(4);
             tbAsal.Name = "tbAsal";
+            tbAsal.ReadOnly = true;
             tbAsal.Size = new Size(313, 31);
             tbAsal.TabIndex = 31;
             tbAsal.TextChanged += tbAsal_TextChanged;
