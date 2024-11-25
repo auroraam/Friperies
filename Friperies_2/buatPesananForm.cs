@@ -26,7 +26,7 @@ namespace Friperies_2
         List<string> listKota = new List<string>();
         private void buatPesananForm_Load(object sender, EventArgs e)
         {
-            
+
         }
         public buatPesananForm(User user, int id, string name, int price, int offeritem)
         {
@@ -40,7 +40,7 @@ namespace Friperies_2
             tbBuatpesananharga.Text = itemPrice.ToString();
             tbBuatpesanantgl.Text = DateTime.Now.ToString("yyyy-MM-dd");
             listKota = Transaction.GetKotaList();
-            foreach(string kota in listKota)
+            foreach (string kota in listKota)
             {
                 tbAsal.AutoCompleteCustomSource.Add(kota);
                 tbAsal.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -231,10 +231,15 @@ namespace Friperies_2
                 MessageBox.Show("Berat barang harus berupa angka.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            
+
             List<string> daftarLayanan = Transaction.GetLayananList
                 (GetIdKota(tbAsal.Text), GetIdKota(tbTujuan.Text), int.Parse(tbBerat.Text), selectedService);
             TampilkanDaftar(daftarLayanan);
+        }
+
+        private void tbAsal_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

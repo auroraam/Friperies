@@ -163,6 +163,7 @@
             tbAsal.Name = "tbAsal";
             tbAsal.Size = new Size(313, 31);
             tbAsal.TabIndex = 31;
+            tbAsal.TextChanged += tbAsal_TextChanged;
             // 
             // tbTujuan
             // 
@@ -250,6 +251,7 @@
             tbBuatpesananharga.Location = new Point(242, 321);
             tbBuatpesananharga.Margin = new Padding(4);
             tbBuatpesananharga.Name = "tbBuatpesananharga";
+            tbBuatpesananharga.ReadOnly = true;
             tbBuatpesananharga.Size = new Size(313, 31);
             tbBuatpesananharga.TabIndex = 18;
             // 
@@ -311,6 +313,7 @@
             tbBuatpesanantgl.Location = new Point(242, 274);
             tbBuatpesanantgl.Margin = new Padding(4);
             tbBuatpesanantgl.Name = "tbBuatpesanantgl";
+            tbBuatpesanantgl.ReadOnly = true;
             tbBuatpesanantgl.Size = new Size(313, 31);
             tbBuatpesanantgl.TabIndex = 8;
             // 
@@ -319,6 +322,7 @@
             tbBuatpesananitem.Location = new Point(242, 231);
             tbBuatpesananitem.Margin = new Padding(4);
             tbBuatpesananitem.Name = "tbBuatpesananitem";
+            tbBuatpesananitem.ReadOnly = true;
             tbBuatpesananitem.Size = new Size(313, 31);
             tbBuatpesananitem.TabIndex = 7;
             // 

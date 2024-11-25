@@ -223,6 +223,7 @@
             tbIdUser.Location = new Point(191, 214);
             tbIdUser.Margin = new Padding(4);
             tbIdUser.Name = "tbIdUser";
+            tbIdUser.ReadOnly = true;
             tbIdUser.Size = new Size(329, 31);
             tbIdUser.TabIndex = 13;
             // 
