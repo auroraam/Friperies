@@ -66,32 +66,10 @@ namespace Friperies_2
                 return;
             }
 
-            try
-            {
-                using (var conn = new NpgsqlConnection(connstring))
-                {
-                    conn.Open();
-                    string query = @"DELETE FROM public.""Offer"" WHERE ""OfferID"" = @offerID";
-                    var cmd = new NpgsqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("offerID", int.Parse(tbIdPenawaran.Text));
-
-                    int rowsAffected = cmd.ExecuteNonQuery();
-
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("Penawaran berhasil dihapus!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadOffer();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Penawaran gagal dihapus atau tidak ditemukan.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error saat menghapus penawaran: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            int offerID = int.Parse(tbIdPenawaran.Text);
+            Offer offer = new Offer(); // Buat instance Offer
+            offer.delete(offerID); // Panggil metode delete
+            LoadOffer(); // Refresh data penawaran
         }
 
         private void btnExit_Click(object sender, EventArgs e)

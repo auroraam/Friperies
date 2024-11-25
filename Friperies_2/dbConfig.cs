@@ -11,20 +11,6 @@ namespace Friperies_2
 {
     public static class dbConfig
     {
-        static dbConfig()
-        {
-            try
-            {
-                // Memuat file .env
-                DotNetEnv.Env.Load();
-                Console.WriteLine("File .env loaded successfully.");
-                Console.WriteLine($"Password from .env: {Env.GetString("DB_PASSWORD")}");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error loading .env: {ex.Message}");
-            }
-        }
         public static string ConnectionString => $"User Id=postgres.zlbsnnkwupvwnuhyovfm;" +
                                                  $"Password=PfrzBsk$4!*hGRs;" +
                                                  $"Server=aws-0-ap-southeast-1.pooler.supabase.com;" +
@@ -98,6 +84,42 @@ namespace Friperies_2
                 {
                     MessageBox.Show($"Terjadi kesalahan saat memuat data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return null;
+                }
+            }
+        }
+
+        public static bool ExecuteDelete(string query, Dictionary<string, object> parameters, string successMessage, string failureMessage)
+        {
+            using (var conn = new NpgsqlConnection(dbConfig.ConnectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (var cmd = new NpgsqlCommand(query, conn))
+                    {
+                        // Tambahkan parameter ke query
+                        foreach (var param in parameters)
+                        {
+                            cmd.Parameters.AddWithValue(param.Key, param.Value);
+                        }
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show(successMessage, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return true;
+                        }
+                        else
+                        {
+                            MessageBox.Show(failureMessage, "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
                 }
             }
         }

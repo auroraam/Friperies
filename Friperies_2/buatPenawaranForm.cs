@@ -69,8 +69,8 @@ namespace Friperies_2
                 if (dbConfig.ExecuteNonQuery(sql, parameters, "Penawaran berhasil dibuat.", "Gagal membuat penawaran."))
                 {
                     this.Hide();
-                    homePageForm homePageForm = new homePageForm(loggedInUser);
-                    homePageForm.Show();
+                    penawaranBuyerForm penawaranBuyerForm = new penawaranBuyerForm(loggedInUser);
+                    penawaranBuyerForm.Show();
                 }
             }
             catch (Exception ex)

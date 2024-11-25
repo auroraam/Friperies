@@ -68,32 +68,10 @@ namespace Friperies_2
                 return;
             }
 
-            try
-            {
-                using (var conn = new NpgsqlConnection(connString))
-                {
-                    conn.Open();
-                    var query = @"DELETE FROM public.""Item"" WHERE ""ItemID"" = @itemID AND ""OwnerItem"" = @ownerItem";
-                    var cmd = new NpgsqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@itemID", int.Parse(tbIdProduk.Text));
-                    cmd.Parameters.AddWithValue("@ownerItem", loggedInUser.userID);
-
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("Produk berhasil dihapus!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadProduk();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Produk gagal dihapus atau tidak ditemukan.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error saat menghapus produk: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            int itemID = int.Parse(tbIdProduk.Text);
+            Item item = new Item(loggedInUser.userID, itemID, null, 0); // Buat instance Item dengan ID
+            item.delete(itemID); // Panggil metode delete
+            LoadProduk(); // Refresh data produk
         }
 
         private void btPenawaran_Click(object sender, EventArgs e)
