@@ -37,14 +37,15 @@ namespace Friperies_2
             tbBuatpesananitem.Text = itemname = name;
             itemPrice = price;
             offereditem = offeritem;
+            tbAsal.Text = GetAlamatSeller(offeritem);
             tbBuatpesananharga.Text = itemPrice.ToString();
             tbBuatpesanantgl.Text = DateTime.Now.ToString("yyyy-MM-dd");
             listKota = Transaction.GetKotaList();
             foreach (string kota in listKota)
             {
-                tbAsal.AutoCompleteCustomSource.Add(kota);
-                tbAsal.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                tbAsal.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                tbTujuan.AutoCompleteCustomSource.Add(kota);
+                tbTujuan.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                tbTujuan.AutoCompleteSource = AutoCompleteSource.CustomSource;
             }
         }
 
@@ -91,6 +92,32 @@ namespace Friperies_2
         }
 
         protected string GetAlamatBuyer(int iduser)
+        {
+            string alamat = null;
+            try
+            {
+                OpenConnection();
+                sql = @"select ""UserAddress"" from public.""User"" WHERE ""UserID"" = @UserID";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@UserID", iduser);
+                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            alamat = reader.GetString(reader.GetOrdinal("UserAddress"));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Fail!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return alamat;
+        }
+
+        protected string GetAlamatSeller(int iduser)
         {
             string alamat = null;
             try
