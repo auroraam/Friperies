@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Supabase;
+using System.Net.Http;
 using Npgsql;
 
 namespace Friperies_2

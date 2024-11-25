@@ -1,3 +1,5 @@
+using DotNetEnv;
+
 namespace Friperies_2
 {
     internal static class Program
@@ -8,6 +10,8 @@ namespace Friperies_2
         [STAThread]
         static void Main()
         {
+            Env.Load();
+            
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();

@@ -45,17 +45,25 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "DotNetEnv": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
-              "version": "[12.0.3, )"
+              "version": "[13.0.3, )"
             },
             "Npgsql": {
               "target": "Package",
-              "version": "[8.0.5, )"
+              "version": "[9.0.1, )"
             },
             "RestSharp": {
               "target": "Package",
               "version": "[106.11.4, )"
+            },
+            "Supabase": {
+              "target": "Package",
+              "version": "[1.1.1, )"
             }
           },
           "imports": [
