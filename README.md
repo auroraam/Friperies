@@ -14,14 +14,17 @@ Ketua Kelompok: Aurora Ma'isyah
    ```
    git clone https://github.com/auroraam/Friperies.git
    ```
-## 2. Setup proyek ##
+## 2. File .exe ##
+File dapat diakses melalui folder Release yang terletak pada path berikut: "..\Friperies\Friperies_2\bin\Release\net8.0-windows"
+
+## 3. Setup proyek ##
    - Buka proyek di Visual Studio.
    - Instal dependensi pada NuGet Package Manager:
      - Npgsql
      - RestSharp (v106.11.4)
      - Newtonsoft.Json
        
-## 3. Jalankan Aplikasi ##
+## 4. Jalankan Aplikasi ##
    - Jalankan proyek dengan Start di Visual Studio.
    - Aplikasi akan terbuka, memungkinkan penelusuran, penjualan, dan pembelian pakaian bayi preloved.
 
